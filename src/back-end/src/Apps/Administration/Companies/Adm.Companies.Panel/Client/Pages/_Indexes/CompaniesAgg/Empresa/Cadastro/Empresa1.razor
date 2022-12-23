@@ -1,0 +1,107 @@
+	
+@using SES.Companies.Application.DTO.Aggregates.CompaniesAgg.Requests;
+@using SES.Companies.Enumerations;
+@using Pages.RegisterStepsTemplate;
+@inherits EmpresaCadastro
+
+<div class="container-informations screen">
+    <div class="box-inputs">
+    <div class="input-cnpj">
+            <div class="cnpj">
+                <div class="container-1">
+                    <div class="container-box-2 border-1px-silver">
+                        <div class="cep-1 valign-text-middle inter-medium-sonic-silver-10px">@Model.GetFieldPlaceholder(Model.GetPropertyInfo(x=>x.RazaoSocial))</div>
+                        <input class="cnpj-1 valign-text-middle inter-medium-silver-16px"
+                                @oninput="(x)=>{layout?.RefreshHeader(()=>{ Model.RazaoSocial = (string)x.Value; });}"                        
+                                @bind-value="Model.RazaoSocial"
+                                placeholder="@Model.GetFieldPlaceholder(nameof(Model.RazaoSocial))" />
+                    </div>
+                </div>
+                <div class="este-campo-obrigatrio valign-text-middle inter-normal-sonic-silver-10px">
+                    <ValidationMessage For="@(() => Model.RazaoSocial)"></ValidationMessage>
+                </div>
+            </div>
+        </div>
+ 
+    <div class="input-secondary"> 
+        <div class="input-secondary-item">
+            <div class="container-input border-1px-silver">
+                                        <div class="cep-1 valign-text-middle inter-medium-sonic-silver-10px">@Model.GetFieldPlaceholder(Model.GetPropertyInfo(x=>x.CNPJ))</div>
+                <input @bind-value="Model.CNPJ"
+                   @oninput="(x)=>{layout?.RefreshHeader(()=>{ Model.CNPJ = (string)x.Value; });}"                     class="razo-social valign-text-middle inter-medium-silver-16px"
+                    placeholder="@Model.GetFieldPlaceholder(nameof(Model.CNPJ))" />
+            </div>
+            <div class="este-campo-obrigatrio-1 valign-text-middle inter-normal-sonic-silver-10px">
+                <ValidationMessage For="@(() => Model.CNPJ)"></ValidationMessage>
+            </div>
+        </div>
+        <div class="input-secondary-item">
+            <div class="container-input border-1px-silver">
+                                        <div class="cep-1 valign-text-middle inter-medium-sonic-silver-10px">@Model.GetFieldPlaceholder(Model.GetPropertyInfo(x=>x.NomeFantasia))</div>
+                <input @bind-value="Model.NomeFantasia"
+                                    class="razo-social valign-text-middle inter-medium-silver-16px"
+                    placeholder="@Model.GetFieldPlaceholder(nameof(Model.NomeFantasia))" />
+            </div>
+            <div class="este-campo-obrigatrio-1 valign-text-middle inter-normal-sonic-silver-10px">
+                <ValidationMessage For="@(() => Model.NomeFantasia)"></ValidationMessage>
+            </div>
+        </div>
+    </div> 
+ 
+    <div class="input-secondary"> 
+        <div class="input-secondary-item">
+            <div class="container-input border-1px-silver">
+                                        <div class="cep-1 valign-text-middle inter-medium-sonic-silver-10px">@Model.GetFieldPlaceholder(Model.GetPropertyInfo(x=>x.CNES))</div>
+                <input @bind-value="Model.CNES"
+                                    class="razo-social valign-text-middle inter-medium-silver-16px"
+                    placeholder="@Model.GetFieldPlaceholder(nameof(Model.CNES))" />
+            </div>
+            <div class="este-campo-obrigatrio-1 valign-text-middle inter-normal-sonic-silver-10px">
+                <ValidationMessage For="@(() => Model.CNES)"></ValidationMessage>
+            </div>
+        </div>
+        <div class="input-secondary-item">
+            <div class="container-input border-1px-silver">
+                                        <div class="cep-1 valign-text-middle inter-medium-sonic-silver-10px">@Model.GetFieldPlaceholder(Model.GetPropertyInfo(x=>x.ANS))</div>
+                <input @bind-value="Model.ANS"
+                                    class="razo-social valign-text-middle inter-medium-silver-16px"
+                    placeholder="@Model.GetFieldPlaceholder(nameof(Model.ANS))" />
+            </div>
+            <div class="este-campo-obrigatrio-1 valign-text-middle inter-normal-sonic-silver-10px">
+                <ValidationMessage For="@(() => Model.ANS)"></ValidationMessage>
+            </div>
+        </div>
+    </div> 
+ 
+    <div class="input-secondary"> 
+        <div class="input-secondary-item">
+            <div class="container-input border-1px-silver">
+                                        <div class="cep-1 valign-text-middle inter-medium-sonic-silver-10px">@Model.GetFieldPlaceholder(Model.GetPropertyInfo(x=>x.CodigoSUS))</div>
+                <input @bind-value="Model.CodigoSUS"
+                                    class="razo-social valign-text-middle inter-medium-silver-16px"
+                    placeholder="@Model.GetFieldPlaceholder(nameof(Model.CodigoSUS))" />
+            </div>
+            <div class="este-campo-obrigatrio-1 valign-text-middle inter-normal-sonic-silver-10px">
+                <ValidationMessage For="@(() => Model.CodigoSUS)"></ValidationMessage>
+            </div>
+        </div>
+<div class="ativo-grupo">
+    <div class="container-text-2"><div class="status-do-grupo valign-text-middle">A empresa é terceirizada?</div></div>
+    <SfSwitch @bind-Checked="Model.Terceirizado" OnLabel="Ativo" OffLabel="Inativo"></SfSwitch>
+</div>
+    </div> 
+    </div>
+</div>
+
+@code {
+    [CascadingParameter] BaseMainStepsLayout<EmpresaDTO> layout { get; set; }
+
+    protected override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            this.StateHasChanged();
+        }
+        return base.OnAfterRenderAsync(firstRender);
+    }
+}

@@ -1,0 +1,226 @@
+/* screen - container-informations */
+
+.container-informations {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+    .container-informations .box-disable {
+        border: 1.5px solid var(--mercury);
+        border-radius: 200px;
+        height: 28px;
+    }
+
+    .container-informations .box-input {
+        align-items: flex-start;
+        border-radius: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        height: min-content;
+        justify-content: center;
+        padding: 16px;
+        width: min-content;
+        border: none;
+    }
+
+    .container-informations .container-boxes {
+        align-items: center;
+        display: flex;
+        gap: 20px;
+        width: min-content;
+    }
+
+    .container-informations .box-radio-switch {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        height: min-content;
+        justify-content: center;
+        width: min-content;
+    }
+
+    .container-informations .central-de-compra {
+        align-items: center;
+        border: 1.5px solid var(--chetwode-blue);
+        border-radius: 4px;
+        display: flex;
+        gap: 20px;
+        height: 52px;
+        padding: 8px 12px;
+        width: 288px;
+    }
+
+    .container-informations .container-text-1 {
+        align-items: flex-start;
+        border-radius: 4px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        height: min-content;
+        justify-content: center;
+        overflow: hidden;
+        width: min-content;
+    }
+
+    .container-informations .central-de-compra-1 {
+        width: 142px;
+        height: 17px;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 17px;
+        /* identical to box height */
+
+        display: flex;
+        align-items: center;
+        color: #8C81F7;
+        /* Inside auto layout */
+
+        flex: none;
+        order: 0;
+        align-self: stretch;
+        flex-grow: 0;
+        letter-spacing: 0;
+        margin-top: -1.5px;
+        min-width: 145px;
+    }
+
+    .container-informations .possui-setor-prprio {
+        color: #888990;
+        font-family: var(--font-family-inter);
+        font-size: var(--font-size-m2);
+        font-weight: 600;
+        letter-spacing: 0;
+        min-width: 103px;
+    }
+
+    .container-informations .container-radio {
+        align-items: center;
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+        margin-right: -1px;
+        width: min-content;
+    }
+
+    .container-informations .container-radio-item {
+        align-items: center;
+        display: flex;
+        gap: 4px;
+        justify-content: center;
+        width: min-content;
+    }
+
+    .container-informations .text {
+        align-items: center;
+        display: flex;
+        height: min-content;
+        justify-content: center;
+        width: min-content;
+    }
+
+    .container-informations .sim {
+        color: var(--silver);
+        font-family: var(--font-family-inter);
+        font-size: var(--font-size-m22);
+        font-weight: 500;
+        letter-spacing: 0;
+        margin-top: -1px;
+        min-width: 25px;
+    }
+
+    .container-informations .evaradio-button-o {
+        height: 16px;
+        min-width: 16px;
+    }
+
+    .container-informations .no {
+        color: var(--chetwode-blue);
+        font-family: var(--font-family-inter);
+        font-size: var(--font-size-m22);
+        font-weight: 500;
+        letter-spacing: 0;
+        margin-top: -1px;
+        min-width: 27px;
+    }
+
+    .container-informations .ativo-grupo {
+        align-items: center;
+        display: flex;
+        gap: 32px;
+        height: 51px;
+        padding: 0px 0px 0px 12px;
+        width: 288px;
+    }
+
+    .container-informations .container-text-2 {
+        align-items: flex-start;
+        display: flex;
+        gap: 8px;
+        height: min-content;
+        width: min-content;
+    }
+
+    .container-informations .status-do-grupo {
+        color: var(--black);
+        font-family: var(--font-family-inter);
+        font-size: var(--font-size-m2);
+        font-weight: 500;
+        letter-spacing: 0;
+        margin-top: -1px;
+        width: 144px;
+    }
+
+    .container-informations .switch-disabled {
+        align-items: center;
+        background-color: var(--mercury);
+        border-radius: 100px;
+        display: flex;
+        gap: 8px;
+        height: 33px;
+        justify-content: flex-end;
+        padding: 4px;
+        width: 95px;
+    }
+
+    .container-informations .inativo {
+        color: #a6a6a6;
+        font-family: var(--font-family-inter);
+        font-size: var(--font-size-m22);
+        font-weight: 600;
+        height: 17px;
+        letter-spacing: 0;
+        width: 46px;
+    }
+
+    .container-informations .circle {
+        background-color: #a6a6a6;
+        border-radius: 100px;
+        height: 25px;
+        min-width: 25px;
+    }
+
+    .container-informations .box-disable-1 {
+        border: 1.5px solid var(--mercury);
+        border-radius: 24px;
+        height: 140px;
+        min-width: 628px;
+    }
+
+.border-1-5px-mercury {
+    border: 1.5px solid var(--mercury);
+}
+
+.border-1px-chetwode-blue {
+    border: 1px solid var(--chetwode-blue);
+}
+
+.border-1px-silver {
+    border: 1px solid var(--silver);
+}
+

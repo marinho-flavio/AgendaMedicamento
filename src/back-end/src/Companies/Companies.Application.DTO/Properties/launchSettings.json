@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Companies.Application.DTO": {
+      "commandName": "Project",
+      "hotReloadEnabled": false
+    }
+  }
+}

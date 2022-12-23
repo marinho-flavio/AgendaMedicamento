@@ -1,0 +1,30 @@
+﻿@using Companies.Adm.Panel.Client.Pages.Agenda.Header
+@using Companies.Adm.Panel.Client.Pages.Agenda.RightContainer
+@using Companies.Adm.Panel.Client.Pages.Agenda.Schedulings.Montly
+
+@layout MainLayout
+
+@page "/calendario/mensal"
+
+<HeaderAgenda />
+<MonthlySchedule @ref=monthlySchedule />
+
+@if (monthlySchedule != null)
+{
+    <RightContainer MonthlyCallendar=monthlySchedule />
+}
+
+@code {
+    MonthlySchedule monthlySchedule;
+    bool initialized = false;
+
+    protected override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (monthlySchedule != null && !initialized)
+        {
+            this.StateHasChanged();
+            initialized = true;
+        }
+        return base.OnAfterRenderAsync(firstRender);
+    }
+}

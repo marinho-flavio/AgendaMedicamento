@@ -1,0 +1,22 @@
+<#
+    var myType = field.Value.Type.AsString.Replace("System.Collections.Generic.List<","").Replace(">","");
+    var myName = field.Key.Replace("/",".");
+	var myPropertyName = myName.Split('.').LastOrDefault() + '.';
+    myPropertyName = myPropertyName == myName ? "" : myPropertyName;
+#>
+    <div class="input-cnpj">
+            <div class="cnpj">
+                <div class="container-1">
+                    <div class="container-box-2 border-1px-silver">
+                        <div class="cep-1 valign-text-middle inter-medium-sonic-silver-10px">@Model.GetFieldPlaceholder(Model.GetPropertyInfo(x=>x.<#=myName#>))</div>
+                        <input class="cnpj-1 valign-text-middle inter-medium-silver-16px"
+                                @oninput="(x)=>{layout?.RefreshHeader(()=>{ Model.<#=myName#> = (<#=myType#>)x.Value; });}"                        
+                                @bind-value="Model.<#=myName#>"
+                                placeholder="@Model.GetFieldPlaceholder(nameof(Model.<#=myName#>))" />
+                    </div>
+                </div>
+                <div class="este-campo-obrigatrio valign-text-middle inter-normal-sonic-silver-10px">
+                    <ValidationMessage For="@(() => Model.<#=myName#>)"></ValidationMessage>
+                </div>
+            </div>
+        </div>

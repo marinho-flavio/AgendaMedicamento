@@ -1,0 +1,52 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<IsPackable>false</IsPackable>
+		<IsPublishable>false</IsPublishable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Remove="NewFolder\**" />
+		<Compile Remove="RazorPages\**" />
+		<EmbeddedResource Remove="NewFolder\**" />
+		<EmbeddedResource Remove="RazorPages\**" />
+		<None Remove="NewFolder\**" />
+		<None Remove="RazorPages\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Authentication" Version="7.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="7.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\..\..\Core\Core.Application.DTO\Core.Application.DTO.csproj" />
+		<ProjectReference Include="..\..\..\..\..\CrossCutting\CrossCutting.Utils\CrossCuting.Infra.Utils.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<SupportedPlatform Include="browser" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="SetupAllAggregatesInitialFiles.tt">
+	    <LastGenOutput>SetupAllAggregatesInitialFiles.generated.cs</LastGenOutput>
+	    <Generator>TextTemplatingFileGenerator</Generator>
+	  </None>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="SetupAllAggregatesInitialFiles.generated.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>SetupAllAggregatesInitialFiles.tt</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+</Project>

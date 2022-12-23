@@ -1,0 +1,26 @@
+@page "/Feriado/cadastro"
+@page "/Feriado/cadastro/{id}"
+
+@using Companies.Adm.Panel.Client.Pages.Base
+@using Companies.Adm.Panel.Client.Pages.DefaultDesign
+@using Companies.Adm.Panel.Client.Pages.RegisterStepsTemplate
+@using SES.Schedulings.Application.DTO.Aggregates.SchedulingsAgg.Requests
+@using SES.Schedulings.Application.DTO.Aggregates.SchedulingsAgg.Validators
+
+@layout MainLayout
+@inherits BaseStepsFormComponent<FeriadoDTO, SchedulingsAggSettingsDTO, BaseSchedulingsAggValidator<FeriadoDTO>>
+
+<CascadingValue Value="this.Context">
+    <CascadingValue Value="this.Context?.layout">
+        <BaseMainStepsLayout @ref="layout" ModelType="FeriadoDTO" AutoSaveSettings="AutoSaveSettings"
+                             CurrentFragment="this.CurrentFragment"
+                             EditContext="this.EditContext"
+                             OnSubmitForm="this.OnSubmitForm"
+                             OnSubmitFormInvalid="this.OnSubmitFormInvalid"
+                             TValidator="this.TValidator" />
+    </CascadingValue>
+</CascadingValue>
+@page "/Feriado/{Tipo}/cadastro"
+@code {
+    [Parameter] public string Tipo { get; set; }
+}

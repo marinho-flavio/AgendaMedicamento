@@ -1,0 +1,87 @@
+﻿@page "/login"
+@using Companies.Adm.Panel.Shared.Models;
+@using Microsoft.AspNetCore.Authorization;
+@using Services.Implementations;
+@layout LoginLayout
+@inject NavigationManager navigationManager
+@inject IdentityAuthenticationStateProvider authStateProvider
+@attribute [AllowAnonymous]
+
+<EditForm class="container-login" OnValidSubmit="OnSubmit" Model="loginParameters">
+    <div class="container-center-horizontal">
+        <div class="tela-login screen">
+            <img src="/imgs/menus/header/SES-logo.svg" class="img-logo" />
+            <div class="frame-24">
+                <div class="usurio">
+                    <div class="container-input-info">
+                        <div class="container-input">
+                            <input required @bind-value="loginParameters.UserName" placeholder="Digite seu CPF" class="usurio-1 inter-normal-silver-14px" autocomplete="username" aria-required="true" />
+                        </div>
+                        <img class="icon"
+                             src="https://anima-uploads.s3.amazonaws.com/projects/63486f9b8ee4feae84ab3e5a/releases/63507ae5b48cd02e03f4097b/img/fluent-info-12-filled@2x.svg"
+                             alt="icon-information" />
+                    </div>
+                </div>
+                <div class="senha">
+                    <div class="container-input">
+                        <input type="password" required @bind-value="loginParameters.Password" placeholder="Digite sua Senha" class="senha-1 inter-normal-silver-14px" autocomplete="username" aria-required="true" />
+                    </div>
+                    <div class="esqueci-minha-senha valign-text-middle">
+                        <a href="@("/login/esqueci-minha-senha")">
+                            Esqueci minha senha
+                        </a>
+                    </div>
+                </div>
+                <div class="container-manter-conectado">
+                    <div class="ativo-grupo">
+                        <div class="container-text-2"><div class="status-do-grupo valign-text-middle">Manter conectado</div></div>
+                        <SfSwitch @bind-Checked="loginParameters.RememberMe" OnLabel="Sim" OffLabel="Não"></SfSwitch>
+                    </div>
+
+                    @*<div class="switch-active">
+                    <div class="circle"></div>
+                    </div>*@
+                </div>
+            </div>
+            <div class="frame-25">
+                <div class="frame-2">
+                    <input type="checkbox" />
+                    <div class="frame-2">
+                        <p class="eu-concordo-com-os-t valign-text-middle inter-medium-black-12px">
+                            Eu concordo com os Termos de Uso <br />e Privacidade
+                        </p>
+                    </div>
+                </div>
+                <button type="submit" class="novo-cadastro"><div class="prximo inter-semi-bold-white-14px">Entrar</div></button>
+                @* <div class="novo-cadastro-1"><div class="prximo-1">Entrar com Assinatura Digital</div></div>*@
+            </div>
+            <div class="three-dots-list-card">
+                <div class="container-three-dots">
+                    <div class="container-observation">
+                        <p class="verifique-o-e-mail-i">
+                            Verifique o e-mail informado para cadastro. Caso não tenha essa informação, entre em contato com o
+                            suporte.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</EditForm>
+@code {
+    [Parameter] public LoginParameters loginParameters { get; set; } = new LoginParameters();
+    string error { get; set; }
+    async Task OnSubmit()
+    {
+        error = null;
+        try
+        {
+            await authStateProvider.Login(loginParameters);
+            navigationManager.NavigateTo("/");
+        }
+        catch (Exception ex)
+        {
+            error = ex.Message;
+        }
+    }
+}

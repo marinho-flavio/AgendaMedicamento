@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+	  <RootNamespace>Bravo.Patients.Infra.IoC</RootNamespace>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\Core\Core.Infra.IoC\Core.Infra.IoC.csproj" />
+		<ProjectReference Include="..\Patients.Application\Patients.Application.csproj" />
+		<ProjectReference Include="..\Patients.Infra.Data\Patients.Infra.Data.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="IoCFactory.generated.cs">
+	    <DependentUpon>IoCFactory.tt</DependentUpon>
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="IoCFactory.tt">
+	    <LastGenOutput>IoCFactory.generated.cs</LastGenOutput>
+	    <Generator>TextTemplatingFileGenerator</Generator>
+	  </None>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+	</ItemGroup>
+
+</Project>

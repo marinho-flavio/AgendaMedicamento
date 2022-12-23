@@ -1,0 +1,22 @@
+@page "/Publicitario/cadastro"
+@page "/Publicitario/cadastro/{id}"
+
+@using Companies.Adm.Panel.Client.Pages.Base
+@using Companies.Adm.Panel.Client.Pages.DefaultDesign
+@using Companies.Adm.Panel.Client.Pages.RegisterStepsTemplate
+@using SES.Partners.Application.DTO.Aggregates.PartnersAgg.Requests
+@using SES.Partners.Application.DTO.Aggregates.PartnersAgg.Validators
+
+@layout MainLayout
+@inherits BaseStepsFormComponent<PublicitarioDTO, PartnersAggSettingsDTO, BasePartnersAggValidator<PublicitarioDTO>>
+
+<CascadingValue Value="this.Context">
+    <CascadingValue Value="this.Context?.layout">
+        <BaseMainStepsLayout @ref="layout" ModelType="PublicitarioDTO" AutoSaveSettings="AutoSaveSettings"
+                             CurrentFragment="this.CurrentFragment"
+                             EditContext="this.EditContext"
+                             OnSubmitForm="this.OnSubmitForm"
+                             OnSubmitFormInvalid="this.OnSubmitFormInvalid"
+                             TValidator="this.TValidator" />
+    </CascadingValue>
+</CascadingValue>

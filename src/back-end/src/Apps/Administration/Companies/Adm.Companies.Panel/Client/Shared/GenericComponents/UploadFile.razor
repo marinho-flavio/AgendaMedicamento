@@ -1,0 +1,79 @@
+﻿@using SES.Core.Application.DTO.Aggregates.CommonAgg.ValueObjects;
+<div class="modal-image-logomarca" onclick="$('#uploadContainer').find('button').click()">
+    @if (Image?.Image == null)
+    {
+        <div class="container-border border-1px-silver">
+            <div class="container-box">
+                <div class="container-text-and-box">
+                    <img class="fluentfolder-link-48-filled"
+                     src="/imgs/components/upload-file/upload-icon.svg" />
+                    <div class="container-text">
+                        <div class="container-title">
+                            <div class="adicionar-logomarca valign-text-middle">Adicionar Logomarca</div>
+                        </div>
+                    </div>
+                    <div class="tion">
+                        <p class="envie-imagem-no-form">Envie imagem no formato jpeg. png. svg.<br />de até 400/800mb</p>
+                    </div>
+                    <div class="tion"><div class="clique-nesta-janela">Clique nesta janela.</div></div>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <img class='container-border border-1px-silver' style="width:250px;height:160px;" src="@Image.Src" />
+    }
+    <div class="este-campo-obrigatrio inter-normal-sonic-silver-10px">
+        <ValidationMessage For="@(() => Image.Image)"></ValidationMessage>
+    </div>
+</div>
+
+@{
+    Dictionary<string, object> htmlAttribute = new Dictionary<string, object>()
+        {
+            {"name", "testtest" }
+        };
+}
+
+<div id='uploadContainer' style="display:none !important">
+    <SfUploader HtmlAttributes="@htmlAttribute" AllowedExtensions=".jpg, .png, .svg" AllowMultiple=false AutoUpload="true">
+        <UploaderEvents ValueChange="OnChange"></UploaderEvents>
+    </SfUploader>
+</div>
+
+@code {
+    [Parameter] public IImageFileInfoDTO Image { get; set; }
+
+    private void OnChange(UploadChangeEventArgs args)
+    {
+        foreach (var file in args.Files)
+        {
+            try
+            {
+                var path = @"path" + file.FileInfo.Name;
+                FileStream filestream = new FileStream(path, FileMode.Create, FileAccess.ReadWrite);
+                file.Stream.WriteTo(filestream);
+
+                this.Image.Image = file.Stream.ToArray();
+                this.Image.Name = file.FileInfo.Name;
+
+                filestream.Close();
+                file.Stream.Close();
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+    }
+
+    public static byte[] ReadFully(Stream input)
+    {
+        using (MemoryStream ms = new MemoryStream())
+        {
+            input.CopyTo(ms);
+            return ms.ToArray();
+        }
+    }
+}

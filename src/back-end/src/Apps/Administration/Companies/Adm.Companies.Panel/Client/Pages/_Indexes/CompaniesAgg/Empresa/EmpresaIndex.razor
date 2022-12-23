@@ -1,0 +1,16 @@
+			@using SES.Companies.Application.DTO.Aggregates.CompaniesAgg.Requests;
+
+@inherits Companies.Adm.Panel.Client.Pages.DefaultDesign.BaseListiningPage
+
+@page "/Empresa"
+
+<Companies.Adm.Panel.Client.Pages.DefaultDesign.DefaultListining Page="this.Page"
+                                                                 Size="this.Size"
+                                                                 Title="Empresa"
+                                                                 T="EmpresaListiningDTO" 
+                                                                 AdditionalQueryString=@Query/>
+@page "/Empresa/{InstituicaoType}"
+@code {
+    [Parameter] public string InstituicaoType { get; set; }
+    string Query => $"InstituicaoTypeEqual={InstituicaoType}";
+}

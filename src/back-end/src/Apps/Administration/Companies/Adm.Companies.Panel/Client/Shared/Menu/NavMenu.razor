@@ -1,0 +1,249 @@
+﻿@using SES.Companies.Application.DTO.Aggregates.CompaniesAgg.Requests
+@inject IJSRuntime JSRuntime
+
+<div class="sidebar">
+    <div class="container-center-horizontal">
+        <div class="submenu-container screen">
+            <div class="overlap-group">
+                <div class="side-bar @(this.isSubMenuActive.Activated ? "active" : "")">
+                    <div class="container-options">
+                        <div class="container-icons">
+                            @foreach (var item in this.NavBarItems)
+                            {
+                                <div @onclick="(e)=>ToggleSubMenu(e,item)" @onmouseover="MouseIn" @onmouseout="MouseOut" class="administrativo @(item.IsClicked? "active" : "")">
+                                    <img id="financeiro-painel" src="/imgs/menus/navbar/@(item.Logo).svg" class="financeiro-painel" />
+                                    <img src="/imgs/menus/navbar/selected-menu-stroke.svg" class="selected-stroke" />
+                                </div>
+                            }
+                        </div>
+                        <button @onclick="OnFastAccessClicked">
+                            <img id="plus-button" src="imgs/menus/navbar/plus.svg" class="plus-button">
+                        </button>
+                    </div>
+                </div>
+                @if (this.isSubMenuActive?.Activated == true)
+                {
+                    <CascadingValue Value="isSubMenuActive">
+                        <CascadingValue Value="NavBarItems">
+                            <CascadingValue Value="NavBarItems.FirstOrDefault(x=>x.IsClicked)">
+                                <NavSubMenu />
+                            </CascadingValue>
+                        </CascadingValue>
+                    </CascadingValue>
+                }
+                @if (this.isFastAccessActive)
+                {
+                    <TestComponent />
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+        
+        [Parameter] public Action<bool> OnMenuActivated { get; set; }
+
+        bool isFastAccessActive { get; set; }
+        bool IsInside { get; set; }
+    public NavMenuOptions isSubMenuActive { get; set; } = new NavMenuOptions();
+
+    void OnFastAccessClicked()
+    {
+        this.isFastAccessActive = !this.isFastAccessActive;
+    }
+
+    public int subMenuTop = 20;
+    NavBarItem[] NavBarItems { get; set; } = new NavBarItem[]
+    {
+        new NavBarItem(logo: "adm",
+            new NavBarItemSubMenu("Instituições", new NavBarItemSubMenu[] {
+                new NavBarItemSubMenu("Grupo Empresa",2, new GrupoEmpresaDTO().GetMyTypeName()),
+                new NavBarItemSubMenu("Empresa", "empresa"),
+                new NavBarItemSubMenu("Filial", "empresa/filial")
+            }),
+            new NavBarItemSubMenu("Convênio", new NavBarItemSubMenu[] {
+                new NavBarItemSubMenu("Convênio", "convenio"),
+                new NavBarItemSubMenu("Plano Convênio", "plano-convenio"),
+                new NavBarItemSubMenu("Hora Especial", "hora-especial"),
+                new NavBarItemSubMenu("Feriados (todos)", "/feriado"),
+                new NavBarItemSubMenu("Feriado Nacional", "/feriado/nacional"),
+                new NavBarItemSubMenu("Feriado Municipal", "/feriado/municipal"),
+                new NavBarItemSubMenu("Feriado Internacional", "/feriado/internacional")
+            }),
+            new NavBarItemSubMenu("Colaboradores", new NavBarItemSubMenu[] {
+                new NavBarItemSubMenu("Profissionais", "profissional"),
+                new NavBarItemSubMenu("Funcionários", "funcionario"),
+                new NavBarItemSubMenu("Perfil e suas permissões", "perfil-e-sua-permissao"),
+                new NavBarItemSubMenu("Usuários e suas permissões", "usuarios-e-sua-permissao"),
+                new NavBarItemSubMenu("CBO", "cbo")
+            }),
+            new NavBarItemSubMenu("Setores", new NavBarItemSubMenu[] {
+                new NavBarItemSubMenu("Grupos de Setores", "grupo-de-setor"),
+                new NavBarItemSubMenu("Setores", "setores")
+            }),
+            new NavBarItemSubMenu("Central de Comunicações", new NavBarItemSubMenu[] {
+                new NavBarItemSubMenu("Parceiro Publicitário", "parceiro-publicitario")
+            }),
+            new NavBarItemSubMenu("Usuário", new NavBarItemSubMenu[] {
+                new NavBarItemSubMenu("Usuários e seus perfis", "usuario-e-seu-perfil"),
+                new NavBarItemSubMenu("Cadastrar usuário", "cadastrar-usuario")
+            })
+        ),
+        new NavBarItem(logo: "agend", new NavBarItemSubMenu[] {
+             new NavBarItemSubMenu("Agendamento", new NavBarItemSubMenu[] {
+                new NavBarItemSubMenu("Agendar Paciente", "agendar-paciente"),
+                new NavBarItemSubMenu("Histórico de Agendamento", "historico-de-agendamento"),
+                new NavBarItemSubMenu("Envio de Mensagens", "envio-de-mensagem")
+            }),
+             new NavBarItemSubMenu("Calendários", new NavBarItemSubMenu[] {
+                    new NavBarItemSubMenu("Calendário Mensal", "calendario/mensal"),
+                    new NavBarItemSubMenu("Calendário Semanal", "calendario/semanal"),
+                    new NavBarItemSubMenu("Calendário Diário", "calendario/diario"),
+                    new NavBarItemSubMenu("Calendário de Profissionais", "calendario/profissionais")
+            }),
+             new NavBarItemSubMenu("Atendimento", new NavBarItemSubMenu[] {
+                new NavBarItemSubMenu("Atendimento", "atendimento"),
+                new NavBarItemSubMenu("Pacientes", "paciente"),
+                new NavBarItemSubMenu("Histórico de Atendimento", "historico-de-atendimento"),
+                new NavBarItemSubMenu("Fila de Espera", "fila-de-espera"),
+                new NavBarItemSubMenu("Fila da Recepção", "fila-da-recepcao"),
+                new NavBarItemSubMenu("Fila de Atendimento", "fila-de-atendimento"),
+                new NavBarItemSubMenu("Fila de Procedimento", "fila-de-procedimento"),
+                new NavBarItemSubMenu("Fila de Reavalição", "fila-de-reavaliacao")
+            }),
+             new NavBarItemSubMenu("Painel de Senha", new NavBarItemSubMenu[] {
+                new NavBarItemSubMenu("Painel", "Painel"),
+                new NavBarItemSubMenu("Fila", "Fila"),
+                new NavBarItemSubMenu("Guichê", "Guichê")
+            })}),
+        new NavBarItem(logo: "estoq",
+            new NavBarItemSubMenu("Unidade", "unidade"),
+            new NavBarItemSubMenu("Princípio ativo", "principio-ativo"),
+            new NavBarItemSubMenu("Grupo de produtos", "grupo-de-produto"),
+            new NavBarItemSubMenu("Fabricante", "fabricante"),
+            new NavBarItemSubMenu("Fórmula Farmacêutica", "formula-farmaceutica"),
+            new NavBarItemSubMenu("Produtos", "produto"),
+            new NavBarItemSubMenu("Kit de produtos", "kit-de-produto"),
+            new NavBarItemSubMenu("Restrições de movimentações", new NavBarItemSubMenu[] {
+                new NavBarItemSubMenu("Restrições de entrada", "restricao-de-entrada"),
+                new NavBarItemSubMenu("Restrições de Planos", "restricao-de-plano"),
+                new NavBarItemSubMenu("Restrições de Setor", "restricao-de-setor"),
+                new NavBarItemSubMenu("Restrições de Transferência", "restricao-de-transferencia")
+            })    
+        ),
+        new NavBarItem(logo: "fatura",
+            new NavBarItemSubMenu("Tabelas", "tabela"),
+            new NavBarItemSubMenu("Grupo de Itens", "grupo-de-item"),
+            new NavBarItemSubMenu("Itens tabelas", "item-tabela"),
+            new NavBarItemSubMenu("Cadastro de Excessões", "cadastro-de-excessao"),
+            new NavBarItemSubMenu("Kit de Cobrança", "kit-de-cobranca")
+            ),  
+
+        new NavBarItem(logo: "finan",
+            new NavBarItemSubMenu("Plano de Contas", "plano-de-conta"),
+            new NavBarItemSubMenu("Fornecedores", "fornecedores"),
+            new NavBarItemSubMenu("Caixa", "caixa"),
+            new NavBarItemSubMenu("Banco", "banco"),
+            new NavBarItemSubMenu("Agência", "agencia"),
+            new NavBarItemSubMenu("Conta bancária", "conta-bancaria"),
+            new NavBarItemSubMenu("Condição de Pagamento", "condicao-de-pagamento"),
+            new NavBarItemSubMenu("Tipo de documento", "tipo-de-documento"),
+            new NavBarItemSubMenu("Histórico padrão", "historico-padrao"),
+            new NavBarItemSubMenu("Portador", "portador"),
+            new NavBarItemSubMenu("Impostos", "impostos"),
+            new NavBarItemSubMenu("Operadoras de cartões", "operadora-de-cartao"),
+            new NavBarItemSubMenu("Planejamento financeiro", "planejamento-financeiro")
+        )
+    };
+
+    async void ToggleSubMenu(MouseEventArgs args, NavBarItem selectedItem)
+    {
+        this.subMenuTop = (int)args.ClientY + 20;
+        OnMenuActivated(this.isSubMenuActive.Activated);
+
+        var wasActive = selectedItem.IsClicked;
+
+        if (this.NavBarItems.Any())
+        {
+            foreach (var item in this.NavBarItems)
+            {
+                item.IsClicked = false;
+            }
+        }
+
+        selectedItem.IsClicked = !wasActive;
+
+        this.isSubMenuActive.Activated = this.NavBarItems.Any(x => x.IsClicked);
+        
+        StateHasChanged();
+    }
+
+    void MouseIn()
+    {
+        IsInside = true;
+    }
+
+    void MouseOut()
+    {
+        IsInside = false;
+    }
+
+    public class NavBarItem
+    {
+        public NavBarItem(string logo, params NavBarItemSubMenu[] subMenu)
+        {
+            Logo = logo;
+            SubMenu = subMenu.ToList();
+        }
+
+        public string Logo { get; set; }
+        public bool IsClicked { get; set; }
+        public List<NavBarItemSubMenu> SubMenu { get; set; }
+    }
+
+    public class NavBarItemSubMenu
+    {
+        public NavBarItemSubMenu(string description, params NavBarItemSubMenu[] subMenu)
+        {
+            Description = description;
+            SubMenu = subMenu.ToList();
+        }
+
+        public NavBarItemSubMenu(string description, string icon, string url, params NavBarItemSubMenu[] subMenu)
+        {
+            Description = description;
+            Icon = icon;
+            Url = url;
+            SubMenu = subMenu.ToList();
+        }
+
+        public NavBarItemSubMenu(string description, string url, params NavBarItemSubMenu[] subMenu)
+        : this(description, subMenu)
+        {
+            Url = url;
+        }
+        public NavBarItemSubMenu(string description, int quantity, string url, params NavBarItemSubMenu[] subMenu)
+        : this(description, subMenu)
+        {
+            Url = url;
+            this.Quantity = quantity;
+        }
+
+        public string Url { get; set; }
+
+        public string Icon { get; set; }
+
+        public bool IsClicked { get; set; }
+
+        public string Description { get; set; }
+
+        public int Quantity { get; set; }
+
+        public List<NavBarItemSubMenu> SubMenu { get; set; }
+    }
+    public class NavMenuOptions
+    {
+        public bool Activated { get; set; }
+    }
+}

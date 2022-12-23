@@ -1,0 +1,160 @@
+<#@ import namespace="System.Threading.Tasks" #>
+<#@ include file="..\project.tt" #>
+<#
+var project = GetCurrentProject();
+var myName = project.Name.Split('.').First();
+var AggName = myName + "Agg";
+
+var entities = GetEntities("Domain", withAttribute: "EndpointsT4");
+
+if (entities.Any()) {
+
+var groupEntities = entities.GroupBy(p => p.Namespace.FullName);
+var mainEntityName = groupEntities.FirstOrDefault(x=> AggName == x.Key.Split('.').FirstOrDefault(k=>k.EndsWith("Agg")));
+
+#>
+using Microsoft.AspNetCore.Mvc;
+using SES.CrossCutting.Infra.Log.Contexts;
+using SES.Core.Application.DTO.Extensions;
+using SES.Core.Application.Aggregates.Common;
+using SES.CrossCuting.Infra.Utils.Extensions;
+using global::<#=myName#>.App.Extensions;
+using SES.Core.Application.DTO.Aggregates.CommonAgg.Commands.Responses;
+<#foreach(var namespaces in groupEntities) {
+	var aggName = namespaces.Key.Split('.').FirstOrDefault(x=>x.EndsWith("Agg"));
+	var shortAggName = aggName.Replace("Agg","");
+	var isFromSameAgg = AggName == namespaces.Key.Split('.').FirstOrDefault(x=>x.EndsWith("Agg"));
+#>
+namespace <#= GetDefaultNamespace() #>.<#=project.Name#>.Controllers {
+	using Application.DTO.Aggregates.<#= aggName #>.Requests;
+	using Domain.Aggregates.<#= aggName #>.Queries.Models;
+	using Application.Aggregates.<#= aggName #>.AppServices;
+	using Domain.Aggregates.<#= aggName #>.Entities;
+	using SES.<#= AggName.Replace("Agg","") #>.Domain.Aggregates.<#= aggName #>.CommandModels;
+<# foreach (var nmspc in namespaces.Where(x=> GetAttributesDict(x)["EndpointsT4"].Any(x=>x.Value.Contains("HttpPost") || x.Value.Contains("All"))).GroupBy(p => p.Namespace.FullName)) 
+{	
+var agg = namespaces.Key.Split('.').FirstOrDefault(x=>x.EndsWith("Agg"));
+#>
+<# } #> 
+<#
+if(isFromSameAgg){#>
+<# } #>
+<# foreach(var entity in namespaces) {
+	var responseName = $"{entity.Name}DTO";
+	var className = entity.Name + "Controller";
+	var props = GetProperties(entity);
+	string myIdType = GetProperties(entity).FirstOrDefault(x=>x.Key == "Id").Value.Type.AsString;
+	var attrs = GetAttributesDict(entity)["EndpointsT4"];
+	var canGet = attrs.Any(x=>x.Value.Contains("HttpGet") || x.Value.Contains("All"));
+	var canCount = attrs.Any(x=>x.Value.Contains("Count") || x.Value.Contains("All"));
+	var canCreate = attrs.Any(x=>x.Value.Contains("HttpPost") || x.Value.Contains("All"));
+	var canSummary = attrs.Any(x=>x.Value.Contains("HttpListining") || x.Value.Contains("All"));
+#>
+	[ApiController]
+    [Route("api/[controller]")]
+	public partial class <#= className #> : BaseController {
+<#
+	var repoTypeName = $"I{entity.Name}AppService";
+	var serviceVarName = $"_{ToCamelCase(entity.Name)}AppService";
+	if(canCreate){#> SES.<#=AggName.Replace("Agg","")#>.Application.Aggregates.<#=aggName#>.AppServices.I<#=entity.Name#>AppService _writeService;<#}
+	if(props.ContainsKey("EmpresaId")){#> Application.Aggregates.UsersAgg.AppServices.IUserAppService _userService; <#}
+#>
+<#
+	if(canGet){#>
+		<#= repoTypeName #> <#= serviceVarName #>;
+		public <#= className #>(
+			<#if(props.ContainsKey("UserId") || props.ContainsKey("EmpresaId")){#> Application.Aggregates.UsersAgg.AppServices.IUserAppService userService, <#}#>
+            ILogRequestContext logRequestContext,
+			<#= repoTypeName #> <#= serviceVarName.Substring(1) #> <# if(canCreate){#>,
+			SES.<#=AggName.Replace("Agg","")#>.Application.Aggregates.<#=aggName#>.AppServices.I<#=entity.Name#>AppService writeService<#}#> )
+				: base(logRequestContext)
+			{ 
+				<#= serviceVarName #> = <#= serviceVarName.Substring(1) #>; 
+<#if(props.ContainsKey("EmpresaId")){#>
+				_userService = userService; 
+<#}#>
+<#if(canCreate){#>
+				_writeService = writeService; 
+<#}#>
+			}	
+		[HttpGet]
+		public async Task<IActionResult> Get([FromQuery] <#= entity.Name #>QueryModel request) {
+<#if(props.ContainsKey("UserId")){#>
+			request = request ?? new <#= entity.Name #>QueryModel();
+			request.UserIdEqual = User.GetLoggedInUserId<string>();
+<#}#>
+		    var obj = await <#= serviceVarName #>.Get(request);
+            return obj == null? NotFound() : Ok(GetHttpResponseDTO.Ok(obj));
+        }
+<#if(canCount){#>
+		[HttpGet("count")]
+		public async Task<GetHttpResponseDTO<object>> Count([FromQuery] <#= entity.Name #>QueryModel request) {
+<#if(props.ContainsKey("UserId")){#>
+			request = request ?? new <#= entity.Name #>QueryModel();
+			request.UserIdEqual = User.GetLoggedInUserId<string>();
+<#}#>
+            return GetHttpResponseDTO.Ok(await <#= serviceVarName #>.CountAsync(request));
+        }
+<#}#>
+		[HttpGet("search")]
+		public async Task<GetHttpResponseDTO<object>> Get([FromQuery] <#= entity.Name #>QueryModel request, int page = 0, int size = 5) {
+<#if(props.ContainsKey("UserId")){#>
+			request = request ?? new <#= entity.Name #>QueryModel();
+			request.UserIdEqual = User.GetLoggedInUserId<string>();
+<#}#>
+		    var obj = await <#= serviceVarName #>.GetAll(request, page, size);
+            return GetHttpResponseDTO.Ok(obj);
+        }
+<#if(canCount){#>
+		[HttpGet("summary")]
+		public async Task<GetHttpResponseDTO<object>> GetSummary([FromQuery] <#= entity.Name #>QueryModel request, int page = 0, int size = 5) {
+<#if(props.ContainsKey("UserId")){#>
+			request = request ?? new <#= entity.Name #>QueryModel();
+			request.UserIdEqual = User.GetLoggedInUserId<string>();
+<#}#>
+		    var obj = await <#= serviceVarName #>.GetAllSummary(request, page, size);
+            return GetHttpResponseDTO.Ok(obj);
+        }
+<#}#>
+		[HttpGet("select")]
+		public async Task<IActionResult> Select([FromQuery] <#= entity.Name #>QueryModel request, int? page = null, int? size = null) {
+<#if(props.ContainsKey("UserId")){#>
+			request = request ?? new <#= entity.Name #>QueryModel();
+			request.UserIdEqual = User.GetLoggedInUserId<string>();
+<#}#>
+		    var obj = await <#= serviceVarName #>.GetAll(request, page, size, request.Selector.GetPropertySelector<<#=entity.Name#>>());
+            return obj == null? NotFound() : Ok(GetHttpResponseDTO.Ok(obj));
+        }
+<#}
+	if(canCreate){#>
+		
+		[HttpPost]
+		public async Task<ActionResult<<#= responseName #>>> Post(SES.<#=AggName.Replace("Agg","")#>.Application.DTO.Aggregates.<#=aggName#>.Requests.<#= entity.Name #>DTO request) {
+			var loggedUserId = User.GetLoggedInUserId<string>();
+<#if(props.ContainsKey("UserId")){#>
+			request = request ?? new SES.<#=aggName.Replace("Agg","")#>.Application.DTO.Aggregates.<#=aggName#>.Requests.<#= entity.Name #>DTO();
+			request.UserId = loggedUserId;
+<#}#>
+<#if(props.ContainsKey("EmpresaId")){#>
+			request.EmpresaId = (int)await _userService.Select(new Domain.Aggregates.UsersAgg.Queries.Models.UserQueryModel { IdEqual = loggedUserId }, x => x.EmpresaId);
+<#}#>
+			request.Command = new Create<#=entity.Name#>Command(_logRequestContext, request);
+			var result = await <#= isFromSameAgg? serviceVarName : "_writeService" #>.Create(request);
+            return result.IsValid ? Ok(GetHttpResponseDTO.Ok()) : BadRequest(ModelState);
+		}
+<#}
+	
+if(isFromSameAgg)
+{
+var DTOName = $"{entity.Name}QueryModel";
+#>
+		//public Task Delete(<#= entity.Name #>QueryModel request){ return _mediator.Send(new Delete<#= entity.Name #>Command(_logRequestContext, request)); }
+		//public Task DeleteRange(<#= entity.Name #>QueryModel request){ return _mediator.Send(new DeleteRange<#= entity.Name #>Command(_logRequestContext, request)); }
+		//public Task<ValidationResult> Create(<#= entity.Name #>DTO request, bool updateIfExists = true, <#= entity.Name #>QueryModel searchQuery = null){ return _mediator.Send(request.Command); }
+		//public Task Update(<#= entity.Name #>QueryModel searchQuery, <#= entity.Name #>DTO request, bool createIfNotExists = true) { return _mediator.Send(new Update<#= entity.Name #>Command(_logRequestContext, searchQuery, request, createIfNotExists)); }
+<# } #>
+	}
+<# } #>
+}
+<# } #>
+<# } #>

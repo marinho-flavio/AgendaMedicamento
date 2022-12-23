@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Companies.Adm.Panel</title>
+    <base href="/" />
+    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/app.css" rel="stylesheet" />
+    <link href="Companies.Adm.Panel.Client.styles.css" rel="stylesheet" />
+    <link href="css/globals.css" rel="stylesheet" />
+    <link href="manifest.json" rel="manifest" />
+    <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png" />
+    <link rel="apple-touch-icon" sizes="192x192" href="icon-192.png" />
+    <link href="https://animaapp.s3.amazonaws.com/widgets/vendors/624efa35aaee3d33e70be415/vendors.css"
+          rel="stylesheet" />
+    <link href="https://animaapp.s3.amazonaws.com/widgets/vendors/624efa35aaee3d33e70be415/vendors.css"
+          rel="stylesheet" />
+    <link href="_content/Syncfusion.Blazor/styles/bootstrap5.css" rel="stylesheet" />
+    <link href="/css/styleguide.css" rel="stylesheet" />
+</head>
+
+<body>
+    <script src="_content/Syncfusion.Blazor/scripts/syncfusion-blazor.min.js" type="text/javascript"></script>
+    <script src="https://animaapp.s3.amazonaws.com/widgets/vendors/624efa35aaee3d33e70be415/vendors.js"></script>
+    <script src="scripts/jquery.js"></script>
+    <script src="scripts/functions.js"></script>
+    <script src="https://animaapp.s3.amazonaws.com/widgets/vendors/62989170192e56a973b26dac/vendors.js"></script>
+    <script src="https://animaapp.s3.amazonaws.com/widgets/vendors/624efa35aaee3d33e70be415/vendors.js"></script>
+    <script>
+        var testt = function () {
+            var outVal = [];
+            $(".input-form").find("input").each(function (idx, el) {
+                outVal.push($(this).attr('name'));
+            });
+
+            console.log(outVal);
+
+            return outVal;
+            //document.getElementById('demop').innerText = "Javascript Method Invoked";
+        }
+        window.clientJsfunctions = {
+            RedirectTo: function (path) {
+                window.location = path;
+            }
+        };
+    </script>
+
+    <div id="app" style="height:100%">
+
+    </div>
+
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+    <script src="_content/Microsoft.AspNetCore.Components.WebAssembly.Authentication/AuthenticationService.js"></script>
+    <script src="_framework/blazor.webassembly.js"></script>
+    <script>
+    navigator.serviceWorker.register('service-worker.js');
+
+        $(document).ready(function () {
+            $('img[src$=".svg"]').each(function () {
+                var $img = jQuery(this);
+                var imgURL = $img.attr('src');
+                var attributes = $img.prop("attributes");
+
+                $.get(imgURL, function (data) {
+                    // Get the SVG tag, ignore the rest
+                    var $svg = jQuery(data).find('svg');
+
+                    // Remove any invalid XML tags
+                    $svg = $svg.removeAttr('xmlns:a');
+
+                    // Loop through IMG attributes and apply on SVG
+                    $.each(attributes, function () {
+                        $svg.attr(this.name, this.value);
+                    });
+
+                    // Replace IMG with SVG
+                    $img.replaceWith($svg);
+                }, 'xml');
+            });
+        });
+    </script>
+
+
+</body>
+</html>

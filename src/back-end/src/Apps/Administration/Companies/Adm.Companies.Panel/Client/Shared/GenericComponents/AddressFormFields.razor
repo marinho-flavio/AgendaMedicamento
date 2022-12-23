@@ -1,0 +1,190 @@
+﻿@using SES.Companies.Application.DTO.Aggregates.AddressesAgg.Requests
+@using SES.Core.Application.DTO.Aggregates.CommonAgg.Models
+
+<div class="box-inputs">
+    <div class="container">
+        <div class="cep">
+            <div class="container-input">
+                <div class="container-titles">
+                    <div class="cep-1 valign-text-middle inter-medium-sonic-silver-10px">CEP</div>
+                    <Companies.Adm.Panel.Client.Shared.GenericComponents.DropDownWithAutoComplete currentCep="this.Model.Endereco" OnSelect="@((e) =>
+                        {
+                            onUFChanged(e.ItemData.UF, ()=>
+                            {
+                                this.Model.Endereco.Update(e.ItemData);
+                                StateHasChanged();
+                            });
+                        })" />
+                </div>
+                <img class="akar-iconscircle-check-fill"
+                     src="https://anima-uploads.s3.amazonaws.com/projects/63486f9b8ee4feae84ab3e5a/releases/6354aaa1808f2e0bc7bcd6a7/img/akar-icons-circle-check-fill@2x.svg"
+                     alt="akar-icons:circle-check-fill" />
+            </div>
+            <div class="este-campo-obrigatrio inter-normal-sonic-silver-10px">
+                <ValidationMessage For="@(() => Model.Endereco.CEP)"></ValidationMessage>
+            </div>
+        </div>
+        <div class="uf">
+            <div class="container-input">
+                <div class="container-titles">
+                    <div class="uf-1 valign-text-middle inter-medium-sonic-silver-10px">UF</div>
+                    <SfDropDownList CssClass="inter-normal-silver-16px"
+                                    @bind-Value="Model.Endereco.UF"
+                                    name="@nameof(Model.Endereco.UF)"
+                                    TValue="string" TItem="string" Placeholder="UF"
+                                    DataSource="@SES.Addresses.Enumeration.BrazilianStatesEnum.UFs.Select(x=>x.Key)">
+                        <DropDownListEvents TItem="string" TValue="string"
+                                            OnValueSelect="(e)=>
+                            {
+                                this.Model.Endereco = new SES.Companies.Application.DTO.Aggregates.AddressesAgg.Requests.EnderecoDTO();
+                                this.Model.Endereco.Logradouro = null;
+                                onUFChanged(e.ItemData);
+                                StateHasChanged();
+                            }" />
+                    </SfDropDownList>
+                </div>
+            </div>
+            <div class="este-campo-obrigatrio inter-normal-sonic-silver-10px">
+                <ValidationMessage For="@(() => Model.Endereco.UF)"></ValidationMessage>
+            </div>
+        </div>
+        <div class="cidade-localidade">
+            <div class="container-input-1">
+                <div class="container-titles-1">
+                    <div class="cidade-localidade-1 valign-text-middle inter-medium-sonic-silver-10px">Cidade/Localidade</div>
+                    <ListBoxWithAutoComplete Address="this.Model.Endereco" @ref="this.CitiesListBox"></ListBoxWithAutoComplete>
+                </div>
+            </div>
+            <div class="este-campo-obrigatrio inter-normal-sonic-silver-10px">
+                <ValidationMessage For="@(() => Model.Endereco.Cidade_Localidade)"></ValidationMessage>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="bairro-distrito">
+            <div class="container-input-2">
+                <div class="bairro-distrito-1 valign-text-middle inter-medium-sonic-silver-10px">Bairro</div>
+                <input class="logradouro-2 inter-normal-silver-14px"
+                       @bind-value="Model.Endereco.Bairro_Distrito"
+                       placeholder="@Model.GetFieldPlaceholder(x=>x.Endereco.Bairro_Distrito)" />
+            </div>
+            <div class="este-campo-obrigatrio inter-normal-sonic-silver-10px">
+                <ValidationMessage For="@(() => Model.Endereco.Bairro_Distrito)"></ValidationMessage>
+            </div>
+        </div>
+        <div class="tipo-de-logradouro">
+            <div class="container-input">
+                <div class="container-titles">
+                    <div class="tipo valign-text-middle inter-medium-sonic-silver-10px">Tipo</div>
+                    <SfDropDownList CssClass="inter-normal-silver-16px"
+                                    @bind-Value="Model.TipoEndereco"
+                                    name="@nameof(Model.TipoEndereco)"
+                                    TValue="string" TItem="string"
+                                    placeholder="@Model.GetFieldPlaceholder(x=>x.TipoEndereco)"
+                                    DataSource="this.TipoLogradouros">
+                    </SfDropDownList>
+                </div>
+            </div>
+            <div class="este-campo-obrigatrio inter-normal-sonic-silver-10px">
+                <ValidationMessage For="@(() => Model.TipoEndereco)"></ValidationMessage>
+            </div>
+        </div>
+        <div class="logradouro">
+            <div class="container-input-3">
+                <div class="container-titles-2">
+                    <div class="logradouro-1 valign-text-middle inter-medium-sonic-silver-10px">Logradouro</div>
+                    <input class="logradouro-2 inter-normal-silver-14px"
+                           @bind-value="Model.Endereco.Logradouro"
+                           placeholder="@Model.GetFieldPlaceholder(x=>x.Endereco.Logradouro)" />
+                </div>
+                <img class="akar-iconscircle-check-fill"
+                     src="https://anima-uploads.s3.amazonaws.com/projects/63486f9b8ee4feae84ab3e5a/releases/6354aaa1808f2e0bc7bcd6a7/img/akar-icons-circle-check-fill-1@2x.svg"
+                     alt="akar-icons:circle-check-fill" />
+            </div>
+            <div class="este-campo-obrigatrio inter-normal-sonic-silver-10px">
+                <ValidationMessage For="@(() => Model.Endereco.Logradouro)"></ValidationMessage>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="nmero">
+            <div class="container-input">
+                <div class="container-titles">
+                    <div class="nmero-1 valign-text-middle inter-medium-sonic-silver-10px">Número</div>
+                    <input class="x2101 inter-normal-silver-14px"
+                           @bind-value="Model.Numero"
+                           placeholder="@Model.GetFieldPlaceholder(x=>x.Numero)" />
+                </div>
+                <img class="akar-iconscircle-check-fill"
+                     src="https://anima-uploads.s3.amazonaws.com/projects/63486f9b8ee4feae84ab3e5a/releases/6354aaa1808f2e0bc7bcd6a7/img/akar-icons-circle-check-fill-2@2x.svg"
+                     alt="akar-icons:circle-check-fill" />
+            </div>
+            <div class="este-campo-obrigatrio inter-normal-sonic-silver-10px">
+                <ValidationMessage For="@(() => Model.Numero)"></ValidationMessage>
+            </div>
+        </div>
+        <div class="complemento">
+            <div class="container-input-4">
+                <div class="container-titles-3">
+                    <div class="complemento-1 valign-text-middle inter-medium-sonic-silver-10px">Complemento</div>
+                    <input class="logradouro-2 inter-normal-silver-14px"
+                           @bind-value="Model.Complemento"
+                           placeholder="@Model.GetFieldPlaceholder(x=>x.Complemento)" />
+                </div>
+                <img class="akar-iconscircle-check-fill"
+                     src="https://anima-uploads.s3.amazonaws.com/projects/63486f9b8ee4feae84ab3e5a/releases/6354aaa1808f2e0bc7bcd6a7/img/akar-icons-circle-check-fill-3@2x.svg"
+                     alt="akar-icons:circle-check-fill" />
+            </div>
+            <div class="este-campo-obrigatrio inter-normal-sonic-silver-10px">
+                <ValidationMessage For="@(() => Model.Complemento)"></ValidationMessage>
+            </div>
+        </div>
+    </div>
+    <div class="container-secondary">
+        <div class="referncia">
+            <div class="container-input-1">
+                <div class="container-titles-1">
+                    <div class="referncia-1 valign-text-middle inter-medium-sonic-silver-10px">Referência</div>
+                    <input class="logradouro-2 inter-normal-silver-14px"
+                           @bind-value="Model.Referencia"
+                           placeholder="@Model.GetFieldPlaceholder(x=>x.Referencia)" />
+                </div>
+                <img class="akar-iconscircle-check-fill"
+                     src="https://anima-uploads.s3.amazonaws.com/projects/63486f9b8ee4feae84ab3e5a/releases/6354aaa1808f2e0bc7bcd6a7/img/akar-icons-circle-check-fill-4@2x.svg"
+                     alt="akar-icons:circle-check-fill" />
+            </div>
+            <div class="este-campo-obrigatrio inter-normal-sonic-silver-10px">
+                <ValidationMessage For="@(() => Model.Referencia)"></ValidationMessage>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter] public BaseEnderecoComplementoDTO<EnderecoDTO> Model { get; set; }
+    protected override Task OnInitializedAsync()
+    {
+        if (Model.Endereco == null)
+        {
+            Model.Endereco = new EnderecoDTO();
+        }
+        return base.OnInitializedAsync();
+    }
+    public ListBoxWithAutoComplete? CitiesListBox { get; set; }
+
+    List<string> UFS { get; set; } = new List<string>();
+    List<string> TipoLogradouros { get; set; } = new List<string>() { "Casa", "Apartamento" };
+
+    void onUFChanged(string uf, Action action = null)
+    {
+        Task.Factory.StartNew(async () =>
+        {
+            await this.CitiesListBox.OnRefresh(uf);
+            if (action != null)
+                action();
+            StateHasChanged();
+        });
+        //await this.CitiesListBox.OnRefresh(args.ItemData);
+        StateHasChanged();
+    }
+}

@@ -1,0 +1,55 @@
+﻿.inter-semi-bold-black-19-2px {
+    color: var(--black);
+    font-family: var(--font-family-inter);
+    font-size: var(--font-size-xxl2);
+    font-style: normal;
+    font-weight: 600;
+}
+
+.inter-medium-silver-chalice-16px {
+    color: var(--silver-chalice);
+    font-family: var(--font-family-inter);
+    font-size: var(--font-size-l2);
+    font-style: normal;
+    font-weight: 500;
+}
+
+.container-title-category .box-search-and-options {
+    height: 52px;
+    min-width: 189px;
+    position: relative;
+}
+
+.container-title-category .buscar {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+
+.container-title-category .container-search {
+    align-items: center;
+    background-color: var(--seashell);
+    border-radius: 4px;
+    display: flex;
+    height: 52px;
+    padding: 16px 12px;
+    width: 157px;
+}
+
+.container-title-category .buscar-1 {
+    background-color: transparent;
+    border: 0;
+    height: 19px;
+    letter-spacing: 0;
+    margin-top: -1px;
+    min-width: 107px;
+    padding: 0;
+}
+
+    .container-title-category .buscar-1::placeholder {
+        color: #ababab99;
+    }

@@ -1,0 +1,24 @@
+﻿@*@page "/empresa/cadastro"
+@page "/empresa/cadastro/{id}"
+@page "/filial/cadastro"
+@page "/filial/cadastro/{id}"*@
+
+@using Companies.Adm.Panel.Client.Pages.Base
+@using Companies.Adm.Panel.Client.Pages.DefaultDesign
+@using Companies.Adm.Panel.Client.Pages.RegisterStepsTemplate
+@using Bravo.Companies.Application.DTO.Aggregates.CompaniesAgg.Requests
+@using Bravo.Companies.Application.DTO.Aggregates.CompaniesAgg.Validators
+
+@layout MainLayout
+@inherits BaseStepsFormComponent<EmpresaDTO, CompaniesAggSettingsDTO, BaseCompaniesAggValidator<EmpresaDTO>>
+
+<CascadingValue Value="this.Context">
+    <CascadingValue Value="this.Context?.layout">
+        <BaseMainStepsLayout @ref="layout" ModelType="EmpresaDTO" AutoSaveSettings="AutoSaveSettings"
+                             CurrentFragment="this.CurrentFragment"
+                             EditContext="this.EditContext"
+                             OnSubmitForm="this.OnSubmitForm"
+                             OnSubmitFormInvalid="this.OnSubmitFormInvalid"
+                             TValidator="this.TValidator" />
+    </CascadingValue>
+</CascadingValue>

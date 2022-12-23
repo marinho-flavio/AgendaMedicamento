@@ -1,0 +1,27 @@
+﻿@typeparam T where T : SES.Core.Application.DTO.Aggregates.CommonAgg.Models.EntityDTO, new()
+
+@inject NavigationManager Navigation
+
+<div class="header-da-lista-grupo-empresa">
+    <div class="container-header-title">
+        <div class="title">
+            <div class="administrador-SES valign-text-middle inter-semi-bold-chetwode-blue-12px">
+                Administrador SES
+            </div>
+        </div>
+        <div class="title"><div class="empresas valign-text-middle inter-semi-bold-black-20px"></div></div>
+    </div>
+    <div>
+        <img class="icon-search"
+             src="https://anima-uploads.s3.amazonaws.com/projects/63486f9b8ee4feae84ab3e5a/releases/634de48ae6df4c88bb664dc3/img/compact-search@2x.svg"
+             alt="icon-search" />
+    </div>
+    <a href="@(Navigation.Uri)/cadastro" class="novo-cadastro"><div class="prximo inter-semi-bold-white-14px">Novo Cadastro</div></a>
+    @*<ListiningFilters />*@
+    <OrderByListButton T="T" />
+</div>
+
+@code {
+    [CascadingParameter] IListiningContext Context { get; set; }
+
+}

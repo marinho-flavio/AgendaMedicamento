@@ -1,0 +1,62 @@
+﻿@using SES.Companies.Application.DTO.Aggregates.SchedulingsAgg.Requests;
+@using Companies.Adm.Panel.Client.Pages.Agenda.Schedulings.Montly
+@using Companies.Adm.Panel.Shared;
+
+<div class="container-calendar-list-month">
+    <div class="container-sections">
+        @if (this.Context != null)
+        {
+            for (int i = 0; i < 6; i++)
+            {
+                <MonthlyScheduleWeek Context=this.Context Week="i" />
+            }
+        }
+    </div>
+</div>
+
+<div class="container-title-list">
+    <div class="container-sections-list">
+        <div class="container-title-2"><div class="dom valign-text-middle inter-semi-bold-alto-12px">DOM</div></div>
+        <div class="container-title-2">
+            <div class="seg valign-text-middle inter-semi-bold-black-12px">SEG</div>
+        </div>
+        <div class="container-title-2">
+            <div class="ter valign-text-middle inter-semi-bold-black-12px">TER</div>
+        </div>
+        <div class="container-title-3">
+            <div class="qua valign-text-middle inter-semi-bold-black-12px">QUA</div>
+        </div>
+        <div class="container-title-3">
+            <div class="qui valign-text-middle inter-semi-bold-black-12px">QUI</div>
+        </div>
+        <div class="container-title-3">
+            <div class="sex valign-text-middle inter-semi-bold-black-12px">SEX</div>
+        </div>
+        <div class="container-title-3"><div class="sb valign-text-middle inter-semi-bold-alto-12px">SÁB</div></div>
+    </div>
+</div>
+
+@code {
+    DateTime currentDateCache = DateTime.Now;
+    public IMonthlyScheduleContext Context { get; set; }
+    [Inject] HttpClient _http { get; set; }
+
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (Context == null)
+        {
+            var holidays = await _http.SuummaryAsync<FeriadoDTO, FeriadoListiningDTO>();
+            this.Context = new MonthlyScheduleContext(holidays, currentDateCache.Year, currentDateCache.Month);
+            this.StateHasChanged();
+        }
+
+        await base.OnAfterRenderAsync(firstRender);
+    }
+
+    public void UpdateCallendar(DateTime date)
+    {
+        this.currentDateCache = date;
+        this.Context = null;
+        this.StateHasChanged();
+    }
+}

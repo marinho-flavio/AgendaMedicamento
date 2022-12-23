@@ -1,0 +1,789 @@
+﻿/* screen - tela-agenda-semana */
+
+.tela-agenda-semana {
+    background-color: var(--alabaster);
+    border: 0.07vw none;
+    height: fit-content;
+    width: fit-content;
+    top: 8vw;
+    position: absolute;
+    height: 41.39vw;
+    width: 66.6vw;
+    border: 0.07vw none;
+    height: 41.39vw;
+    width: 66.6vw;
+    left: 8vw;
+}
+
+.frame-229 {
+    align-items: center;
+    background-color: var(--alabaster);
+    border: 0.07vw none;
+    border-radius: 0.56vw;
+    display: flex;
+    flex-direction: column;
+    gap: 0.56vw;
+    height: 3.33vw;
+    justify-content: center;
+    padding: 0.0vw 4.03vw;
+    position: fixed;
+    width: 66.6vw;
+    z-index: 50;
+}
+
+     .frame-228 {
+        align-items: center;
+        border: 0.07vw none;
+        display: flex;
+        gap: 3.89vw;
+        justify-content: center;
+        margin-left: -2.71vw;
+        margin-right: -2.71vw;
+        width: 63.96vw;
+    }
+
+     .frame-225 {
+        align-items: center;
+        border-style: none;
+        display: flex;
+        gap: 0.56vw;
+        height: 2.5vw;
+        justify-content: center;
+        padding: 0.0vw 0.83vw;
+        width: 4.86vw;
+    }
+
+     .horrios {
+        letter-spacing: 0;
+        line-height: normal;
+        margin-left: -0.14vw;
+        margin-right: -0.14vw;
+        text-align: center;
+        width: fit-content;
+    }
+
+     .vector-3 {
+        height: 2.08vw;
+        min-width: 0.14vw;
+    }
+
+     .frame-392 {
+        align-items: flex-start;
+        border: 0.07vw none;
+        display: flex;
+        gap: 1.39vw;
+        padding: 0.28vw 0.0vw;
+        width: fit-content;
+    }
+
+     .frame-39 {
+        align-items: flex-start;
+        border: 0.07vw none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.28vw;
+        padding: 0.0vw 0.14vw;
+        width: fit-content;
+    }
+
+     .frame {
+        align-items: center;
+        border: 0.07vw none;
+        display: flex;
+        gap: 0.56vw;
+        justify-content: center;
+        width: fit-content;
+    }
+
+     .seg {
+        letter-spacing: 0;
+        line-height: normal;
+        margin-top: -0.07vw;
+        text-align: center;
+        width: 5.83vw;
+    }
+
+     .number {
+        letter-spacing: 0;
+        line-height: normal;
+        margin-top: -0.07vw;
+        text-align: center;
+        width: 5.83vw;
+    }
+
+     .ter {
+        letter-spacing: 0;
+        line-height: normal;
+        margin-top: -0.07vw;
+        text-align: center;
+        width: 5.83vw;
+    }
+
+     .number-1 {
+        letter-spacing: 0;
+        line-height: normal;
+        margin-top: -0.07vw;
+        text-align: center;
+        width: 5.83vw;
+    }
+
+     .qua {
+        letter-spacing: 0;
+        line-height: normal;
+        margin-top: -0.07vw;
+        text-align: center;
+        width: 5.83vw;
+    }
+
+     .number-2 {
+        letter-spacing: 0;
+        line-height: normal;
+        margin-top: -0.07vw;
+        text-align: center;
+        width: 5.83vw;
+    }
+
+     .qui {
+        letter-spacing: 0;
+        line-height: normal;
+        margin-top: -0.07vw;
+        text-align: center;
+        width: 5.83vw;
+    }
+
+     .number-3 {
+        letter-spacing: 0;
+        line-height: normal;
+        margin-top: -0.07vw;
+        text-align: center;
+        width: 5.83vw;
+    }
+
+     .sex {
+        letter-spacing: 0;
+        line-height: normal;
+        margin-top: -0.07vw;
+        text-align: center;
+        width: 5.83vw;
+    }
+
+     .number-4 {
+        letter-spacing: 0;
+        line-height: normal;
+        margin-top: -0.07vw;
+        text-align: center;
+        width: 5.83vw;
+    }
+
+     .frame-396 {
+        align-items: flex-start;
+        border: 0.07vw none;
+        display: flex;
+        gap: 1.11vw;
+        padding: 0.0vw 0.14vw;
+        width: fit-content;
+    }
+
+     .frame-39-1 {
+        align-items: center;
+        border: 0.07vw none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.28vw;
+        justify-content: center;
+        padding: 0.0vw 0.28vw;
+        width: fit-content;
+    }
+
+     .sab {
+        letter-spacing: 0;
+        line-height: normal;
+        margin-top: -0.07vw;
+        text-align: center;
+        width: fit-content;
+    }
+
+     .number-5 {
+        letter-spacing: 0;
+        line-height: normal;
+        margin-top: -0.07vw;
+        text-align: center;
+        width: fit-content;
+    }
+
+     .dom {
+        letter-spacing: 0;
+        line-height: normal;
+        margin-top: -0.07vw;
+        text-align: center;
+        width: fit-content;
+    }
+
+     .number-6 {
+        letter-spacing: 0;
+        line-height: normal;
+        margin-top: -0.07vw;
+        text-align: center;
+        width: fit-content;
+    }
+
+     .seg-1 {
+        letter-spacing: 0;
+        line-height: normal;
+        margin-top: -0.07vw;
+        text-align: center;
+        width: 5.83vw;
+    }
+
+     .number-7 {
+        letter-spacing: 0;
+        line-height: normal;
+        margin-top: -0.07vw;
+        text-align: center;
+        width: 5.83vw;
+    }
+
+     .frame-230 {
+        align-items: center;
+        background-color: var(--white);
+        border: 0.07vw none;
+        border-radius: 0.83vw;
+        display: flex;
+        gap: 7.78vw;
+        height: 37.36vw;
+        justify-content: center;
+        left: 0;
+        padding: 1.11vw;
+        position: absolute;
+        top: 4.03vw;
+        width: 66.6vw;
+    }
+
+     .frame-240::-webkit-scrollbar {
+        display: none;
+        width: 0;
+    }
+
+     .frame-240 {
+        align-items: flex-start;
+        border: 0.07vw none;
+        display: flex;
+        gap: 2.78vw;
+        height: 35.14vw;
+        justify-content: center;
+        overflow-y: scroll;
+        width: fit-content;
+    }
+
+     .frame-181 {
+        align-items: center;
+        align-self: stretch;
+        border: 0.07vw none;
+        border-radius: 1.11vw;
+        display: flex;
+        flex-direction: column;
+        gap: 0.56vw;
+        justify-content: center;
+        width: fit-content;
+    }
+
+     .frame-1 {
+        align-items: center;
+        background-color: var(--white);
+        border: 0.07vw none;
+        border-radius: 0.28vw;
+        display: flex;
+        gap: 0.56vw;
+        height: 3.89vw;
+        justify-content: center;
+        padding: 0.28vw 0.83vw;
+        width: fit-content;
+    }
+
+     .text-1 {
+        letter-spacing: 0;
+        line-height: normal;
+        text-align: center;
+        width: fit-content;
+    }
+
+     .text-2 {
+        letter-spacing: 0;
+        line-height: normal;
+        text-align: center;
+        width: fit-content;
+    }
+
+     .text-3 {
+        letter-spacing: 0;
+        line-height: normal;
+        text-align: center;
+        width: fit-content;
+    }
+
+     .text-4 {
+        letter-spacing: 0;
+        line-height: normal;
+        text-align: center;
+        width: fit-content;
+    }
+
+     .text-5 {
+        letter-spacing: 0;
+        line-height: normal;
+        text-align: center;
+        width: fit-content;
+    }
+
+     .text-6 {
+        letter-spacing: 0;
+        line-height: normal;
+        text-align: center;
+        width: fit-content;
+    }
+
+     .text-7 {
+        letter-spacing: 0;
+        line-height: normal;
+        text-align: center;
+        width: fit-content;
+    }
+
+     .text-8 {
+        letter-spacing: 0;
+        line-height: normal;
+        text-align: center;
+        width: fit-content;
+    }
+
+     .frame-373 {
+        align-items: center;
+        border: 0.07vw none;
+        display: flex;
+        gap: 1.39vw;
+        height: 35.14vw;
+        justify-content: center;
+        width: fit-content;
+    }
+
+     .frame-3 {
+        align-items: flex-start;
+        border: 0.07vw none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.56vw;
+        width: fit-content;
+    }
+
+     .frame-370 {
+        align-items: center;
+        border: 0.07vw none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.83vw;
+        justify-content: center;
+        width: fit-content;
+    }
+
+     .frame-3-1 {
+        align-items: center;
+        border: 0.07vw solid;
+        border-color: var(--cultured-pearl);
+        border-radius: 0.28vw;
+        display: flex;
+        flex-direction: column;
+        gap: 0.28vw;
+        height: 2.22vw;
+        justify-content: center;
+        padding: 0.28vw;
+        width: 6.11vw;
+    }
+
+     .frame-366 {
+        align-items: flex-start;
+        align-self: stretch;
+        border: 0.07vw none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.28vw;
+    }
+
+     .frame-24 {
+        align-items: center;
+        align-self: stretch;
+        border: 0.07vw none;
+        display: flex;
+        gap: 0.56vw;
+    }
+
+     .x0745-s-0800 {
+        letter-spacing: 0;
+        line-height: normal;
+        margin-top: -0.07vw;
+        text-align: center;
+        width: fit-content;
+    }
+
+     .frame-41 {
+        align-items: center;
+        align-self: stretch;
+        border: 0.07vw none;
+        border-radius: 0.56vw;
+        display: flex;
+        gap: 0.28vw;
+        justify-content: center;
+    }
+
+     .frame-6 {
+        align-items: center;
+        background-color: var(--chetwode-blue);
+        border: 0.07vw solid;
+        border-color: var(--white);
+        border-radius: 6.94vw;
+        display: flex;
+        gap: 0.83vw;
+        height: 0.97vw;
+        justify-content: center;
+        margin-bottom: -0.07vw;
+        margin-left: -0.07vw;
+        margin-right: -0.07vw;
+        margin-top: -0.07vw;
+        width: 0.97vw;
+    }
+
+     .fm {
+        letter-spacing: 0;
+        line-height: normal;
+        width: fit-content;
+    }
+
+     .frame-26 {
+        align-items: center;
+        border: 0.07vw none;
+        display: flex;
+        flex: 1;
+        height: 0.69vw;
+    }
+
+     .frame-23 {
+        align-items: flex-start;
+        align-self: stretch;
+        border: 0.07vw none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.28vw;
+        justify-content: center;
+        width: fit-content;
+    }
+
+     .frame-21 {
+        align-items: center;
+        border: 0.07vw none;
+        display: flex;
+        gap: 0.56vw;
+        width: fit-content;
+    }
+
+     .marcel {
+        letter-spacing: 0;
+        line-height: normal;
+        margin-top: -0.07vw;
+        width: fit-content;
+    }
+
+     .x0745-s-0800-1 {
+        letter-spacing: 0;
+        line-height: normal;
+        margin-top: -0.07vw;
+        text-align: center;
+        width: fit-content;
+    }
+
+     .frame-6-1 {
+        background-image: url(../img/frame-6@2x.png);
+        background-position: 50% 50%;
+        background-size: cover;
+        border: 0.07vw solid;
+        border-color: var(--white);
+        border-radius: 6.94vw;
+        height: 0.97vw;
+        margin-bottom: -0.07vw;
+        margin-left: -0.07vw;
+        margin-right: -0.07vw;
+        margin-top: -0.07vw;
+        min-width: 0.97vw;
+    }
+
+     .frame-23-1 {
+        align-items: flex-start;
+        align-self: stretch;
+        border: 0.07vw none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.28vw;
+        justify-content: center;
+        margin-right: -0.07vw;
+        width: fit-content;
+    }
+
+     .x0745-s-0800-2 {
+        letter-spacing: 0;
+        line-height: normal;
+        margin-top: -0.07vw;
+        text-align: center;
+        width: fit-content;
+    }
+
+     .fm-1 {
+        letter-spacing: 0;
+        line-height: normal;
+        width: fit-content;
+    }
+
+     .frame-3-2 {
+        align-items: center;
+        border: 0.07vw none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.69vw;
+        justify-content: center;
+        width: fit-content;
+    }
+
+     .frame-3-3 {
+        align-items: center;
+        border: 0.07vw solid;
+        border-color: var(--cultured-pearl);
+        border-radius: 0.28vw;
+        display: flex;
+        flex-direction: column;
+        gap: 0.28vw;
+        justify-content: center;
+        padding: 0.28vw;
+        width: fit-content;
+    }
+
+     .x0700-s-0730 {
+        letter-spacing: 0;
+        line-height: normal;
+        margin-top: -0.07vw;
+        text-align: center;
+        width: fit-content;
+    }
+
+     .fm-2 {
+        letter-spacing: 0;
+        line-height: normal;
+        width: fit-content;
+    }
+
+     .frame-176 {
+        align-items: flex-start;
+        border: 0.07vw none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.14vw;
+        justify-content: center;
+        padding: 0.0vw 0.28vw;
+        width: fit-content;
+    }
+
+     .profissional {
+        letter-spacing: 0;
+        line-height: normal;
+        margin-top: -0.07vw;
+        text-align: center;
+        width: fit-content;
+    }
+
+     .dr-enrique-gomes {
+        letter-spacing: 0;
+        line-height: normal;
+        margin-top: -0.07vw;
+        text-align: center;
+        width: fit-content;
+    }
+
+     .frame-367 {
+        align-items: center;
+        background-color: var(--zumthor);
+        border: 0.07vw none;
+        border-radius: 0.14vw;
+        display: flex;
+        flex-direction: column;
+        gap: 0.28vw;
+        justify-content: center;
+        padding: 0.28vw;
+        width: 5.56vw;
+    }
+
+     .frame-21-1 {
+        align-items: center;
+        align-self: stretch;
+        border: 0.07vw none;
+        display: flex;
+        gap: 0.56vw;
+        height: 0.83vw;
+        justify-content: center;
+    }
+
+     .consulta {
+        letter-spacing: 0;
+        line-height: normal;
+        text-align: center;
+        width: fit-content;
+    }
+
+     .x0745-s-0800-3 {
+        letter-spacing: 0;
+        line-height: normal;
+        margin-top: -0.07vw;
+        text-align: center;
+        width: fit-content;
+    }
+
+     .fm-3 {
+        letter-spacing: 0;
+        line-height: normal;
+        width: fit-content;
+    }
+
+     .frame-37 {
+        background-color: var(--alabaster);
+        border: 0.07vw none;
+        border-radius: 0.28vw;
+        height: 8.33vw;
+        min-width: 6.11vw;
+    }
+
+     .x0745-s-0800-4 {
+        letter-spacing: 0;
+        line-height: normal;
+        margin-top: -0.07vw;
+        text-align: center;
+        width: fit-content;
+    }
+
+     .frame-6-2 {
+        background-image: url(../img/frame-6-1@2x.png);
+        background-position: 50% 50%;
+        background-size: cover;
+        border: 0.07vw solid;
+        border-color: var(--white);
+        border-radius: 6.94vw;
+        height: 0.97vw;
+        margin-bottom: -0.07vw;
+        margin-left: -0.07vw;
+        margin-right: -0.07vw;
+        margin-top: -0.07vw;
+        min-width: 0.97vw;
+    }
+
+     .x0700-s-0730-1 {
+        letter-spacing: 0;
+        line-height: normal;
+        margin-top: -0.07vw;
+        text-align: center;
+        width: fit-content;
+    }
+
+     .fm-4 {
+        letter-spacing: 0;
+        line-height: normal;
+        width: fit-content;
+    }
+
+     .frame-176-1 {
+        align-items: flex-start;
+        align-self: stretch;
+        border: 0.07vw none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.14vw;
+        justify-content: center;
+        padding: 0.0vw 0.28vw;
+    }
+
+     .profissional-1 {
+        letter-spacing: 0;
+        line-height: normal;
+        margin-top: -0.07vw;
+        text-align: center;
+        width: fit-content;
+    }
+
+     .dra-luciana-s {
+        letter-spacing: 0;
+        line-height: normal;
+        margin-top: -0.07vw;
+        text-align: center;
+        width: fit-content;
+    }
+
+     .frame-367-1 {
+        align-items: center;
+        background-color: #e6e3ff;
+        border: 0.07vw none;
+        border-radius: 0.14vw;
+        display: flex;
+        flex-direction: column;
+        gap: 0.28vw;
+        justify-content: center;
+        padding: 0.28vw;
+        width: 5.56vw;
+    }
+
+     .exame {
+        letter-spacing: 0;
+        line-height: normal;
+        text-align: center;
+        width: fit-content;
+    }
+
+     .frame-371 {
+        align-items: center;
+        border: 0.07vw none;
+        border-radius: 0.28vw;
+        display: flex;
+        gap: 1.11vw;
+        height: 35.0vw;
+        justify-content: center;
+        width: 6.11vw;
+    }
+
+     .frame-3-4 {
+        background-color: var(--alabaster);
+        border: 0.07vw none;
+        border-radius: 0.28vw;
+        height: 35.0vw;
+        min-width: 2.5vw;
+    }
+
+
+.screen a {
+    display: contents;
+    text-decoration: none;
+}
+
+.container-center-horizontal {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    pointer-events: none;
+    width: 100%;
+}
+
+    .container-center-horizontal > * {
+        flex-shrink: 0;
+        pointer-events: auto;
+    }
+
+.valign-text-middle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+* {
+    box-sizing: border-box;
+}

@@ -1,0 +1,100 @@
+﻿@typeparam T where T : EntityDTO, new()
+
+@using Companies.Adm.Panel.Client.Pages.Base;
+@using SES.Companies.Application.DTO.Aggregates.CompaniesAgg.Requests;
+@using SES.Core.Application.DTO.Aggregates.CommonAgg.Commands.Responses;
+@using SES.Core.Application.DTO.Aggregates.CommonAgg.Models;
+
+<div class="container-section-filial">
+    <div class="container-title-filial">
+        <div class="quantity-number-1"><div class="number inter-bold-purple-heart-8px">@Model?.Length</div></div>
+        <div class="title"><div class="filiais valign-text-middle inter-medium-black-12px">Filiais</div></div>
+    </div>
+    @if (Model == null)
+    {
+        <p>Carregando filiais...</p>
+    }
+    else
+    {
+        if (!Model.Any())
+        {
+            <p>Nenhuma filial cadastrada</p>
+        }
+        else
+        {
+            @foreach (var item in Model)
+            {
+                <div class="container-company-filial-default" @onclick="()=>RightContext.OnEmpresaClicked(item.ExternalId, isFilial: true)">
+                    <img class="divider-section-filial" src="https://anima-uploads.s3.amazonaws.com/projects/63486f9b8ee4feae84ab3e5a/releases/6351ae80b7ecf0a90f5da31e/img/divider-section-filial@2x.svg" alt="divider-section-filial" />
+                    <div class="container-notify">
+                        <div class="notify"></div>
+                        <div class="container-option-filial @((item.ExternalId==RightContext.EmpresaId || item.ExternalId==Context.Model.ExternalId)? "active" : "" )">
+                            <div class="container-filial-name">
+                                <div class="title-1">
+                                    <div class="place valign-text-middle inter-medium-silver-10px">Filial</div>
+                                </div>
+                                <div class="title-1">
+                                    <div class="filial-1 valign-text-middle inter-medium-black-12px">@item.NomeFantasia</div>
+                                </div>
+                            </div>
+                            <img class="divider-1"
+                     src="https://anima-uploads.s3.amazonaws.com/projects/63486f9b8ee4feae84ab3e5a/releases/6351ae80b7ecf0a90f5da31e/img/vector-17@2x.svg"
+                     alt="divider" />
+                            @if (item?.Ativo.HasValue == true)
+                            {
+                                <img class="akar-iconscircle-check-fill" src="/imgs/components/right-container/ok-icon.svg" alt="akar-icons:circle-check-fill" />
+                            }
+                            else
+                            {
+                                <div class="icon-step">
+                                    <span>
+                                        @(item?.CurrentStep + 1)
+                                    </span>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    }
+</div>
+
+@code {
+
+    [CascadingParameter] RightContainerContext RightContext { get; set; }
+    [CascadingParameter] public StepsContext<T> Context { get; set; }
+    public EmpresaDTO[] Model { get; set; }
+    [Inject] HttpClient _http { get; set; }
+    [Parameter] public string GrupoEmpresaId { get; set; }
+    [Parameter] public EmpresaDTO Parent { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        if (Model == null)
+        {
+            if (Context.Model is EmpresaDTO)
+            {
+                var empresa = Context.Model as EmpresaDTO;
+                if (empresa.IsFilial)
+                {
+                    RightContext.EmpresaId = empresa.ExternalId;
+                    RightContext.IsGroupClicked = true;
+                }
+                Model = (await _http.GetFromJsonAsync<GetHttpResponseDTO<EmpresaDTO[]>>(
+                    $"{new EmpresaDTO().GetRoute()}/search?IsFilialEqual=true&EmpresaIdEqual={Parent.Id}&OrderBy=CreatedAt&OrderByDesc=true"))?.Data;
+            }
+        }
+        StateHasChanged();
+        await base.OnInitializedAsync();
+    }
+
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+
+        }
+        await base.OnAfterRenderAsync(firstRender);
+    }
+}

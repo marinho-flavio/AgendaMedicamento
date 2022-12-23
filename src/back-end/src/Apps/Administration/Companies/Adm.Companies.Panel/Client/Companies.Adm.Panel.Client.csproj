@@ -1,0 +1,119 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
+		<IsPackable>false</IsPackable>
+		<IsPublishable>false</IsPublishable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Remove="Pages\Empresa\**" />
+		<Compile Remove="Pages\GrupoEmpresa\**" />
+		<Compile Remove="Pages\Routes\**" />
+		<Compile Remove="Shared\BasePages\**" />
+		<Compile Remove="wwwroot\css\companies\**" />
+		<Content Remove="Pages\Empresa\**" />
+		<Content Remove="Pages\GrupoEmpresa\**" />
+		<Content Remove="Pages\Routes\**" />
+		<Content Remove="Shared\BasePages\**" />
+		<Content Remove="wwwroot\css\companies\**" />
+		<EmbeddedResource Remove="Pages\Empresa\**" />
+		<EmbeddedResource Remove="Pages\GrupoEmpresa\**" />
+		<EmbeddedResource Remove="Pages\Routes\**" />
+		<EmbeddedResource Remove="Shared\BasePages\**" />
+		<EmbeddedResource Remove="wwwroot\css\companies\**" />
+		<None Remove="Pages\Empresa\**" />
+		<None Remove="Pages\GrupoEmpresa\**" />
+		<None Remove="Pages\Routes\**" />
+		<None Remove="Shared\BasePages\**" />
+		<None Remove="wwwroot\css\companies\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Accelist.FluentValidation.Blazor" Version="4.0.0" />
+		<PackageReference Include="FluentValidation" Version="9.3.0" />
+		<PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="9.3.0" />
+		<PackageReference Include="Markdig" Version="0.30.3" />
+		<PackageReference Include="Microsoft.AspNetCore.Authorization" Version="7.0.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="7.0.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="7.0.0" PrivateAssets="all" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Authentication" Version="7.0.0" />
+		<PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="2.2.0" />
+		<PackageReference Include="Microsoft.Extensions.Http" Version="7.0.0" />
+		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.0" />
+		<PackageReference Include="Syncfusion.Blazor" Version="20.3.0.50" />
+		<PackageReference Include="System.Net.Http.Json" Version="7.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\..\..\Companies\Companies.Application.DTO\Companies.Application.DTO.csproj" />
+		<ProjectReference Include="..\..\..\..\..\HealthPlans\HealthPlans.Application.DTO\HealthPlans.Application.DTO.csproj" />
+		<ProjectReference Include="..\..\..\..\..\Partners\Partners.Application.DTO\Partners.Application.DTO.csproj" />
+		<ProjectReference Include="..\..\..\..\..\Core.App.Client\Core.App.Client.csproj" />
+		<ProjectReference Include="..\..\..\..\..\Patients\Patients.Application.DTO\Patients.Application.DTO.csproj" />
+		<ProjectReference Include="..\..\..\..\..\Professionals\Professionals.Application.DTO\Professionals.Application.DTO.csproj" />
+		<ProjectReference Include="..\..\..\..\..\Schedulings\Schedulings.Application.DTO\Schedulings.Application.DTO.csproj" />
+		<ProjectReference Include="..\..\..\..\..\Users\Users.Application.DTO\Users.Application.DTO.csproj" />
+		<ProjectReference Include="..\Shared\Companies.Adm.Panel.Shared.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ServiceWorker Include="wwwroot\service-worker.js" PublishedContent="wwwroot\service-worker.published.js" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="wwwroot\imgs\components\right-container\" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="Shared/Menu/*" CssScope="inherit-scope" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="Pages/DefaultDesign/*" CssScope="default-listining" />
+		<None Update="Pages/RegisterStepsTemplate/*" CssScope="register-template-scope" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="Pages/Agenda/Schedulings/Montly/*" CssScope="agenda-scope" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="Pages/Agenda/RightContainer/*" CssScope="agenda-right-container-scope" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="ClientIoCFactory.tt">
+	    <LastGenOutput>ClientIoCFactory.generated.cs</LastGenOutput>
+	    <Generator>TextTemplatingFileGenerator</Generator>
+	  </None>
+	  <None Update="Pages\_Indexes\ClientIoCFactory.tt">
+	    <Generator>TextTemplatingFileGenerator</Generator>
+	    <LastGenOutput>ClientIoCFactory.generated.cs</LastGenOutput>
+	  </None>
+	</ItemGroup>
+
+
+
+	<ItemGroup>
+	  <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+	</ItemGroup>
+
+
+
+	<ItemGroup>
+	  <Compile Update="ClientIoCFactory.generated.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>ClientIoCFactory.tt</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\_Indexes\ClientIoCFactory.generated.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>ClientIoCFactory.tt</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+</Project>

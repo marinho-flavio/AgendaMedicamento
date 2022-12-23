@@ -1,0 +1,864 @@
+﻿/* screen - tela-agenda-mes */
+
+.tela-agenda-mes {
+    background-color: var(--alabaster);
+    border: 0.05vw none;
+    height: 56.25vw;
+    width: 100.0vw;
+}
+
+    .tela-agenda-mes .overlap-group {
+        height: 16.93vw;
+        left: 1vw;
+        position: relative;
+        top: 1vw;
+        width: 72.92vw;
+    }
+
+    .tela-agenda-mes .frame-231 {
+        border: 0.05vw none;
+        border-radius: 0.62vw;
+        height: 3.44vw;
+        left: 0;
+        overflow: hidden;
+        position: fixed;
+        width: 72.92vw;
+        background-color: var(--alabaster);
+        z-index:50;
+        left:6vw;
+        top:60px;
+    }
+
+    .tela-agenda-mes .bithree-dots-vertical {
+        height: 0.83vw;
+        left: 71.04vw;
+        position: absolute;
+        top: 1.25vw;
+        width: 0.83vw;
+    }
+
+    .tela-agenda-mes .container-dropdown-tipo-visualizacao {
+        align-items: center;
+        background-color: var(--white);
+        border: 0.05vw solid;
+        border-color: var(--gallery-22);
+        border-radius: 0.21vw;
+        display: flex;
+        gap: 1.46vw;
+        height: 1.67vw;
+        justify-content: center;
+        left: 39.58vw;
+        padding: 0.42vw;
+        position: absolute;
+        top: 1.09vw;
+        width: 5.21vw;
+    }
+
+    .container-dropdown-filtros:hover,
+    .container-dropdown-tipo-visualizacao:hover,
+    .tela-agenda-mes .container-dropdown-fila:hover {
+        background-color: #f3f1fd !important;
+        cursor: pointer !important;
+    }
+
+    .tela-agenda-mes .container-mes {
+        align-self: stretch;
+        border-color: transparent;
+        border-right-style: solid;
+        border-right-width: 0.05vw;
+        height: 0.83vw;
+        min-width: 2.08vw;
+        position: relative;
+    }
+
+    .tela-agenda-mes .fa6-solidcalendar-days {
+        height: 0.83vw;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 0.83vw;
+    }
+
+    .tela-agenda-mes .container-title-mes {
+        border-bottom-style: solid;
+        border-bottom-width: 0.05vw;
+        border-color: transparent;
+        height: 0.83vw;
+        left: 1.04vw;
+        position: absolute;
+        top: 0;
+        width: 1.09vw;
+    }
+
+    .tela-agenda-mes .ms {
+        left: 0;
+        letter-spacing: 0;
+        line-height: normal;
+        position: absolute;
+        text-align: center;
+        top: 0.05vw;
+    }
+
+    .tela-agenda-mes .eparrow-right-bold-1 {
+        height: 0.83vw;
+        min-width: 0.83vw;
+    }
+
+    .tela-agenda-mes .container-dropdown-filtros {
+        align-items: center;
+        background-color: var(--white);
+        border: 0.05vw solid;
+        border-color: var(--gallery-22);
+        border-radius: 0.21vw;
+        display: flex;
+        gap: 0.21vw;
+        justify-content: center;
+        left: 45.83vw;
+        padding: 0.42vw;
+        position: absolute;
+        top: 1.09vw;
+        width: fit-content;
+    }
+
+    .tela-agenda-mes .mingcutefilter-fill {
+        height: 0.83vw;
+        min-width: 0.83vw;
+    }
+
+    .tela-agenda-mes .container-text-filtros {
+        align-items: center;
+        border: 0.05vw none;
+        display: flex;
+        gap: 0.42vw;
+        height: 0.62vw;
+        justify-content: center;
+        width: fit-content;
+    }
+
+    .tela-agenda-mes .filtros {
+        letter-spacing: 0;
+        line-height: normal;
+        margin-top: -0.05vw;
+        text-align: center;
+        width: fit-content;
+    }
+
+    .tela-agenda-mes .eparrow-right-bold-2 {
+        height: 0.83vw;
+        min-width: 0.83vw;
+    }
+
+    .tela-agenda-mes .container-title-calendar-list {
+        align-items: flex-start;
+        border: 0.05vw none;
+        display: flex;
+        flex-direction: column;
+        left: 1.04vw;
+        position: absolute;
+        top: 0.68vw;
+        width: fit-content;
+    }
+
+    .tela-agenda-mes .container {
+        align-items: flex-start;
+        border: 0.05vw none;
+        display: flex;
+        gap: 0.42vw;
+        width: fit-content;
+    }
+
+    .tela-agenda-mes .clnica-SES {
+        letter-spacing: 0;
+        line-height: normal;
+        margin-top: -0.05vw;
+        text-align: center;
+        width: fit-content;
+    }
+
+    .tela-agenda-mes .hoje-22-de-setembro-de-2022 {
+        letter-spacing: 0;
+        line-height: normal;
+        margin-top: -0.05vw;
+        text-align: center;
+        width: fit-content;
+    }
+
+    .tela-agenda-mes .divider {
+        height: 1.98vw;
+        left: 57.81vw;
+        position: absolute;
+        top: 0.83vw;
+        width: 0.1vw;
+    }
+
+    .tela-agenda-mes .container-agenda-profissionais {
+        align-items: flex-start;
+        border: 0.05vw none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.21vw;
+        left: 58.91vw;
+        position: absolute;
+        top: 0.57vw;
+        width: fit-content;
+    }
+
+    .tela-agenda-mes .container-title-agenda-profissionais {
+        align-items: center;
+        border: 0.05vw none;
+        display: flex;
+        gap: 0.42vw;
+        justify-content: center;
+        width: fit-content;
+    }
+
+    .tela-agenda-mes .agenda-dos-profissionais {
+        letter-spacing: 0;
+        line-height: normal;
+        margin-top: -0.05vw;
+        text-align: center;
+        width: fit-content;
+    }
+
+    .tela-agenda-mes .container-options-profissionais {
+        align-items: center;
+        border: 0.05vw none;
+        display: flex;
+        gap: 0.21vw;
+        justify-content: center;
+        width: fit-content;
+    }
+
+    .tela-agenda-mes .button-todos {
+        align-items: center;
+        background-color: var(--purple-heart);
+        border: 0.1vw solid;
+        border-color: transparent;
+        border-radius: 5.21vw;
+        display: flex;
+        gap: 0.62vw;
+        height: 1.56vw;
+        justify-content: center;
+        margin-bottom: -0.05vw;
+        margin-left: -0.05vw;
+        margin-top: -0.05vw;
+        padding: 0.0vw 0.42vw;
+        width: fit-content;
+    }
+
+    .tela-agenda-mes .todos {
+        letter-spacing: 0;
+        line-height: normal;
+        width: fit-content;
+    }
+
+    .tela-agenda-mes .container-icon-profissional {
+        background-image: url(../img/container-icon-profissional@2x.svg);
+        background-position: 50% 50%;
+        background-size: cover;
+        border: 0.1vw solid;
+        border-color: transparent;
+        border-radius: 5.21vw;
+        height: 1.56vw;
+        margin-bottom: -0.05vw;
+        margin-top: -0.05vw;
+        min-width: 1.56vw;
+        opacity: 0.4;
+    }
+
+        .tela-agenda-mes .container-icon-profissional-3:hover,
+        .tela-agenda-mes .container-icon-profissional-2:hover,
+        .tela-agenda-mes .container-icon-profissional-1:hover,
+        .tela-agenda-mes .container-icon-profissional:hover {
+            opacity: 1;
+            cursor: pointer;
+        }
+
+    .tela-agenda-mes .container-icon-profissional-1 {
+        background-image: url(../img/container-icon-profissional@2x.png);
+        background-position: 50% 50%;
+        background-size: cover;
+        border: 0.1vw solid;
+        border-color: transparent;
+        border-radius: 5.21vw;
+        height: 1.56vw;
+        margin-bottom: -0.05vw;
+        margin-top: -0.05vw;
+        min-width: 1.56vw;
+        opacity: 0.4;
+    }
+
+    .tela-agenda-mes .container-icon-profissional-2 {
+        align-items: center;
+        background-color: var(--chetwode-blue);
+        border: 0.1vw solid;
+        border-color: transparent;
+        border-radius: 5.21vw;
+        display: flex;
+        gap: 0.62vw;
+        height: 1.56vw;
+        justify-content: center;
+        margin-bottom: -0.05vw;
+        margin-top: -0.05vw;
+        opacity: 0.4;
+        width: 1.56vw;
+    }
+
+    .tela-agenda-mes .fm {
+        letter-spacing: 0;
+        line-height: normal;
+        width: fit-content;
+    }
+
+    .tela-agenda-mes .container-icon-profissional-3 {
+        background-image: url(../img/container-icon-profissional-1@2x.png);
+        background-position: 50% 50%;
+        background-size: cover;
+        border: 0.1vw solid;
+        border-color: transparent;
+        border-radius: 5.21vw;
+        height: 1.56vw;
+        margin-bottom: -0.05vw;
+        margin-top: -0.05vw;
+        min-width: 1.56vw;
+        opacity: 0.4;
+    }
+
+    .tela-agenda-mes .button-inserir-profissional {
+        height: 1.46vw;
+        min-width: 1.46vw;
+    }
+
+    .tela-agenda-mes .button-search {
+        height: 1.67vw;
+        left: 55.16vw;
+        position: absolute;
+        top: 0.99vw;
+        width: 1.67vw;
+    }
+
+    .tela-agenda-mes .container-dropdown-fila {
+        background-color: var(--white);
+        border: 0.05vw solid;
+        border-color: var(--gallery-22);
+        border-radius: 0.21vw;
+        height: 1.67vw;
+        left: 33.23vw;
+        position: absolute;
+        top: 1.09vw;
+        width: 5.31vw;
+    }
+
+    .tela-agenda-mes .frame-301 {
+        border: 0.05vw none;
+        height: 0.73vw;
+        left: 0.62vw;
+        position: absolute;
+        top: 0.47vw;
+        width: 1.98vw;
+    }
+
+    .tela-agenda-mes .fa6-solidcalendar-week {
+        height: 0.73vw;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 0.57vw;
+    }
+
+    .tela-agenda-mes .frame-21 {
+        border: 0.05vw none;
+        height: 0.62vw;
+        left: 0.78vw;
+        position: absolute;
+        top: 0.05vw;
+        width: 1.2vw;
+    }
+
+    .tela-agenda-mes .filas {
+        height: 0.62vw;
+        left: 0;
+        letter-spacing: 0;
+        line-height: normal;
+        position: absolute;
+        text-align: center;
+        top: -0.05vw;
+    }
+
+    .tela-agenda-mes .eparrow-right-bold-3 {
+        height: 0.83vw;
+        left: 3.85vw;
+        position: absolute;
+        top: 0.42vw;
+        width: 0.83vw;
+    }
+
+    .tela-agenda-mes .container-turnos {
+        height: 1.88vw;
+        left: 24.95vw;
+        position: absolute;
+        top: 0.99vw;
+        width: 7.29vw;
+    }
+
+    .tela-agenda-mes .container-title-list {
+        align-items: center;
+        background-color: var(--white);
+        border: 0.05vw none;
+        border-radius: 0.42vw;
+        display: flex;
+        flex-direction: column;
+        gap: 0.42vw;
+        height: 2.29vw;
+        justify-content: center;
+        left: 0;
+        padding: 0.0vw 0.83vw;
+        position: absolute;
+        top: 4.06vw;
+        width: 72.92vw;
+    }
+
+    .tela-agenda-mes .container-sections-list {
+        align-items: center;
+        border: 0.05vw none;
+        display: flex;
+        gap: 2.29vw;
+        justify-content: center;
+        width: 70.62vw;
+    }
+
+    .tela-agenda-mes .container-title {
+        border-style: none;
+        height: 1.88vw;
+        min-width: 8.12vw;
+        position: relative;
+    }
+
+    .tela-agenda-mes .dom {
+        height: 0.78vw;
+        left: 3.33vw;
+        letter-spacing: 0;
+        line-height: normal;
+        position: absolute;
+        text-align: center;
+        top: 0.52vw;
+    }
+
+    .tela-agenda-mes .seg {
+        height: 0.78vw;
+        left: 3.44vw;
+        letter-spacing: 0;
+        line-height: normal;
+        position: absolute;
+        text-align: center;
+        top: 0.52vw;
+    }
+
+    .tela-agenda-mes .ter {
+        height: 0.78vw;
+        left: 3.44vw;
+        letter-spacing: 0;
+        line-height: normal;
+        position: absolute;
+        text-align: center;
+        top: 0.52vw;
+    }
+
+    .tela-agenda-mes .container-title-1 {
+        align-items: center;
+        border-style: none;
+        display: flex;
+        gap: 0.42vw;
+        height: 1.88vw;
+        justify-content: center;
+        padding: 0.0vw 0.62vw;
+        width: 8.12vw;
+    }
+
+    .tela-agenda-mes .qua {
+        letter-spacing: 0;
+        line-height: normal;
+        text-align: center;
+        width: fit-content;
+    }
+
+    .tela-agenda-mes .qui {
+        letter-spacing: 0;
+        line-height: normal;
+        text-align: center;
+        width: fit-content;
+    }
+
+    .tela-agenda-mes .sex {
+        letter-spacing: 0;
+        line-height: normal;
+        text-align: center;
+        width: fit-content;
+    }
+
+    .tela-agenda-mes .sb {
+        letter-spacing: 0;
+        line-height: normal;
+        text-align: center;
+        width: fit-content;
+    }
+
+    .tela-agenda-mes .container-resumo-convenio {
+        align-items: center;
+        background-color: var(--white);
+        border: 0.05vw solid;
+        border-color: var(--gallery-22);
+        border-radius: 0.21vw;
+        display: flex;
+        gap: 0.42vw;
+        height: 6.88vw;
+        justify-content: center;
+        left: 33.23vw;
+        overflow: hidden;
+        padding: 0.42vw;
+        position: absolute;
+        top: 2vw;
+        width: fit-content;
+        z-index: 300;
+    }
+
+    .tela-agenda-mes .columm-resumo-basico {
+        align-items: flex-start;
+        align-self: stretch;
+        background-color: var(--white);
+        border: 0.05vw none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.21vw;
+        width: fit-content;
+    }
+
+    .tela-agenda-mes .number-agendados {
+        align-items: center;
+        align-self: stretch;
+        border-bottom-style: solid;
+        border-bottom-width: 0.05vw;
+        border-color: transparent;
+        display: flex;
+        gap: 0.21vw;
+        padding: 0.1vw 0.0vw;
+    }
+
+    .tela-agenda-mes .birecord-fill {
+        height: 0.83vw;
+        min-width: 0.83vw;
+    }
+
+    .tela-agenda-mes .place {
+        flex: 1;
+        letter-spacing: 0;
+        line-height: normal;
+    }
+
+    .tela-agenda-mes .birecord-fill-1 {
+        height: 0.83vw;
+        min-width: 0.83vw;
+    }
+
+    .tela-agenda-mes .recepo {
+        flex: 1;
+        letter-spacing: 0;
+        line-height: normal;
+    }
+
+    .tela-agenda-mes .birecord-fill-2 {
+        height: 0.83vw;
+        min-width: 0.83vw;
+    }
+
+    .tela-agenda-mes .atendimento {
+        flex: 1;
+        letter-spacing: 0;
+        line-height: normal;
+    }
+
+    .tela-agenda-mes .number-agendados-1 {
+        align-items: center;
+        border-bottom-style: solid;
+        border-bottom-width: 0.05vw;
+        border-color: transparent;
+        display: flex;
+        gap: 0.21vw;
+        padding: 0.1vw 0.0vw;
+        width: 4.48vw;
+    }
+
+    .tela-agenda-mes .birecord-fill-3 {
+        height: 0.83vw;
+        min-width: 0.83vw;
+    }
+
+    .tela-agenda-mes .procedimento {
+        flex: 1;
+        letter-spacing: 0;
+        line-height: normal;
+    }
+
+    .tela-agenda-mes .birecord-fill-4 {
+        height: 0.83vw;
+        min-width: 0.83vw;
+    }
+
+    .tela-agenda-mes .reavaliao {
+        flex: 1;
+        letter-spacing: 0;
+        line-height: normal;
+    }
+
+    .tela-agenda-mes .container-resumo-convenio-1 {
+        align-items: center;
+        background-color: var(--white);
+        border: 0.05vw solid;
+        border-color: var(--gallery-22);
+        border-radius: 0.21vw;
+        display: flex;
+        gap: 0.42vw;
+        height: 13.54vw;
+        justify-content: center;
+        left: 45.83vw;
+        overflow: hidden;
+        padding: 0.62vw;
+        position: absolute;
+        top: 2vw;
+        width: fit-content;
+        z-index: 300;
+    }
+
+    .tela-agenda-mes .columm-resumo-basico-1 {
+        align-items: flex-start;
+        align-self: stretch;
+        background-color: var(--white);
+        border: 0.05vw none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.83vw;
+        width: 7.14vw;
+    }
+
+    .tela-agenda-mes .number-agendados-2 {
+        align-items: center;
+        align-self: stretch;
+        border-bottom-style: solid;
+        border-bottom-width: 0.05vw;
+        border-color: transparent;
+        display: flex;
+        gap: 0.21vw;
+        height: 1.04vw;
+        padding: 0.1vw 0.0vw;
+    }
+
+    .tela-agenda-mes .birecord-fill-5 {
+        height: 0.83vw;
+        min-width: 0.83vw;
+    }
+
+    .tela-agenda-mes .profissional {
+        flex: 1;
+        letter-spacing: 0;
+        line-height: normal;
+        margin-top: -0.03vw;
+    }
+
+    .tela-agenda-mes .eparrow-right-bold {
+        height: 0.99vw;
+        margin-bottom: -0.08vw;
+        margin-top: -0.08vw;
+        min-width: 1.04vw;
+    }
+
+    .tela-agenda-mes .number-agendados-3 {
+        align-items: center;
+        align-self: stretch;
+        border-bottom-style: solid;
+        border-bottom-width: 0.05vw;
+        border-color: transparent;
+        display: flex;
+        gap: 0.21vw;
+        height: 1.04vw;
+        padding: 0.05vw 0.0vw;
+    }
+
+    .tela-agenda-mes .birecord-fill-6 {
+        height: 0.83vw;
+        min-width: 0.83vw;
+    }
+
+    .tela-agenda-mes .tags {
+        flex: 1;
+        letter-spacing: 0;
+        line-height: normal;
+    }
+
+    .tela-agenda-mes .eparrow-right-bold-4 {
+        height: 0.99vw;
+        margin-bottom: -0.03vw;
+        margin-top: -0.03vw;
+        min-width: 1.04vw;
+    }
+
+    .tela-agenda-mes .birecord-fill-7 {
+        height: 0.83vw;
+        min-width: 0.83vw;
+    }
+
+    .tela-agenda-mes .place-1 {
+        flex: 1;
+        letter-spacing: 0;
+        line-height: normal;
+        margin-top: -0.03vw;
+    }
+
+    .tela-agenda-mes .birecord-fill-8 {
+        height: 0.83vw;
+        min-width: 0.83vw;
+    }
+
+    .tela-agenda-mes .status {
+        flex: 1;
+        letter-spacing: 0;
+        line-height: normal;
+        margin-top: -0.03vw;
+    }
+
+    .tela-agenda-mes .birecord-fill-9 {
+        height: 0.83vw;
+        min-width: 0.83vw;
+    }
+
+    .tela-agenda-mes .feriados {
+        flex: 1;
+        letter-spacing: 0;
+        line-height: normal;
+        margin-top: -0.03vw;
+    }
+
+    .tela-agenda-mes .birecord-fill-10 {
+        height: 0.83vw;
+        min-width: 0.83vw;
+    }
+
+    .tela-agenda-mes .surname {
+        flex: 1;
+        letter-spacing: 0;
+        line-height: normal;
+        margin-top: -0.03vw;
+    }
+
+    .tela-agenda-mes .birecord-fill-11 {
+        height: 0.83vw;
+        min-width: 0.83vw;
+    }
+
+    .tela-agenda-mes .horas-livres {
+        flex: 1;
+        letter-spacing: 0;
+        line-height: normal;
+        margin-top: -0.03vw;
+    }
+
+    .tela-agenda-mes .container-resumo-convenio-2 {
+        align-items: flex-start;
+        background-color: var(--white);
+        border: 0.05vw solid;
+        border-color: var(--gallery-22);
+        border-radius: 0.21vw;
+        display: flex;
+        gap: 0.42vw;
+        height: 5.62vw;
+        justify-content: center;
+        left: 39.58vw;
+        padding: 0.42vw;
+        position: absolute;
+        top: 2vw;
+        width: 5.21vw;
+        z-index: 300;
+    }
+
+    .tela-agenda-mes .columm-resumo-basico-2 {
+        align-items: flex-start;
+        align-self: stretch;
+        border: 0.05vw none;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        gap: 0.21vw;
+        z-index: 300;
+    }
+
+    .tela-agenda-mes .birecord-fill-12 {
+        height: 0.83vw;
+        min-width: 0.83vw;
+    }
+
+    .tela-agenda-mes .agora {
+        letter-spacing: 0;
+        line-height: normal;
+        width: fit-content;
+    }
+
+    .tela-agenda-mes .fa6-solidcalendar-day {
+        height: 0.83vw;
+        min-width: 0.83vw;
+    }
+
+    .tela-agenda-mes .dia {
+        letter-spacing: 0;
+        line-height: normal;
+        width: fit-content;
+    }
+
+    .tela-agenda-mes .fa6-solidcalendar-week-1 {
+        height: 0.83vw;
+        min-width: 0.83vw;
+    }
+
+    .tela-agenda-mes .semana {
+        letter-spacing: 0;
+        line-height: normal;
+        width: fit-content;
+    }
+
+    .tela-agenda-mes .fa6-solidcalendar-days-1 {
+        height: 0.83vw;
+        min-width: 0.83vw;
+    }
+
+    .tela-agenda-mes .ms-1 {
+        letter-spacing: 0;
+        line-height: normal;
+        width: fit-content;
+    }
+
+
+.screen a {
+    display: contents;
+    text-decoration: none;
+}
+
+.container-center-horizontal {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    pointer-events: none;
+    width: 100%;
+}
+
+    .container-center-horizontal > * {
+        flex-shrink: 0;
+        pointer-events: auto;
+    }
+
+.valign-text-middle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+* {
+    box-sizing: border-box;
+}

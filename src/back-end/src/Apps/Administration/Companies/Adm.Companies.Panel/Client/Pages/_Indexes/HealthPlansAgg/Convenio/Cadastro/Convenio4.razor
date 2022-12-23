@@ -1,0 +1,23 @@
+	
+@using SES.HealthPlans.Application.DTO.Aggregates.HealthPlansAgg.Requests;
+@using SES.HealthPlans.Enumerations;
+@using Pages.RegisterStepsTemplate;
+@inherits ConvenioCadastro
+
+<div class="container-informations screen">
+    <div class="box-inputs">
+    </div>
+</div>
+
+@code {
+    [CascadingParameter] BaseMainStepsLayout<ConvenioDTO> layout { get; set; }
+
+    protected override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            this.StateHasChanged();
+        }
+        return base.OnAfterRenderAsync(firstRender);
+    }
+}

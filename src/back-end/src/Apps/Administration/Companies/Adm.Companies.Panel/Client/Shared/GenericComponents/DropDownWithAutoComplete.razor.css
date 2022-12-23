@@ -1,0 +1,12 @@
+﻿span.uf {
+    float:right;
+}
+
+span.logradouro {
+    max-width: 30px !important;
+    overflow: hidden !important;
+    width: 30px !important;
+    text-align:center;
+    margin-left:15px;
+}
+

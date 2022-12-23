@@ -1,0 +1,8 @@
+﻿@inject NavigationManager Navigation
+@inject IJSRuntime JS
+@code {
+    protected override void OnInitialized()
+    {
+        JS.InvokeAsync<string>("clientJsfunctions.RedirectTo", "/login");
+    }
+}

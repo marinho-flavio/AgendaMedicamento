@@ -1,0 +1,62 @@
+﻿@using Services.Implementations;
+
+@inject NavigationManager navigationManager
+@inject IdentityAuthenticationStateProvider authStateProvider
+
+<div class="header">
+    <img id="financeiro-painel" src="imgs/menus/header/SES-logo.svg" class="financeiro-painel logo">
+    <div class="search-bar">
+        <div class="container-text">
+            <input class="pesquisar" name="Pesquisar" placeholder="Pesquisar" type="text">
+        </div>
+        <img id="lupa-search" src="imgs/menus/header/lupa.svg" class="lupa-search">
+    </div>
+    <div class="header-link home">
+        <div class="container-text-home">
+            <div class="container-home">Início</div>
+        </div>
+    </div>
+    <div class="header-link dashboard">
+        <div class="container-text-dashboard">
+            <div class="container-dashboard">Dashboard</div>
+        </div>
+    </div>
+    <div class="right-container">
+        <div class="icon-container chat">
+            <img id="header-icon chat-icon" src="imgs/menus/header/chat-icon.svg" class="chat-icon">
+        </div>
+        <div class="icon-container notify">
+            <div class="box-notification"></div>
+            <img id="header-icon notify-icon" src="imgs/menus/header/notify-icon.svg" class="notify-icon">
+        </div>
+        <div class="icon-container configurations">
+            <img id="header-icon config-icon" src="imgs/menus/header/config-icon.svg" class="config-icon">
+        </div>
+        <div class="icon-container help-center">
+            <div class="svg-text">
+                <div class="text-interrogation">?</div>
+            </div>
+        </div>
+        <div @onclick="BeginSignOut" class="profile-bar">
+            <div class="container-img-text">
+                <div class="container-img">
+                    <div class="name">AL</div>
+                </div>
+                <div class="container-box">
+                    <div class="container-text-1">
+                        <div class="hello-user">Olá, Amanda</div>
+                    </div>
+                </div>
+            </div>
+            <img id="header-icon arrow-icon" src="imgs/menus/header/arrow.svg" class="arrow-icon">
+        </div>
+    </div>
+</div>
+
+@code {
+    private async Task BeginSignOut(MouseEventArgs args)
+    {
+        await authStateProvider.Logout();
+        navigationManager.NavigateTo("/");
+    }
+}

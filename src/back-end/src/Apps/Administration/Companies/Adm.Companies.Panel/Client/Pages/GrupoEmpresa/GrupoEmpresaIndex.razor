@@ -1,0 +1,16 @@
+﻿@using Companies.Adm.Panel.Client.Pages.Agenda.Schedulings
+@using Bravo.Companies.Application.DTO.Aggregates.CompaniesAgg.Requests
+
+@inherits Companies.Adm.Panel.Client.Pages.DefaultDesign.BaseListiningPage
+
+@layout MainLayout
+
+@page "/"
+@page "/GrupoEmpresa"
+
+<Companies.Adm.Panel.Client.Pages.DefaultDesign.DefaultListining Page="this.Page"
+                                                                 Size="this.Size"
+                                                                 Title="Grupo Empresa"
+                                                                 T="GrupoEmpresaListiningDTO" />
+
+<MonthSchedule />

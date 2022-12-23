@@ -1,0 +1,105 @@
+	
+@using SES.HealthPlans.Application.DTO.Aggregates.HealthPlansAgg.Requests;
+@using SES.HealthPlans.Enumerations;
+@using Pages.RegisterStepsTemplate;
+@inherits ConvenioCadastro
+
+<div class="container-informations screen">
+    <div class="box-inputs">
+ 
+    <div class="input-secondary"> 
+        <div class="input-secondary-item">
+            <div class="container-input border-1px-silver">
+                                        <div class="cep-1 valign-text-middle inter-medium-sonic-silver-10px">@Model.GetFieldPlaceholder(Model.GetPropertyInfo(x=>x.Nome))</div>
+                <input @bind-value="Model.Nome"
+                                    class="razo-social valign-text-middle inter-medium-silver-16px"
+                    placeholder="@Model.GetFieldPlaceholder(nameof(Model.Nome))" />
+            </div>
+            <div class="este-campo-obrigatrio-1 valign-text-middle inter-normal-sonic-silver-10px">
+                <ValidationMessage For="@(() => Model.Nome)"></ValidationMessage>
+            </div>
+        </div>
+        <div class="input-secondary-item">
+            <div class="container-input border-1px-silver">
+                                        <div class="cep-1 valign-text-middle inter-medium-sonic-silver-10px">@Model.GetFieldPlaceholder(Model.GetPropertyInfo(x=>x.Matricula))</div>
+                <input @bind-value="Model.Matricula"
+                                    class="razo-social valign-text-middle inter-medium-silver-16px"
+                    placeholder="@Model.GetFieldPlaceholder(nameof(Model.Matricula))" />
+            </div>
+            <div class="este-campo-obrigatrio-1 valign-text-middle inter-normal-sonic-silver-10px">
+                <ValidationMessage For="@(() => Model.Matricula)"></ValidationMessage>
+            </div>
+        </div>
+    </div> 
+ 
+    <div class="input-secondary"> 
+        <div class="input-secondary-item">
+            <div class="container-input border-1px-silver">
+                                        <div class="cep-1 valign-text-middle inter-medium-sonic-silver-10px">@Model.GetFieldPlaceholder(Model.GetPropertyInfo(x=>x.Codigo))</div>
+                <input @bind-value="Model.Codigo"
+                                    class="razo-social valign-text-middle inter-medium-silver-16px"
+                    placeholder="@Model.GetFieldPlaceholder(nameof(Model.Codigo))" />
+            </div>
+            <div class="este-campo-obrigatrio-1 valign-text-middle inter-normal-sonic-silver-10px">
+                <ValidationMessage For="@(() => Model.Codigo)"></ValidationMessage>
+            </div>
+        </div>
+        <div class="input-secondary-item">
+            <div class="container-input border-1px-silver">
+                                        <div class="cep-1 valign-text-middle inter-medium-sonic-silver-10px">@Model.GetFieldPlaceholder(Model.GetPropertyInfo(x=>x.RegistroANS))</div>
+                <input @bind-value="Model.RegistroANS"
+                                    class="razo-social valign-text-middle inter-medium-silver-16px"
+                    placeholder="@Model.GetFieldPlaceholder(nameof(Model.RegistroANS))" />
+            </div>
+            <div class="este-campo-obrigatrio-1 valign-text-middle inter-normal-sonic-silver-10px">
+                <ValidationMessage For="@(() => Model.RegistroANS)"></ValidationMessage>
+            </div>
+        </div>
+    </div> 
+ 
+    <div class="input-secondary"> 
+        <div class="input-secondary-item">
+            <div class="container-input border-1px-silver">
+                                        <div class="cep-1 valign-text-middle inter-medium-sonic-silver-10px">@Model.GetFieldPlaceholder(Model.GetPropertyInfo(x=>x.CodigoReferencia))</div>
+                <input @bind-value="Model.CodigoReferencia"
+                                    class="razo-social valign-text-middle inter-medium-silver-16px"
+                    placeholder="@Model.GetFieldPlaceholder(nameof(Model.CodigoReferencia))" />
+            </div>
+            <div class="este-campo-obrigatrio-1 valign-text-middle inter-normal-sonic-silver-10px">
+                <ValidationMessage For="@(() => Model.CodigoReferencia)"></ValidationMessage>
+            </div>
+        </div>
+<div class="ativo-grupo">
+    <div class="container-text-2"><div class="status-do-grupo valign-text-middle">Padronizar quantidade de dígitos</div></div>
+    <SfSwitch @bind-Checked="Model.PadronizarQuantidadeDigitos" OnLabel="Ativo" OffLabel="Inativo"></SfSwitch>
+</div>
+    </div> 
+ 
+    <div class="input-secondary"> 
+        <div class="input-secondary-item">
+            <div class="container-input border-1px-silver">
+                                        <div class="cep-1 valign-text-middle inter-medium-sonic-silver-10px">@Model.GetFieldPlaceholder(Model.GetPropertyInfo(x=>x.QuantidadeDigitos))</div>
+                <input @bind-value="Model.QuantidadeDigitos"
+                                    class="razo-social valign-text-middle inter-medium-silver-16px"
+                    placeholder="@Model.GetFieldPlaceholder(nameof(Model.QuantidadeDigitos))" />
+            </div>
+            <div class="este-campo-obrigatrio-1 valign-text-middle inter-normal-sonic-silver-10px">
+                <ValidationMessage For="@(() => Model.QuantidadeDigitos)"></ValidationMessage>
+            </div>
+        </div>
+    </div> 
+    </div>
+</div>
+
+@code {
+    [CascadingParameter] BaseMainStepsLayout<ConvenioDTO> layout { get; set; }
+
+    protected override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            this.StateHasChanged();
+        }
+        return base.OnAfterRenderAsync(firstRender);
+    }
+}

@@ -1,0 +1,191 @@
+﻿@typeparam T where T : EntityDTO, new()
+
+@using Companies.Adm.Panel.Client.Pages.Base;
+@using Companies.Adm.Panel.Shared;
+@using SES.Companies.Application.DTO.Aggregates.CompaniesAgg.Requests;
+@using SES.Core.Application.DTO.Aggregates.CommonAgg.Commands.Responses;
+@using SES.Core.Application.DTO.Aggregates.CommonAgg.Models;
+@using Microsoft.AspNetCore.WebUtilities;
+
+@if (Empresas == null)
+{
+    <p>Carregando empresas...</p>
+}
+else
+{
+    if (!Empresas.Any())
+    {
+        <p>Nenhuma empresa cadastrada</p>
+    }
+    else
+    {
+        <div class="container-title-empresa">
+            <div class="quantity-number"><div class="number inter-bold-purple-heart-8px">@(EmpresasCount)</div></div>
+            <div class="title">
+                <div class="empresas valign-text-middle inter-medium-black-12px">Empresas</div>
+            </div>
+        </div>
+        <div class="container-section-empresa-filial">
+            <div class="container-box">
+                <div class="container">
+                    @foreach (var item in Empresas.Where(x => !x.EmpresaId.HasValue))
+                    {
+                        var isMyPage = (item.ExternalId == RightContext.EmpresaId || item.ExternalId == Context.Model.ExternalId);
+                        <div class="empresas-e-filiais">
+                            <div class="container-notify-empresa">
+                                <img class="divider-section-empresa"
+                         src="https://anima-uploads.s3.amazonaws.com/projects/63486f9b8ee4feae84ab3e5a/releases/6351ae80b7ecf0a90f5da31e/img/divider-section-empresa@2x.svg"
+                         alt="divider-section-empresa" />
+                                <div class="container-option-empresa @(isMyPage ? "active" : "" )"
+                         @onclick="()=>RightContext.OnEmpresaClicked(item.ExternalId)">
+                                    <div class="container-empresa-name">
+                                        <div class="title-1">
+                                            <div class="empresa valign-text-middle inter-medium-silver-10px">Empresa</div>
+                                        </div>
+                                        <div class="title-1">
+                                            <div class="empresa-1 valign-text-middle inter-medium-black-12px">@item.NomeFantasia</div>
+                                        </div>
+                                    </div>
+                                    <img class="divider" src="https://anima-uploads.s3.amazonaws.com/projects/63486f9b8ee4feae84ab3e5a/releases/6351ae80b7ecf0a90f5da31e/img/vector-17@2x.svg" alt="divider" />
+                                    @if (item?.Ativo.HasValue == true)
+                                    {
+                                        <img class="akar-iconscircle-che" src="https://anima-uploads.s3.amazonaws.com/projects/63486f9b8ee4feae84ab3e5a/releases/6351d1e1b48cd02e03f411db/img/akar-icons-circle-check-fill-complete-section@2x.svg" alt="akar-icons:circle-check-fill-complete-section" />
+                                        <div class="icon-step icon-plus" @onclick="()=>OnCreateEmpresaClicked(item.Id)" src="/imgs/components/right-container/plus-icon.svg" alt="icon-plus">
+                                            <span>+</span>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="icon-step">
+                                            <span>
+                                                @(item?.CurrentStep + 1)
+                                            </span>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                            @if (myParentId?.ToString() == item.Id && !string.IsNullOrWhiteSpace(RightContext.EmpresaClickedId))
+                            {
+                                <RightContainerEmpresaFilial Parent="item" GrupoEmpresaId="grupo?.ExternalId" T="T" />
+                            }
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+}
+
+@code {
+    [Inject] HttpClient _http { get; set; }
+    [Inject] NavigationManager _navigation { get; set; }
+
+    public bool _isFilial { get; set; }
+    int? myParentId { get; set; }
+    [Parameter] public GrupoEmpresaDTO grupo { get; set; }
+    [Parameter] public StepsContext<T> Context { get; set; }
+    [Parameter] public RightContainerContext RightContext { get; set; }
+
+    public List<EmpresaDTO> Empresas { get; set; }
+    int EmpresasCount;
+
+    protected async override Task OnInitializedAsync()
+    {
+        if (Empresas == null)
+        {
+            RefreshMe();
+        }
+        await base.OnInitializedAsync();
+    }
+
+    [Parameter]
+    public string? Id { get; set; }
+
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await RefreshCount();
+        }
+        await base.OnInitializedAsync();
+    }
+
+    async Task RefreshCount()
+    {
+        int.TryParse((await _http.GetFromJsonAsync<GetHttpResponseDTO>(
+                $"{new EmpresaDTO().GetRoute()}/count?grupoEmpresaIdEqual={grupo?.Id}"))?.Data.ToString(),
+                out EmpresasCount);
+        StateHasChanged();
+    }
+
+    public void RefreshMe()
+    {
+        Empresas = null;
+        Task.Run(async () =>
+        {
+            Empresas = (await _http.GetFromJsonAsync<GetHttpResponseDTO<List<EmpresaDTO>>>($"{new EmpresaDTO().GetRoute()}/search?IsFilialEqual=false&GrupoEmpresaIdEqual={grupo?.Id}&OrderBy=CreatedAt&OrderByDesc=true"))?.Data;
+            //todo: fazer isso tb pra filial
+            if (Context.Model is EmpresaDTO empresa && !string.IsNullOrWhiteSpace(Context.Model.Id))
+            {
+                if (empresa.IsFilial)
+                {
+                    myParentId = empresa?.EmpresaId;
+                    if (Empresas.Count >= 5 && !Empresas.Any(x => x.Id == myParentId?.ToString()))
+                    {
+                        var emp = (await _http.GetFromJsonAsync<GetHttpResponseDTO<EmpresaDTO>>($"{new EmpresaDTO().GetRoute()}?IdEqual={myParentId}"))?.Data;
+                        Empresas = Empresas.SkipLast(1).ToList();
+                        Empresas.Add(emp);
+                        Empresas = Empresas.OrderByDescending(x => x.Id == myParentId.ToString()).ToList();
+                    }
+                }
+                else
+                {
+                    myParentId = int.Parse(empresa.Id);
+                    this._isFilial = empresa.IsFilial;
+                    if (Empresas.Count >= 5 && !Empresas.Any(x => x.Id == Context.Model.Id))
+                    {
+                        Empresas = Empresas.SkipLast(1).ToList();
+                        Empresas.Add(empresa);
+                    }
+                }
+                RightContext.EmpresaClickedId = empresa.ExternalId;
+            }
+            await RefreshCount();
+            this.StateHasChanged();
+        });
+    }
+
+    public void RefreshLayout()
+    {
+        base.StateHasChanged();
+    }
+
+    async Task OnCreateEmpresaClicked(string id)
+    {
+        int.TryParse((await _http.GetFromJsonAsync<GetHttpResponseDTO>($"{new EmpresaDTO().GetRoute()}/count?EmpresaIdEqual={id}"))?.Data.ToString(), out var total);
+
+        total++;
+
+        var newCompany = new EmpresaDTO
+            {
+                CNPJ = $"{grupo?.CNPJ}/{total}",
+                RazaoSocial = $"{grupo?.RazaoSocial}-filial-{total}",
+                NomeFantasia = $"{grupo?.NomeFantasia}-filial-{total}",
+                GrupoEmpresaId = int.Parse(grupo?.Id),
+                EmpresaId = int.Parse(id),
+                ExternalId = Guid.NewGuid().ToString(),
+                IsFilial = true
+            };
+
+        var result = await _http.PostAsJsonAsync<EmpresaDTO>(new EmpresaDTO().GetRoute(), newCompany);
+        if (result.StatusCode == System.Net.HttpStatusCode.OK)
+        {
+            this.RightContext.IsGroupClicked = false;
+            this.RightContext.EmpresaId = newCompany.ExternalId;
+            this.StateHasChanged();
+            //this.Context.Model = newCompany;
+            //this.Context.ChangeStep(this.Context.CurrentStep);
+            _navigation.NavigateTo($"/filial/cadastro/{newCompany.ExternalId}");
+        }
+    }
+}

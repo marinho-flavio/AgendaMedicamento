@@ -1,0 +1,63 @@
+﻿@using Companies.Adm.Panel.Client.Pages.Base;
+@using SES.Companies.Application.DTO.Aggregates.UsersAgg.Requests;
+@using SES.Core.Application.DTO.Aggregates.CommonAgg.Commands.Responses;
+@using SES.Core.Application.DTO.Aggregates.CommonAgg.Models;
+@using Services.Implementations
+@typeparam ModelType where ModelType : EntityDTO , new()
+@inject IdentityAuthenticationStateProvider authStateProvider
+
+<div class="container-principal-buttons">
+    <div class="container-1">
+        <div class="container-box-1">
+            <div class="container-t"><div class="responsvel inter-medium-black-12px">Responsável:</div></div>
+            <div class="container-box-profile-responsible">
+                <div class="photo-profile-icon-20x20">
+                    <img class="x20x20"
+                         src="https://anima-uploads.s3.amazonaws.com/projects/63486f9b8ee4feae84ab3e5a/releases/6351ae80b7ecf0a90f5da31e/img/20x20@2x.png"
+                         alt="20x20" />
+                </div>
+                <div class="container-text-profle-responsible">
+                    <div class="container-t"><div class="name inter-semi-bold-black-12px">@_user?.Name</div></div>
+                </div>
+            </div>
+        </div>
+        <div class="container-box-1">
+            <div class="container-t"><div class="text-1 inter-normal-sonic-silver-12px">@DateTime.Now.ToString("dd/MM/yyyy")</div></div>
+            <div class="container-t"><div class="text-2 inter-normal-sonic-silver-12px">@DateTime.Now.ToString("hh:mm")</div></div>
+        </div>
+    </div>
+    <div class="buttons-right">
+        @if (this.Context?.CurrentStep >= 0)
+        {
+            <div class="voltar">
+                <div class="voltar-1 smart-layers-pointers inter-normal-chetwode-blue-18px" @onclick="Context.Backward">Voltar</div>
+            </div>
+        }
+        <button type="submit" class="prximo"><div class="prximo-1">@(Context.MaxSteps == 1 || Context.CurrentStep == Context.MaxSteps ? "Salvar e Finalizar" : "Próximo")</div></button>
+    </div>
+</div>
+
+@code {
+    [Parameter] public Action Backward { get; set; }
+
+    [Inject] HttpClient _http { get; set; }
+
+    static UserDTO _user { get; set; }
+    bool isSearching = false;
+
+    [CascadingParameter] private Task<AuthenticationState> authenticationStateTask { get; set; }
+    [CascadingParameter] StepsContext<ModelType> Context { get; set; }
+
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender && _user == null)
+        {
+            var authState = await authenticationStateTask;
+            var user = authState.User;
+
+            _user = (await _http.GetFromJsonAsync<GetHttpResponseDTO<UserDTO>>($"api/user?emailEqual={user.Identity.Name}"))?.Data;
+
+        }
+        await base.OnAfterRenderAsync(firstRender);
+    }
+}

@@ -1,0 +1,81 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Remove="Pages\Routes\**" />
+		<Content Remove="Pages\Routes\**" />
+		<EmbeddedResource Remove="Pages\Routes\**" />
+		<None Remove="Pages\Routes\**" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+		<None Remove="Pages\RegisterStepsTemplate\AutoSaveActionButtons.razor.css" />
+		<None Remove="Pages\RegisterStepsTemplate\ButtonHoverAutoSave.razor.css" />
+		<None Remove="Pages\RegisterStepsTemplate\ButtonHoverInfoContainer.razor.css" />
+		<None Remove="Pages\RegisterStepsTemplate\ButtonHoverRestrictions.razor.css" />
+		<None Remove="Pages\RegisterStepsTemplate\HeaderButtonActions.razor.css" />
+		<None Remove="Pages\RegisterStepsTemplate\StepsHeaderTitleContainer.razor.css" />
+		<None Remove="Pages\RegisterStepsTemplate\StepsNextAndBackButtons.razor.css" />
+		<None Remove="Pages\RegisterStepsTemplate\StepsSearchInput.razor.css" />
+		<None Remove="Shared\GenericComponents\AddressFormFields.razor.css" />
+		<None Remove="Shared\GenericComponents\BasicToolTip.razor.css" />
+		<None Remove="Shared\GenericComponents\DropDownWithAutoComplete - Copy.razor.css" />
+		<None Remove="Shared\GenericComponents\DropDownWithAutoComplete.razor.css" />
+		<None Remove="Shared\GenericComponents\SearchInput.razor.css" />
+		<None Remove="Shared\GenericComponents\UploadFile.razor.css" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Include="Pages\RegisterStepsTemplate\ButtonHoverAutoSave.razor.css" />
+		<Content Include="Pages\RegisterStepsTemplate\ButtonHoverRestrictions.razor.css" />
+		<Content Include="Pages\RegisterStepsTemplate\ButtonHoverInfoContainer.razor.css" />
+		<Content Include="Pages\RegisterStepsTemplate\StepsNextAndBackButtons.razor.css" />
+		<Content Include="Pages\RegisterStepsTemplate\StepsSearchInput.razor.css" />
+		<Content Include="Pages\RegisterStepsTemplate\AutoSaveActionButtons.razor.css" />
+		<Content Include="Pages\RegisterStepsTemplate\StepsHeaderTitleContainer.razor.css" />
+		<Content Include="Pages\RegisterStepsTemplate\HeaderButtonActions.razor.css" />
+		<Content Include="Shared\GenericComponents\AddressFormFields.razor.css" />
+		<Content Include="Shared\GenericComponents\BasicToolTip.razor.css" />
+		<Content Include="Shared\GenericComponents\DropDownWithAutoComplete.razor.css" />
+		<Content Include="Shared\GenericComponents\SearchInput.razor.css" />
+		<Content Include="Shared\GenericComponents\UploadFile.razor.css" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Accelist.FluentValidation.Blazor" Version="4.0.0" />
+		<PackageReference Include="FluentValidation" Version="9.3.0" />
+		<PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="9.3.0" />
+		<PackageReference Include="Markdig" Version="0.30.3" />
+		<PackageReference Include="Microsoft.AspNetCore.Authorization" Version="6.0.8" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.7" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.7" PrivateAssets="all" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Authentication" Version="6.0.7" />
+		<PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
+		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.7" />
+		<PackageReference Include="System.Net.Http.Json" Version="6.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\..\..\src\Companies\Companies.Application.DTO\Companies.Application.DTO.csproj" />
+		<ProjectReference Include="..\..\..\..\..\src\Core.App.Client\Core.App.Client.csproj" />
+		<ProjectReference Include="..\Shared\Adm.Companies.Panel.Shared.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ServiceWorker Include="wwwroot\service-worker.js" PublishedContent="wwwroot\service-worker.published.js" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="wwwroot\css\companies\" />
+		<Folder Include="wwwroot\imgs\menus\header\" />
+		<Folder Include="wwwroot\imgs\menus\navbar\" />
+	</ItemGroup>
+
+</Project>

@@ -1,0 +1,127 @@
+	
+@using SES.Professionals.Application.DTO.Aggregates.ProfessionalsAgg.Requests;
+@using SES.Professionals.Enumerations;
+@using Pages.RegisterStepsTemplate;
+@inherits FuncionarioCadastro
+
+<div class="container-informations screen">
+    <div class="box-inputs">
+    <div class="input-cnpj">
+            <div class="cnpj">
+                <div class="container-1">
+                    <div class="container-box-2 border-1px-silver">
+                        <div class="cep-1 valign-text-middle inter-medium-sonic-silver-10px">@Model.GetFieldPlaceholder(Model.GetPropertyInfo(x=>x.Nome))</div>
+                        <input class="cnpj-1 valign-text-middle inter-medium-silver-16px"
+                                @oninput="(x)=>{layout?.RefreshHeader(()=>{ Model.Nome = (string)x.Value; });}"                        
+                                @bind-value="Model.Nome"
+                                placeholder="@Model.GetFieldPlaceholder(nameof(Model.Nome))" />
+                    </div>
+                </div>
+                <div class="este-campo-obrigatrio valign-text-middle inter-normal-sonic-silver-10px">
+                    <ValidationMessage For="@(() => Model.Nome)"></ValidationMessage>
+                </div>
+            </div>
+        </div>
+ 
+    <div class="input-secondary"> 
+        <div class="input-secondary-item">
+            <div class="container-input border-1px-silver">
+                                        <div class="cep-1 valign-text-middle inter-medium-sonic-silver-10px">@Model.GetFieldPlaceholder(Model.GetPropertyInfo(x=>x.CNPJ))</div>
+                <input @bind-value="Model.CNPJ"
+                   @oninput="(x)=>{layout?.RefreshHeader(()=>{ Model.CNPJ = (string)x.Value; });}"                     class="razo-social valign-text-middle inter-medium-silver-16px"
+                    placeholder="@Model.GetFieldPlaceholder(nameof(Model.CNPJ))" />
+            </div>
+            <div class="este-campo-obrigatrio-1 valign-text-middle inter-normal-sonic-silver-10px">
+                <ValidationMessage For="@(() => Model.CNPJ)"></ValidationMessage>
+            </div>
+        </div>
+        <div class="input-secondary-item">
+            <div class="container-input border-1px-silver">
+                                        <div class="cep-1 valign-text-middle inter-medium-sonic-silver-10px">@Model.GetFieldPlaceholder(Model.GetPropertyInfo(x=>x.NomeSocial))</div>
+                <input @bind-value="Model.NomeSocial"
+                                    class="razo-social valign-text-middle inter-medium-silver-16px"
+                    placeholder="@Model.GetFieldPlaceholder(nameof(Model.NomeSocial))" />
+            </div>
+            <div class="este-campo-obrigatrio-1 valign-text-middle inter-normal-sonic-silver-10px">
+                <ValidationMessage For="@(() => Model.NomeSocial)"></ValidationMessage>
+            </div>
+        </div>
+    </div> 
+ 
+    <div class="input-secondary"> 
+        <div class="input-secondary-item">
+            <div class="container-input border-1px-silver">
+                                        <div class="cep-1 valign-text-middle inter-medium-sonic-silver-10px">@Model.GetFieldPlaceholder(Model.GetPropertyInfo(x=>x.CPF))</div>
+                <input @bind-value="Model.CPF"
+                                    class="razo-social valign-text-middle inter-medium-silver-16px"
+                    placeholder="@Model.GetFieldPlaceholder(nameof(Model.CPF))" />
+            </div>
+            <div class="este-campo-obrigatrio-1 valign-text-middle inter-normal-sonic-silver-10px">
+                <ValidationMessage For="@(() => Model.CPF)"></ValidationMessage>
+            </div>
+        </div>
+        <div class="input-secondary-item">
+            <div class="container-input border-1px-silver">
+                                        <div class="cep-1 valign-text-middle inter-medium-sonic-silver-10px">@Model.GetFieldPlaceholder(Model.GetPropertyInfo(x=>x.UsuarioLogin))</div>
+                <input @bind-value="Model.UsuarioLogin"
+                                    class="razo-social valign-text-middle inter-medium-silver-16px"
+                    placeholder="@Model.GetFieldPlaceholder(nameof(Model.UsuarioLogin))" />
+            </div>
+            <div class="este-campo-obrigatrio-1 valign-text-middle inter-normal-sonic-silver-10px">
+                <ValidationMessage For="@(() => Model.UsuarioLogin)"></ValidationMessage>
+            </div>
+        </div>
+    </div> 
+ 
+    <div class="input-secondary"> 
+        <div class="cdigo-cnes">
+            <div class="container">
+                <div class="container-box-1">
+                    <div class="container-input-1 border-1px-silver">
+                                                <div class="cep-1 valign-text-middle inter-medium-sonic-silver-10px">@Model.GetFieldPlaceholder(Model.GetPropertyInfo(x=>x.DataNascimento))</div>
+                        <input @bind-value="Model.DataNascimento"
+                                                      
+                            type="date" class="cdigo-cnes-1 inter-medium-silver-16px"
+                            placeholder="@Model.GetFieldPlaceholder(nameof(Model.DataNascimento))" />
+                    </div>
+                </div>
+            </div>
+            <div class="este-campo-obrigatrio-3 inter-normal-sonic-silver-10px">
+                <ValidationMessage For="@(() => Model.DataNascimento)" />
+            </div>
+        </div>
+         <div class="cdigo-cnes">
+            <div class="container">
+                <div class="container-box-1">
+                    <div class="container-input-1 border-1px-silver">
+                        <div class="cidade-localidade-1 valign-text-middle inter-medium-sonic-silver-10px">@Model.GetFieldPlaceholder(nameof(Model.Genero))</div>
+                        <SfDropDownList CssClass="inter-normal-silver-16px"
+                                    @bind-Value="Model.Genero"
+                                    name="@nameof(Model.Genero)"
+                                                                        TValue="SES.Professionals.Enumerations.Enum.GeneroEnum" TItem="SES.Professionals.Enumerations.Enum.GeneroEnum"
+                                    placeholder="@Model.GetFieldPlaceholder(x=>x.Genero)"
+                                    DataSource="Enum.GetValues(typeof(SES.Professionals.Enumerations.Enum.GeneroEnum)).Cast<SES.Professionals.Enumerations.Enum.GeneroEnum>()">
+                    </SfDropDownList>
+                    </div>
+                </div>
+            </div>
+            <div class="este-campo-obrigatrio-3 inter-normal-sonic-silver-10px">
+                <ValidationMessage For="@(() => Model.Genero)"></ValidationMessage>
+            </div>
+        </div>
+    </div> 
+    </div>
+</div>
+
+@code {
+    [CascadingParameter] BaseMainStepsLayout<FuncionarioDTO> layout { get; set; }
+
+    protected override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            this.StateHasChanged();
+        }
+        return base.OnAfterRenderAsync(firstRender);
+    }
+}

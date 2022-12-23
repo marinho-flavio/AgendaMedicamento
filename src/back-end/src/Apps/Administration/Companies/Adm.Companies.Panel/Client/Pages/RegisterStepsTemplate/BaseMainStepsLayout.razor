@@ -1,0 +1,69 @@
+﻿@using Companies.Adm.Panel.Client.Pages.Base;
+@using Companies.Adm.Panel.Shared
+@using Companies.Adm.Panel.Shared.Models
+@using Companies.Adm.Panel.Client.Validators
+@using SES.Core.Application.DTO.Aggregates.CommonAgg.Models
+@using SES.Core.Application.DTO.Aggregates.CommonAgg.Validators
+
+@typeparam ModelType where ModelType : EntityDTO, new()
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1920, maximum-scale=1.0" />
+    <link rel="shortcut icon" type=image/png href=https://animaproject.s3.amazonaws.com/home/favicon.png />
+    <link rel="shortcut icon" type="image/png" href="https://animaproject.s3.amazonaws.com/home/favicon.png" />
+</head>
+
+<EditForm class="input-form" EditContext="this.EditContext">
+    <Companies.Adm.Panel.Client.Validators.FluentValidator Validator="this.TValidator" OnValidSubmit="OnSubmitForm" OnInvalidSubmit="OnSubmitFormInvalid" />
+    <div class="container-center-horizontal">
+        <div class="tela-cadastro-primeira-secao screen">
+      
+            <CascadingValue Value="Context">
+                @if (!DisableRightContainer)
+                {
+                    <RightContainer @ref=rightContainer T="ModelType" />
+                }
+                <div class="cadastro-modal">
+                    <StepsHeaderTitleContainer @ref=header ModelType="ModelType" AutoSaveSettings="AutoSaveSettings?.AutoSaveSettings" />
+                    <HeaderButtonActions ModelType="ModelType" />
+                    <div class="box-inputs">
+                        @if (Context?.Model == null)
+                        {
+                            <p>Carregando...</p>
+                        }
+                        else
+                        {
+                            @CurrentFragment
+                        }
+                    </div>
+                    <StepsNextAndBackButtons ModelType="ModelType" />
+                </div>
+            </CascadingValue>
+        </div>
+    </div>
+</EditForm>
+
+@code {
+    public void RefreshHeader(Action callback = null)
+    {
+        this.rightContainer?.RefreshMe();
+        this.header.RefreshMe();
+        if (callback != null) callback();
+    }
+
+    [CascadingParameter] public object layout { get; set; }
+
+    RightContainer<ModelType>? rightContainer { get; set; }
+    StepsHeaderTitleContainer<ModelType>? header { get; set; }
+
+    [Parameter] public EventCallback<ModelType> Callback { get; set; }
+    [Parameter] public EditContext EditContext { get; set; }
+    [Parameter] public RenderFragment CurrentFragment { get; set; }
+    [Parameter] public Func<EditContext, Task> OnSubmitForm { get; set; }
+    [Parameter] public FluentValidation.IValidator TValidator { get; set; }
+    [CascadingParameter] public StepsContext<ModelType> Context { get; set; }
+    [Parameter] public BaseAggregateSettingsDTO AutoSaveSettings { get; set; }
+    [Parameter] public Func<EditContext, Task> OnSubmitFormInvalid { get; set; }
+    [Parameter] public bool DisableRightContainer { get; set; }
+}

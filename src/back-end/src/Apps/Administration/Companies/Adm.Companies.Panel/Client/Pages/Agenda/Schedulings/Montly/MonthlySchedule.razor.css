@@ -1,0 +1,1092 @@
+﻿/* screen - tela-agenda-mes */
+
+
+.container-calendar-list-month {
+    align-items: center;
+    background-color: var(--white);
+    border: 0.05vw none;
+    border-radius: 0.62vw;
+    display: flex;
+    flex-direction: column;
+    gap: 0.42vw;
+    height: 44.27vw;
+    justify-content: center;
+    left: 8.02vw;
+    overflow: hidden;
+    padding: 0.0vw 1.15vw;
+    position: absolute;
+    top: 12vw;
+    width: 72.92vw;
+}
+
+.container-sections {
+    align-items: center;
+    align-self: stretch;
+    border: 0.05vw none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.73vw;
+    height: 41.98vw;
+    justify-content: flex-start;
+}
+
+.container-card-calendar {
+    align-items: flex-start;
+    background-color: var(--white);
+    border: 0.05vw solid;
+    border-color: var(--cultured-pearl);
+    border-radius: 0.42vw;
+    display: flex;
+    flex-direction: column;
+    gap: 0.21vw;
+    height: 6.35vw;
+    padding: 0.42vw;
+    width: 8.12vw;
+}
+
+    .container-card-calendar.current-month .container-title div{
+        color:black;
+    }
+
+.container-card-calendar:hover {
+        background-color: var(--chetwode-blue);
+        cursor: pointer;
+        color:white !important;
+    }
+
+        .container-card-calendar:hover .valign-text-middle {
+            color: white !important;
+        }
+
+
+
+.container-date {
+    align-items: flex-start;
+    align-self: stretch;
+    border: 0.05vw none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1vw;
+    justify-content: center;
+    padding: 0.0vw 0.21vw;
+}
+
+.container-title {
+    align-items: center;
+    border: 0.05vw none;
+    display: flex;
+    gap: 0.42vw;
+    justify-content: center;
+    width: fit-content;
+}
+
+.dia-0 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.number-0 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.dia-1 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.number-1 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.dia-2 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.number-2 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.dia-3 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.number-3 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.dia-4 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.number-4 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.dia-5 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.number-5 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.dia-6 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.number-6 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.dia-7 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.number-7 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.dia-8 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.number-8 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.dia-9 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.number-9 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.frame-755 {
+    align-items: flex-start;
+    align-self: stretch;
+    border: 0.05vw none;
+    display: flex;
+    gap: 4.38vw;
+}
+
+.container-date-1 {
+    align-items: flex-start;
+    border: 0.05vw none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1vw;
+    justify-content: center;
+    padding: 0.0vw 0.21vw;
+    width: fit-content;
+}
+
+.dia-10 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.number-10 {
+    color: var(--silver-22);
+    font-family: var(--font-family-inter);
+    font-size: var(--font-size-m3);
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.container-tag-feriado {
+    align-items: center;
+    align-self: stretch;
+    border: 0.05vw none;
+    border-radius: 0.1vw;
+    display: flex;
+    gap: 0.21vw;
+    padding: 0.0vw 0.21vw;
+    width: fit-content;
+}
+
+.container-title-1 {
+    align-items: center;
+    border: 0.05vw none;
+    display: flex;
+    gap: 0.42vw;
+    height: 0.62vw;
+    justify-content: center;
+    width: fit-content;
+}
+
+.feriado {
+    letter-spacing: 0;
+    line-height: normal;
+    text-align: center;
+    width: fit-content;
+}
+
+.container-ilustration-feriado {
+    align-items: center;
+    align-self: stretch;
+    border: 0.05vw none;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 0.62vw;
+    justify-content: center;
+}
+
+.container-ilustration {
+    align-items: flex-start;
+    border: 0.05vw none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.42vw;
+    width: fit-content;
+}
+
+.illustration-empty-state-no-trip {
+    height: 1.67vw;
+    min-width: 3.54vw;
+}
+
+.container-title-feriado {
+    align-items: center;
+    border: 0.05vw none;
+    display: flex;
+    gap: 0.42vw;
+    padding: 0.0vw 0.21vw;
+    width: fit-content;
+}
+
+.independncia-do-brasil {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.dia-11 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.number-11 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.dia-12 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.number-12 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.dia-13 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.number-13 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.dia-14 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.number-14 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.dia-15 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.number-15 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.dia-16 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.number-16 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.dia-17 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.number-17 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.dia-18 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.number-18 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.dia-19 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.number-19 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.dia-20 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.number-20 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.dia-21 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.number-21 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.dia-22 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.number-22 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.dia-23 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.number-23 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.dia-24 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.number-24 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.container-card-calendar-1 {
+    align-items: flex-start;
+    background-color: var(--fair-pink);
+    border: 0.1vw dashed;
+    border-color: var(--cornflower-lilac);
+    border-radius: 0.42vw;
+    display: flex;
+    flex-direction: column;
+    gap: 0.21vw;
+    height: 6.35vw;
+    padding: 0.42vw;
+    width: 8.12vw;
+}
+
+.dia-25 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.number-25 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.feriado-1 {
+    letter-spacing: 0;
+    line-height: normal;
+    text-align: center;
+    width: fit-content;
+}
+
+.dia-26 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.number-26 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.dia-27 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.number-27 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.dia-28 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.number-28 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.dia-29 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.number-29 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.container-card-calendar-2 {
+    align-items: flex-start;
+    background-color: var(--white);
+    border: 0.05vw solid;
+    border-color: var(--cultured-pearl);
+    border-radius: 0.42vw;
+    display: flex;
+    flex-direction: column;
+    gap: 0.62vw;
+    height: 6.35vw;
+    padding: 0.42vw;
+    width: 8.12vw;
+}
+
+.dia-30 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.number-30 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.container-tag-exames {
+    align-items: center;
+    align-self: stretch;
+    background-color: var(--gallery2);
+    border: 0.05vw none;
+    border-radius: 0.1vw;
+    display: flex;
+    gap: 0.42vw;
+    height: 1.04vw;
+    justify-content: center;
+    padding: 0.21vw;
+}
+
+.number-31 {
+    letter-spacing: 0;
+    line-height: normal;
+    text-align: center;
+    width: fit-content;
+}
+
+.container-title-exames {
+    align-items: center;
+    border: 0.05vw none;
+    display: flex;
+    gap: 0.42vw;
+    height: 0.62vw;
+    width: fit-content;
+}
+
+.exames {
+    letter-spacing: 0;
+    line-height: normal;
+    text-align: center;
+    width: fit-content;
+}
+
+.container-tag-consultas {
+    align-items: center;
+    align-self: stretch;
+    background-color: var(--zumthor);
+    border: 0.05vw none;
+    border-radius: 0.1vw;
+    display: flex;
+    gap: 0.42vw;
+    height: 1.04vw;
+    justify-content: center;
+    padding: 0.21vw;
+}
+
+.number-32 {
+    letter-spacing: 0;
+    line-height: normal;
+    text-align: center;
+    width: fit-content;
+}
+
+.container-title-consultas {
+    align-items: center;
+    border: 0.05vw none;
+    display: flex;
+    gap: 0.42vw;
+    height: 0.62vw;
+    width: 2.08vw;
+}
+
+.consultas {
+    letter-spacing: 0;
+    line-height: normal;
+    text-align: center;
+    width: fit-content;
+}
+
+.dia-31 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.number-33 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.dia-32 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.number-34 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.dia-33 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.number-35 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.dia-34 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.number-36 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.dia-35 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.number-37 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.dia-36 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.number-38 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.dia-37 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.number-39 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.dia-38 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.number-40 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.dia-39 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.number-41 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.dia-40 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.number-42 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.dia-41 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.number-43 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.container-title-list {
+    align-items: center;
+    background-color: var(--white);
+    border: 0.05vw none;
+    border-radius: 0.42vw;
+    display: flex;
+    flex-direction: column;
+    gap: 0.42vw;
+    height: 2.29vw;
+    justify-content: center;
+    left: 8.02vw;
+    padding: 0.0vw 0.83vw;
+    position: absolute;
+    top: 8.5vw;
+    width: 72.92vw;
+}
+
+.container-sections-list {
+    align-items: center;
+    border: 0.05vw none;
+    display: flex;
+    gap: 2.29vw;
+    justify-content: center;
+    width: 70.62vw;
+}
+
+.container-title-2 {
+    border-style: none;
+    height: 1.88vw;
+    min-width: 8.12vw;
+    position: relative;
+}
+
+.dom {
+    height: 0.78vw;
+    left: 3.33vw;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 0.52vw;
+}
+
+.seg {
+    height: 0.78vw;
+    left: 3.44vw;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 0.52vw;
+}
+
+.ter {
+    height: 0.78vw;
+    left: 3.44vw;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 0.52vw;
+}
+
+.container-title-3 {
+    align-items: center;
+    border-style: none;
+    display: flex;
+    gap: 0.42vw;
+    height: 1.88vw;
+    justify-content: center;
+    padding: 0.0vw 0.62vw;
+    width: 8.12vw;
+}
+
+.qua {
+    letter-spacing: 0;
+    line-height: normal;
+    text-align: center;
+    width: fit-content;
+}
+
+.qui {
+    letter-spacing: 0;
+    line-height: normal;
+    text-align: center;
+    width: fit-content;
+}
+
+.sex {
+    letter-spacing: 0;
+    line-height: normal;
+    text-align: center;
+    width: fit-content;
+}
+
+.sb {
+    letter-spacing: 0;
+    line-height: normal;
+    text-align: center;
+    width: fit-content;
+}
+
+
+.screen a {
+    display: contents;
+    text-decoration: none;
+}
+
+.container-center-horizontal {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    pointer-events: none;
+    width: 100%;
+}
+
+    .container-center-horizontal > * {
+        flex-shrink: 0;
+        pointer-events: auto;
+    }
+
+.valign-text-middle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.container-week {
+    align-items: flex-start;
+    align-self: stretch;
+    border: 0.05vw none;
+    display: flex;
+    gap: 2.29vw;
+}

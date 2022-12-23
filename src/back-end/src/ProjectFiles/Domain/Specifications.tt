@@ -1,0 +1,113 @@
+﻿<# if (entities.Any()) { #>
+using <#= GetDefaultNamespace() #>.Core.Domain.Seedwork.Specification;
+using Microsoft.EntityFrameworkCore;
+<# foreach(var namespaces in groupEntities) { #>
+namespace <#= namespaces.Key.Replace("Entities", "Specifications") #> {
+	using Entities;
+<# foreach(var entity in namespaces) { #>
+   public partial class <#= entity.Name #>Specifications {
+<# foreach(var property in GetProperties(entity)) {
+	var name = property.Key.Replace("[]", string.Empty);
+	var path = property.Key;
+switch(property.Value.Type.AsString) {
+	case "string": 
+	case "System.Guid": 
+	case "System.Guid?": 
+if(property.Value.Type.AsString == "string") { #>
+		public static Specification<<#= entity.Name #>> <#= name #>Contains(<#= property.Value.Type.AsString #> value) {
+			return new DirectSpecification<<#= entity.Name #>>(p => EF.Functions.Like(p.<#= path #>.ToLower(), $"%{value.ToLower()}%"));
+		}
+		public static Specification<<#= entity.Name #>> <#= name #>StartsWith(<#= property.Value.Type.AsString #> value) {
+			return new DirectSpecification<<#= entity.Name #>>(p => EF.Functions.Like(p.<#= path #>.ToLower(), $"{value.ToLower()}%"));
+		}
+<#}#>	
+		public static Specification<<#= entity.Name #>> <#= name #>Equal(params <#= property.Value.Type.AsString #>[] values) {
+			return new DirectSpecification<<#= entity.Name #>>(p => values.Contains(p.<#= path #>));
+		}
+		public static Specification<<#= entity.Name #>> <#= name #>NotEqual(<#= property.Value.Type.AsString #> value) {
+			return new DirectSpecification<<#= entity.Name #>>(p => p.<#= path #> != value);
+		}
+		public static Specification<<#= entity.Name #>> <#= name #>IsNull() {
+            return new DirectSpecification<<#= entity.Name #>>(p => p.<#= path #> == null);
+        }
+		public static Specification<<#= entity.Name #>> <#= name #>IsNotNull() {
+            return new DirectSpecification<<#= entity.Name #>>(p => p.<#= path #> != null);
+        }
+	<# break;
+	case "bool": #>
+		public static Specification<<#= entity.Name #>> <#= name #>Equal(<#= property.Value.Type.AsString.Replace("?", string.Empty) #> value) {
+			return new DirectSpecification<<#= entity.Name #>>(p => p.<#= path #> == value);
+		}
+	<# break; 
+	case "double?":
+	case "decimal?": 
+	case "bool?": #>
+		public static Specification<<#= entity.Name #>> <#= name #>Equal(<#= property.Value.Type.AsString.Replace("?", string.Empty) #> value) {
+			return new DirectSpecification<<#= entity.Name #>>(p => p.<#= path #> == value);
+		}
+		public static Specification<<#= entity.Name #>> <#= name #>IsNull() {
+            return new DirectSpecification<<#= entity.Name #>>(p => p.<#= path #> == null);
+        }
+		public static Specification<<#= entity.Name #>> <#= name #>IsNotNull() {
+            return new DirectSpecification<<#= entity.Name #>>(p => p.<#= path #> != null);
+        }
+	<# break; 
+	case "int":
+	case "int?":
+	case "decimal": 
+	case "System.DateOnly":
+	case "SystemSystem.DateOnly?":
+	case "System.DateTime?":
+	case "double":
+	case "System.DateTime": #>
+		public static Specification<<#= entity.Name #>> <#= name #>Equal(params <#= property.Value.Type.AsString.Replace("?", string.Empty) #>[] values) {
+<# if (property.Value.Type.AsString.EndsWith("?") == false) { #>
+			return new DirectSpecification<<#= entity.Name #>>(p => values.Contains(p.<#= path #>));
+<# } else { #>
+			return new DirectSpecification<<#= entity.Name #>>(p => values.Contains(p.<#= path #>.Value));
+<# } #>
+        }
+        public static Specification<<#= entity.Name #>> <#= name #>GreatThanOrEqual(<#= property.Value.Type.AsString.Replace("?", string.Empty) #> value) {
+            return new DirectSpecification<<#= entity.Name #>>(p => p.<#= path #> >= value);
+        }
+        public static Specification<<#= entity.Name #>> <#= name #>LessThanOrEqual(<#= property.Value.Type.AsString.Replace("?", string.Empty) #> value) {
+            return new DirectSpecification<<#= entity.Name #>>(p => p.<#= path #> <= value);
+        }
+        public static Specification<<#= entity.Name #>> <#= name #>NotEqual(<#= property.Value.Type.AsString.Replace("?", string.Empty) #> value) {
+            return new DirectSpecification<<#= entity.Name #>>(p => p.<#= path #> != value);
+        }
+        public static Specification<<#= entity.Name #>> <#= name #>GreatThan(<#= property.Value.Type.AsString.Replace("?", string.Empty) #> value) {
+            return new DirectSpecification<<#= entity.Name #>>(p => p.<#= path #> > value);
+        }
+        public static Specification<<#= entity.Name #>> <#= name #>LessThan(<#= property.Value.Type.AsString.Replace("?", string.Empty) #> value) {
+            return new DirectSpecification<<#= entity.Name #>>(p => p.<#= path #> < value);
+        }
+	<# break; 
+	default: 
+	   if (property.Value.Type.AsString.EndsWith("[]")) continue;
+	   if (property.Value.Type.AsString.StartsWith(GetDefaultNamespace()) == false) continue;
+	   var type = FindType(property.Value.Type.CodeType.FullName.Replace("?", string.Empty)); #>
+<# if (type is CodeEnum) { #>
+		public static Specification<<#= entity.Name #>> <#= name #>Equal(params <#= property.Value.Type.AsString.Replace("?", string.Empty) #>[] values) {
+<# if (property.Value.Type.AsString.EndsWith("?") == false) { #>
+			return new DirectSpecification<<#= entity.Name #>>(p => values.Contains(p.<#= path #>));
+<# } else { #>
+			return new DirectSpecification<<#= entity.Name #>>(p => values.Contains(p.<#= path #>.Value));
+<# } #>
+		}
+		public static Specification<<#= entity.Name #>> <#= name #>NotEqual(<#= property.Value.Type.AsString.Replace("?", string.Empty) #> value) {
+			return new DirectSpecification<<#= entity.Name #>>(p => p.<#= path #> != value);
+		}
+<# } #>
+	<# break; 
+}#>
+<# } #>
+   }
+<# } #>
+}
+<# } #>
+<# } #>
+<# SaveOutputToSubFolder(
+    folderName: $"T4", 
+    outputFileName: @$"{AggName}.Specifications.cs",
+    recreateFileIfExists: true); #>

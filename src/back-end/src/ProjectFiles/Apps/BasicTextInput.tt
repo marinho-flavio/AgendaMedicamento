@@ -1,0 +1,12 @@
+        <div class="input-secondary-item">
+            <div class="container-input border-1px-silver">
+                                        <div class="cep-1 valign-text-middle inter-medium-sonic-silver-10px">@Model.GetFieldPlaceholder(Model.GetPropertyInfo(x=>x.<#=myName#>))</div>
+                <input @bind-value="Model.<#=myName#>"
+                <#if(isTitle) {#>   @oninput="(x)=>{layout?.RefreshHeader(()=>{ Model.<#=myName#> = (<#=myType#>)x.Value; });}" <#}#>
+                    class="razo-social valign-text-middle inter-medium-silver-16px"
+                    placeholder="@Model.GetFieldPlaceholder(nameof(Model.<#=myName#>))" />
+            </div>
+            <div class="este-campo-obrigatrio-1 valign-text-middle inter-normal-sonic-silver-10px">
+                <ValidationMessage For="@(() => Model.<#=myName#>)"></ValidationMessage>
+            </div>
+        </div>

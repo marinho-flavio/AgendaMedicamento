@@ -1,0 +1,22 @@
+@page "/ProfissionalConfiguracao/cadastro"
+@page "/ProfissionalConfiguracao/cadastro/{id}"
+
+@using Companies.Adm.Panel.Client.Pages.Base
+@using Companies.Adm.Panel.Client.Pages.DefaultDesign
+@using Companies.Adm.Panel.Client.Pages.RegisterStepsTemplate
+@using SES.Professionals.Application.DTO.Aggregates.ProfessionalsAgg.Requests
+@using SES.Professionals.Application.DTO.Aggregates.ProfessionalsAgg.Validators
+
+@layout MainLayout
+@inherits BaseStepsFormComponent<ProfissionalConfiguracaoDTO, ProfessionalsAggSettingsDTO, BaseProfessionalsAggValidator<ProfissionalConfiguracaoDTO>>
+
+<CascadingValue Value="this.Context">
+    <CascadingValue Value="this.Context?.layout">
+        <BaseMainStepsLayout @ref="layout" ModelType="ProfissionalConfiguracaoDTO" AutoSaveSettings="AutoSaveSettings"
+                             CurrentFragment="this.CurrentFragment"
+                             EditContext="this.EditContext"
+                             OnSubmitForm="this.OnSubmitForm"
+                             OnSubmitFormInvalid="this.OnSubmitFormInvalid"
+                             TValidator="this.TValidator" />
+    </CascadingValue>
+</CascadingValue>

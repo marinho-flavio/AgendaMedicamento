@@ -1,0 +1,24 @@
+<#@ include file="..\project.tt" #>
+<#
+	var AggName = GetMyAggName();
+	var entitiesT4 = GetEntities("Domain", withAttribute: "EndpointsT4", withEndpoint: "HttpPost").Where(x=>x.Name=="Profissional"); 
+
+foreach (var entity in entitiesT4) { 
+	var aggName = entity.FullName.Split('.').FirstOrDefault(x=>x.EndsWith("Agg")).Replace("Agg","");
+	var attrs = GetAttributesDict(entity);
+	var isStep = attrs.ContainsKey("Steppable");
+	var props = GetRecursiveProperties(entity, includeBase:true, includeParent: true);
+	var parameterType = props.FirstOrDefault(x=> GetAttributesDict(x.Value).ContainsKey("ParameterType"));
+    var hasParameter = parameterType.Key != null;
+
+	if(isStep) {
+		var stepsCount = int.Parse(attrs["Steppable"].FirstOrDefault().Value ?? "1");
+		for(int currentStep=1;currentStep<=stepsCount;currentStep++) { #>
+<#@ include file="FormTemplatesSwitcher.tt" #>
+		<#}#>
+	<#}#>
+<#@ include file="ClientListiningPages.tt" #>
+<#@ include file="ClientRegisterPages.tt" #>
+<# } #>
+<#+
+#>

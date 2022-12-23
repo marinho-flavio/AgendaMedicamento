@@ -1,0 +1,16 @@
+			@using SES.Companies.Application.DTO.Aggregates.SchedulingsAgg.Requests;
+
+@inherits Companies.Adm.Panel.Client.Pages.DefaultDesign.BaseListiningPage
+
+@page "/Feriado"
+
+<Companies.Adm.Panel.Client.Pages.DefaultDesign.DefaultListining Page="this.Page"
+                                                                 Size="this.Size"
+                                                                 Title="Feriado"
+                                                                 T="FeriadoListiningDTO" 
+                                                                 AdditionalQueryString=@Query/>
+@page "/Feriado/{Tipo}"
+@code {
+    [Parameter] public string Tipo { get; set; }
+    string Query => $"TipoEqual={Tipo}";
+}

@@ -1,0 +1,75 @@
+﻿@page
+@model LoginModel
+
+<head>
+    <link href="~/css/login.css" rel="stylesheet" />
+</head>
+
+<div class="container-center-horizontal">
+    <div class="tela-login screen">
+        <form id="account" method="post" class="container-login">
+            <div class="img-logo"></div>
+            <div class="frame-24">
+                <div class="usurio">
+                    <div class="container-input-info">
+                        <div class="container-input">
+                            <input required asp-for="Input.Email" placeholder="Digite seu CPF" class="usurio-1 inter-normal-silver-14px" autocomplete="username" aria-required="true" />
+                        </div>
+                        <img onclick='$(".three-dots-list-card").toggle()' class="icon"
+                             src="https://anima-uploads.s3.amazonaws.com/projects/63486f9b8ee4feae84ab3e5a/releases/63507ae5b48cd02e03f4097b/img/fluent-info-12-filled@2x.svg"
+                             alt="icon-information" />
+                    </div>
+                </div>
+                @Html.ValidationSummary()
+                <SfSwitch OnLabel="Ativo" OffLabel="Inativo"></SfSwitch>
+                <div class="senha">
+                    <div class="container-input">
+                        <input type="password" required asp-for="Input.Password" placeholder="Digite sua Senha" class="senha-1 inter-normal-silver-14px" autocomplete="username" aria-required="true" />
+                    </div>
+                    <div class="esqueci-minha-senha valign-text-middle">
+                        <a href="@(Url.Content("~/identity/account/forgotpassword"))">
+                            Esqueci minha senha
+                        </a>
+                    </div>
+                </div>
+                <div class="container-manter-conectado">
+                    <div class="container-text-manter-conectado">
+                        <input type="checkbox" asp-for="Input.RememberMe" />
+                        <div class="manter-conectado valign-text-middle inter-medium-black-12px">Manter conectado</div>
+                    </div>
+
+                    @*<div class="switch-active">
+                    <div class="circle"></div>
+                    </div>*@
+                </div>
+            </div>
+            <div class="frame-25">
+                <div class="frame-2">
+                    <input type="checkbox" />
+
+                    <div class="frame-2">
+                        <p class="eu-concordo-com-os-t valign-text-middle inter-medium-black-12px">
+                            Eu concordo com os Termos de Uso <br />e Privacidade
+                        </p>
+                    </div>
+                </div>
+                <button type="submit" class="novo-cadastro"><div class="prximo inter-semi-bold-white-14px">Entrar</div></button>
+                @* <div class="novo-cadastro-1"><div class="prximo-1">Entrar com Assinatura Digital</div></div>*@
+            </div>
+        </form>
+        <div class="three-dots-list-card">
+            <div class="container-three-dots">
+                <div class="container-observation">
+                    <p class="verifique-o-e-mail-i">
+                        Verifique o e-mail informado para cadastro. Caso não tenha essa informação, entre em contato com o
+                        suporte.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

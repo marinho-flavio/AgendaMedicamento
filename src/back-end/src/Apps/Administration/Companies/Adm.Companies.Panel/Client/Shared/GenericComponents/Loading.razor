@@ -1,0 +1,10 @@
+﻿<p>
+    <em>
+        @(Message ?? "Loading...")
+    </em>
+</p>
+
+@code {
+    [Parameter]
+    public string Message { get; set; }
+}

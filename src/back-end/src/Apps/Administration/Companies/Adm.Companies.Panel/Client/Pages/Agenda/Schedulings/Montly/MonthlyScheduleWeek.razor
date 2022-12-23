@@ -1,0 +1,12 @@
+﻿<div class="container-week">
+    @for (int i = Week * 7; i < (Week + 1) * 7; i++)
+    {
+        <MonthlyScheduleDay i="i"  Context="this.Context"/>
+    }
+</div>
+
+@code {
+    [Parameter] public IMonthlyScheduleContext Context { get; set; }
+
+    [Parameter] public int Week { get; set; }
+}

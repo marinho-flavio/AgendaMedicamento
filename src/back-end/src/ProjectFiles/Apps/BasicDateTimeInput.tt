@@ -1,0 +1,19 @@
+        <div class="cdigo-cnes">
+            <div class="container">
+                <div class="container-box-1">
+                    <div class="container-input-1 border-1px-silver">
+                                                <div class="cep-1 valign-text-middle inter-medium-sonic-silver-10px">@Model.GetFieldPlaceholder(Model.GetPropertyInfo(x=>x.<#=myName#>))</div>
+                        <input @bind-value="Model.<#=myName#>"
+                           <#if(isTitle) {#>   @oninput="(x)=>{layout?.RefreshHeader(()=>{ 
+                                Model.<#=myName#> = DateOnly.TryParse(x.Value.ToString(), out var val) ? val : DateOnly.MinValue;; });}" 
+                           <#}#>
+                           
+                            type="date" class="cdigo-cnes-1 inter-medium-silver-16px"
+                            placeholder="@Model.GetFieldPlaceholder(nameof(Model.<#=myName#>))" />
+                    </div>
+                </div>
+            </div>
+            <div class="este-campo-obrigatrio-3 inter-normal-sonic-silver-10px">
+                <ValidationMessage For="@(() => Model.<#=myName#>)" />
+            </div>
+        </div>

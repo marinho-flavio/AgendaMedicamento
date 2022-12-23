@@ -1,0 +1,145 @@
+﻿/* screen - 21_9674 */
+
+.container-filters {
+    align-items: flex-start;
+    border: 0.12vw none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.49vw;
+    width: fit-content;
+    position: absolute;
+    left: 68.64vw;
+    background-color:white;
+    padding:1vw 3vw;
+    padding-left:1vw;
+}
+
+.frame-71 {
+    align-items: flex-start;
+    border: 0.12vw none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5vw;
+    width: fit-content;
+}
+
+.frame-654 {
+    align-items: center;
+    align-self: stretch;
+    border-bottom-style: solid;
+    border-bottom-width: 0.12vw;
+    border-color: transparent;
+    display: flex;
+    gap: 1.0vw;
+    padding: 0.5vw 0.0vw;
+}
+
+.instituies {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.12vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.frame-716 {
+    align-items: flex-start;
+    border: 0.12vw none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.0vw;
+    width: fit-content;
+}
+
+.frame-373 {
+    align-items: center;
+    border-style: none;
+    display: flex;
+    gap: 1.0vw;
+    width: fit-content;
+}
+
+.rectangle-12 {
+    background-color: var(--chetwode-blue);
+    border: 0.12vw none;
+    border-radius: 12.45vw;
+    height: 0.75vw;
+    min-width: 0.75vw;
+}
+
+.frame-654-1 {
+    align-items: center;
+    border-bottom-style: solid;
+    border-bottom-width: 0.12vw;
+    border-color: transparent;
+    display: flex;
+    flex: 1;
+    gap: 1.0vw;
+    padding: 0.5vw 0.0vw;
+}
+
+.grupo-empresa {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.12vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.frame-70 {
+    align-items: center;
+    border-color: transparent;
+    border-right-style: solid;
+    border-right-width: 0.12vw;
+    display: flex;
+    gap: 1.0vw;
+    width: fit-content;
+}
+
+.rectangle-12-1 {
+    background-color: var(--alto);
+    border: 0.12vw none;
+    border-radius: 12.45vw;
+    height: 0.75vw;
+    min-width: 0.75vw;
+}
+
+.empresa {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.12vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.place {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.12vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.status {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.12vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.ativos {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.12vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.inativos {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.12vw;
+    text-align: center;
+    width: fit-content;
+}

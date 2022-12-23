@@ -1,0 +1,20 @@
+@using SES.<#=myName#>.Application.DTO.Aggregates.<#= aggName #>Agg.Requests;
+
+@inherits <#=myName#>.Adm.Panel.Client.Pages.DefaultDesign.BaseListiningPage
+
+@page "/<#= entity.Name #>"
+
+<<#=myName#>.Adm.Panel.Client.Pages.DefaultDesign.DefaultListining Page="this.Page"
+                                                                 Size="this.Size"
+                                                                 Title="<#=entity.Name#>"
+                                                                 T="<#= entity.Name #>ListiningDTO" 
+                                                                 AdditionalQueryString=<#= hasParameter ? $"@Query" :"\"\"" #>/>
+<# if(hasParameter) { #>
+@page "/<#= entity.Name #><#=hasParameter ? $@"/{'{'+parameterType.Key+'}'}" : ""#>"
+@code {
+    [Parameter] public string <#=parameterType.Key#> { get; set; }
+    string Query => $"<#= hasParameter ? $"{parameterType.Key}Equal={'{'+parameterType.Key+'}'}" :"" #>";
+}
+<#}#>
+<# SaveOutputToSubFolder($"{aggName}Agg/{entity.Name}", @$"{entity.Name}Index.razor", true); #>
+<# SaveOutputToSubFolder($"{aggName}Agg/{entity.Name}", @$"{entity.Name}Index.razor.css", false); #>

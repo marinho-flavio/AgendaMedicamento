@@ -1,0 +1,1007 @@
+/* screen - submenu-container */
+
+.sidebar {
+    height: 100%;
+    position: fixed;
+    z-index: 100;
+}
+
+.submenu-container {
+    align-items: flex-start;
+    border: 1px none;
+    display: flex;
+}
+
+    .submenu-container .overlap-group {
+        position: relative;
+        height: 100%;
+    }
+
+    .submenu-container .submenu-administrativo {
+        align-items: center;
+        background-color: var(--white);
+        border: 1px none;
+        display: flex;
+        flex-direction: column;
+        left: 89px;
+        padding: 16px;
+        position: absolute;
+        width: 260px;
+        height: 100%;
+        z-index: 90;
+        height: 100%;
+        top: 60px;
+        bottom: 0;
+    }
+
+        .submenu-container .submenu-administrativo.active {
+            margin-left: 300px;
+        }
+
+    .submenu-container .container-submenu {
+        align-items: center;
+        border: 1px none;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        gap: 92px;
+        width: fit-content;
+    }
+
+    .submenu-container .container-box {
+        align-items: center;
+        border: 1px none;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        justify-content: center;
+        width: fit-content;
+    }
+
+    .submenu-container .container-contents {
+        align-items: center;
+        background-color: var(--white);
+        border: 1px none;
+        border-radius: 8px;
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+        padding: 12px 0px;
+        width: fit-content;
+    }
+
+    .submenu-container .container-sections {
+        align-items: flex-start;
+        border: 1px none;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        justify-content: center;
+        width: 214px;
+    }
+
+    .submenu-container .intituicoes-dropdown-open {
+        align-items: flex-start;
+        align-self: stretch;
+        background-color: var(--white);
+        border: 1px none;
+        border-radius: 8px;
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+        padding: 5px 12px;
+    }
+
+    .submenu-container .container-2,
+    .submenu-container .container-dropdown {
+        padding: 5px;
+        border-radius: 4px;
+    }
+
+    .submenu-container .intituicoes-dropdown-open:hover {
+        opacity: .6;
+        border-left: 3px solid var(--chetwode-blue);
+    }
+
+
+    .submenu-container .container-dropdown:hover,
+    .submenu-container .intituicoes-dropdown-open.active {
+        cursor: pointer;
+    }
+
+
+        .submenu-container .intituicoes-dropdown-open.active {
+            border-left: 3px solid var(--chetwode-blue);
+        }
+
+        .submenu-container .container-2:hover,
+        .submenu-container .container-dropdown.active:hover {
+            background-color: white;
+            cursor: pointer;
+        }
+
+
+    .submenu-container .line {
+        align-self: stretch;
+        height: 116px;
+        margin-bottom: -1.00px;
+        margin-left: -1.00px;
+        margin-top: -1.00px;
+        min-width: 2px;
+    }
+
+    .submenu-container .container {
+        align-items: flex-start;
+        border: 1px none;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        width: fit-content;
+    }
+
+    .submenu-container .container-dropdown {
+        align-items: center;
+        border-color: transparent;
+        border-right-style: solid;
+        border-right-width: 1px;
+        display: flex;
+        gap: 4px;
+        height: 20px;
+        padding: 20px 8px;
+        width: 182px;
+    }
+
+    .submenu-container .container-1 {
+        align-items: center;
+        align-self: stretch;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+        border-color: transparent;
+        display: flex;
+        gap: 8px;
+        width: 149px;
+    }
+
+    .submenu-container .instituies {
+        letter-spacing: 0;
+        width: fit-content;
+    }
+
+    .submenu-container .eparrow-right-bold {
+        height: 19px;
+        margin-right: -7.00px;
+        min-width: 20px;
+    }
+
+    .submenu-container .container-2 {
+        align-items: flex-start;
+        align-self: stretch;
+        border: 1px none;
+        border-radius: 2px;
+        display: flex;
+        gap: 4px;
+        padding: 5px;
+        padding-left: 15px;
+    }
+
+    .submenu-container .container-text-default {
+        align-items: center;
+        align-self: stretch;
+        border: 1px none;
+        display: flex;
+        gap: 8px;
+        justify-content: left;
+        width: 80%;
+    }
+
+    .submenu-container .grupo-empresa {
+        flex: 1;
+        letter-spacing: 0;
+        margin-top: -1.00px;
+    }
+
+    .submenu-container .container-empresa-clicked {
+        align-items: flex-start;
+        align-self: stretch;
+        background-color: #eeecff;
+        border: 1px none;
+        border-radius: 2px;
+        display: flex;
+        gap: 4px;
+        padding: 4px 8px;
+    }
+
+    .submenu-container .container-box-1 {
+        align-items: center;
+        border: 1px none;
+        border-radius: 4px;
+        display: flex;
+        gap: 4px;
+        overflow: hidden;
+        width: 134px;
+    }
+
+    .submenu-container .empresa {
+        letter-spacing: 0;
+        text-align: center;
+        width: fit-content;
+    }
+
+    .submenu-container .container-number {
+        align-items: center;
+        background-color: #dcd9fc;
+        border: 2px none;
+        border-radius: 12px;
+        display: flex;
+        gap: 12px;
+        height: 16px;
+        justify-content: center;
+        width: 28px;
+    }
+
+    .submenu-container .number {
+        color: var(--chetwode-blue);
+        font-family: var(--font-family-inter);
+        font-size: var(--font-size-s2);
+        font-weight: 700;
+        letter-spacing: 0;
+        text-align: center;
+        width: fit-content;
+    }
+
+    .submenu-container .place {
+        flex: 1;
+        letter-spacing: 0;
+        margin-top: -1.00px;
+    }
+
+    .submenu-container .x-dropdown {
+        align-items: flex-start;
+        align-self: stretch;
+        background-color: var(--white);
+        border: 1px none;
+        border-radius: 8px;
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+        padding: 0px 12px 0px 20px;
+    }
+
+    .submenu-container .colaboradores {
+        letter-spacing: 0;
+        width: fit-content;
+    }
+
+    .submenu-container .convnios {
+        letter-spacing: 0;
+        width: fit-content;
+    }
+
+    .submenu-container .usuario-e-perfis {
+        align-items: center;
+        align-self: stretch;
+        background-color: var(--white);
+        border: 1px none;
+        border-radius: 8px;
+        display: flex;
+        gap: 8px;
+        height: 17px;
+        padding: 0px 12px 0px 20px;
+    }
+
+    .submenu-container .container-text-user-profile {
+        align-items: center;
+        align-self: stretch;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+        border-color: transparent;
+        display: flex;
+        gap: 8px;
+        padding: 0px 8px;
+        width: 149px;
+    }
+
+    .submenu-container .usurios-e-perfis {
+        flex: 1;
+        letter-spacing: 0;
+        margin-top: -1.00px;
+    }
+
+    .submenu-container .side-bar-open {
+        align-items: center;
+        background-color: var(--chetwode-blue);
+        border: 1px none;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: center;
+        left: 0;
+        padding: 32px 16px;
+        position: absolute;
+        top: 0;
+        width: fit-content;
+        height: 100%;
+    }
+
+    .submenu-container .logo-area {
+        background-color: var(--alabaster);
+        border: 1px none;
+        border-radius: 4px;
+        height: 56px;
+        min-width: 56px;
+    }
+
+    .submenu-container .container-options {
+        margin-right: -17.00px;
+        min-width: 73px;
+        height: 100%;
+    }
+
+    .submenu-container .acesso-rpido-card {
+        align-items: center;
+        background-color: var(--white);
+        border: 1px solid;
+        border-color: transparent;
+        border-radius: 8px;
+        box-shadow: 0px 4px 12px #0000001a;
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+        left: 55px;
+        padding: 12px;
+        position: absolute;
+        bottom: 50px;
+        height: fit-content;
+        width: fit-content;
+        z-index: 300;
+    }
+
+    .submenu-container .container-acesso-rapido {
+        align-items: flex-start;
+        border: 1px none;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        width: fit-content;
+    }
+
+    .submenu-container .container-cadastro-instituicoes-open {
+        align-items: flex-start;
+        border: 1px none;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        width: fit-content;
+    }
+
+    .submenu-container .container-title {
+        align-items: center;
+        align-self: stretch;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+        border-color: transparent;
+        display: flex;
+        gap: 8px;
+        padding: 4px 0px;
+    }
+
+    .submenu-container .cadastro-de-instituies {
+        color: var(--black);
+        font-family: var(--font-family-inter);
+        font-size: var(--font-size-s2);
+        font-weight: 400;
+        letter-spacing: 0;
+        width: 169px;
+    }
+
+    .submenu-container .arrow {
+        height: 12px;
+        min-width: 12px;
+    }
+
+    .submenu-container .frame-716 {
+        align-items: flex-start;
+        border: 1px none;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        width: fit-content;
+    }
+
+    .submenu-container .frame-373 {
+        align-items: center;
+        border-style: none;
+        display: flex;
+        gap: 8px;
+        width: 190px;
+    }
+
+    .submenu-container .frame-654 {
+        align-items: center;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+        border-color: transparent;
+        display: flex;
+        flex: 1;
+        gap: 8px;
+        padding: 4px 0px;
+    }
+
+    .submenu-container .grupo-empresa-1 {
+        letter-spacing: 0;
+        margin-top: -1.00px;
+        text-align: center;
+        width: fit-content;
+    }
+
+    .submenu-container .frame-702 {
+        align-items: center;
+        border-style: none;
+        display: flex;
+        gap: 8px;
+        width: 190px;
+    }
+
+    .submenu-container .frame-654-1 {
+        align-items: center;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+        border-color: transparent;
+        display: flex;
+        flex: 1;
+        gap: 8px;
+        padding: 4px 0px;
+    }
+
+    .submenu-container .empresa-1 {
+        letter-spacing: 0;
+        margin-top: -1.00px;
+        text-align: center;
+        width: fit-content;
+    }
+
+    .submenu-container .frame-703 {
+        align-items: center;
+        border-style: none;
+        display: flex;
+        gap: 8px;
+        width: 190px;
+    }
+
+    .submenu-container .frame-654-2 {
+        align-items: center;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+        border-color: transparent;
+        display: flex;
+        flex: 1;
+        gap: 8px;
+        padding: 4px 0px;
+    }
+
+    .submenu-container .place-1 {
+        letter-spacing: 0;
+        margin-top: -1.00px;
+        text-align: center;
+        width: fit-content;
+    }
+
+    .submenu-container .line-separated {
+        height: 1px;
+        margin-left: -0.50px;
+        margin-right: -0.50px;
+        min-width: 191px;
+    }
+
+    .submenu-container .container-mais-usados {
+        align-items: flex-start;
+        border: 1px none;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        width: fit-content;
+    }
+
+    .submenu-container .option-cadastro-colaboradores-default {
+        align-items: center;
+        border-style: none;
+        display: flex;
+        gap: 8px;
+        width: 190px;
+    }
+
+    .submenu-container .container-title-acesso-colab {
+        align-items: center;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+        border-color: transparent;
+        display: flex;
+        flex: 1;
+        gap: 8px;
+        padding: 4px 0px;
+    }
+
+    .submenu-container .cadastros-de-colaboradores {
+        letter-spacing: 0;
+        margin-top: -1.00px;
+        text-align: center;
+        width: fit-content;
+    }
+
+    .submenu-container .option-cadastro-convenios-default {
+        align-items: center;
+        border-style: none;
+        display: flex;
+        gap: 8px;
+        width: 190px;
+    }
+
+    .submenu-container .container-title-acesso-conv {
+        align-items: center;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+        border-color: transparent;
+        display: flex;
+        flex: 1;
+        gap: 8px;
+        padding: 4px 0px;
+    }
+
+    .submenu-container .cadastros-de-convnios {
+        letter-spacing: 0;
+        margin-top: -1.00px;
+        text-align: center;
+        width: fit-content;
+    }
+
+    .submenu-container .option-cadastro-usuarios-perfis {
+        align-items: center;
+        border-style: none;
+        display: flex;
+        gap: 8px;
+        width: 190px;
+    }
+
+    .submenu-container .frame-654-3 {
+        align-items: center;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+        border-color: transparent;
+        display: flex;
+        flex: 1;
+        gap: 8px;
+        padding: 4px 0px;
+    }
+
+    .submenu-container .usurios-e-perfis-1 {
+        letter-spacing: 0;
+        margin-top: -1.00px;
+        text-align: center;
+        width: fit-content;
+    }
+
+    .submenu-container .container-acesso-rapido-1 {
+        align-items: flex-start;
+        border: 1px none;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        width: fit-content;
+    }
+
+    .submenu-container .acesso-rpido {
+        color: var(--chetwode-blue);
+        font-family: var(--font-family-inter);
+        font-size: var(--font-size-s2);
+        font-weight: 400;
+        letter-spacing: 0;
+        margin-top: -1.00px;
+        text-align: center;
+        width: fit-content;
+    }
+
+    .submenu-container .option-cadastro-instituicoes-clicked {
+        align-items: center;
+        border-style: none;
+        display: flex;
+        gap: 8px;
+        width: 190px;
+    }
+
+    .submenu-container .container-title-acesso-inst {
+        align-items: center;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+        border-color: transparent;
+        display: flex;
+        flex: 1;
+        gap: 8px;
+        padding: 4px 0px;
+    }
+
+    .submenu-container .cadastros-de-instituies {
+        letter-spacing: 0;
+        margin-top: -1.00px;
+        text-align: center;
+        width: fit-content;
+    }
+
+    .submenu-container .option-cadastro-colaboradores-default-1 {
+        align-items: center;
+        border-style: none;
+        display: flex;
+        gap: 8px;
+        width: 190px;
+    }
+
+    .submenu-container .container-title-acesso-colab-1 {
+        align-items: center;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+        border-color: transparent;
+        display: flex;
+        flex: 1;
+        gap: 8px;
+        padding: 4px 0px;
+    }
+
+    .submenu-container .cadastros-de-colaboradores-1 {
+        letter-spacing: 0;
+        margin-top: -1.00px;
+        text-align: center;
+        width: fit-content;
+    }
+
+    .submenu-container .option-cadastro-convenios-default-1 {
+        align-items: center;
+        border-style: none;
+        display: flex;
+        gap: 8px;
+        width: 190px;
+    }
+
+    .submenu-container .container-title-acesso-conv-1 {
+        align-items: center;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+        border-color: transparent;
+        display: flex;
+        flex: 1;
+        gap: 8px;
+        padding: 4px 0px;
+    }
+
+    .submenu-container .cadastros-de-convnios-1 {
+        letter-spacing: 0;
+        margin-top: -1.00px;
+        text-align: center;
+        width: fit-content;
+    }
+
+    .submenu-container .option-cadastro-usuarios-perfis-1 {
+        align-items: center;
+        border-style: none;
+        display: flex;
+        gap: 8px;
+        width: 190px;
+    }
+
+    .submenu-container .frame-654-4 {
+        align-items: center;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+        border-color: transparent;
+        display: flex;
+        flex: 1;
+        gap: 8px;
+        padding: 4px 0px;
+    }
+
+    .submenu-container .usurios-e-perfis-2 {
+        letter-spacing: 0;
+        margin-top: -1.00px;
+        text-align: center;
+        width: fit-content;
+    }
+
+:root {
+    --alabaster: #fbfbfb;
+    --black: #000000;
+    --chetwode-blue: #8c81f7;
+    --dove-gray: #6d6d6d;
+    --white: #ffffff;
+    --font-size-m2: 12px;
+    --font-size-s2: 8px;
+    --font-size-xl2: 14px;
+    --font-family-inter: "Inter", Helvetica;
+}
+
+.inter-medium-black-12px {
+    color: var(--black);
+    font-family: var(--font-family-inter);
+    font-size: var(--font-size-m2);
+    font-style: normal;
+    font-weight: 500;
+}
+
+.inter-medium-black-14px {
+    color: var(--black);
+    font-family: var(--font-family-inter);
+    font-size: var(--font-size-xl2);
+    font-style: normal;
+    font-weight: 500;
+}
+
+.inter-medium-chetwode-blue-12px {
+    color: var(--chetwode-blue);
+    font-family: var(--font-family-inter);
+    font-size: var(--font-size-m2);
+    font-style: normal;
+    font-weight: 500;
+}
+
+.inter-semi-bold-dove-gray-12px {
+    color: var(--dove-gray);
+    font-family: var(--font-family-inter);
+    font-size: var(--font-size-m2);
+    font-style: normal;
+    font-weight: 600;
+}
+
+.inter-semi-bold-chetwode-blue-12px {
+    color: var(--chetwode-blue);
+    font-family: var(--font-family-inter);
+    font-size: var(--font-size-m2);
+    font-style: normal;
+    font-weight: 600;
+}
+
+.screen a {
+    display: contents;
+    text-decoration: none;
+}
+
+.container-center-horizontal {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+}
+
+    .container-center-horizontal > * {
+        flex-shrink: 0;
+        pointer-events: auto;
+    }
+
+.valign-text-middle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.side-bar {
+    display: fixed;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 16px;
+    gap: 20px;
+    position: relative;
+    width: 88px;
+    background: white;
+    height: 100%;
+}
+
+    .side-bar .selected-stroke {
+        display: none;
+    }
+
+
+
+    .side-bar.active {
+        background-color: var(--chetwode-blue);
+    }
+
+        .side-bar.active .administrativo.active .selected-stroke {
+            display: inline-block;
+            width: 40px;
+            height: 50px;
+            margin-right: -25px;
+        }
+
+
+
+        .side-bar.active .administrativo:not(.active) {
+            background-color: var(--chetwode-blue);
+        }
+
+        .side-bar.active .administrativo:not(.active) {
+            background-color: var(--chetwode-blue);
+        }
+
+            .side-bar.active .administrativo:not(.active) img {
+                filter: invert(95%) sepia(61%) saturate(5010%) hue-rotate(180deg) brightness(104%) contrast(108%);
+            }
+
+.logo-area {
+    /* Aqui vai ficar a futura logo da SES */
+
+    width: 56px;
+    height: 56px;
+    background: #E5E5E5;
+    border-radius: 4px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+
+.container-options {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    width: 56px;
+    order: 1;
+    flex-grow: 0;
+}
+
+.container-icons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: 36px;
+    width: 56px;
+    flex: none;
+    order: 0;
+    height: 100%;
+    flex-grow: 0;
+    padding-top: 7vw;
+}
+
+.administrativo {
+    /* Aqui é onde você clique e entra no Painel Administrativo, onde estarão os cadastros e suas listas */
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    width: 56px;
+    height: 56px;
+    background: #FFFFFF;
+    border-radius: 100px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+    .administrativo:hover {
+        border: 2.5px solid #8C81F7;
+    }
+
+    .side-bar.active .administrativo:hover,
+    .administrativo.active {
+        border: 2.5px solid white;
+    }
+
+        .administrativo.active .financeiro-painel {
+            margin-left: 10px;
+        }
+
+
+.agendamento {
+    /* Aqui é onde você clica e entra no Painel do Agendamento, onde estarão as agendas dos profissionais e o calendário */
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 1px;
+    gap: 8px;
+    width: 56px;
+    height: 56px;
+    background: #FFFFFF;
+    border-radius: 100px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.atendimento {
+    /* Aqui é onde você clica e entra no Painel do Atendimento, onde estarão as necessidades do atendimento do profissional */
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 8px;
+    width: 56px;
+    height: 56px;
+    background: #FFFFFF;
+    border-radius: 100px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.estoque {
+    /* Aqui é onde você clica e entra no Painel do Estoque */
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 8px;
+    width: 56px;
+    height: 56px;
+    background: #FFFFFF;
+    border-radius: 100px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.faturamento {
+    /* Aqui é onde você clica e entra no Painel do Faturamento */
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 8px;
+    width: 56px;
+    height: 56px;
+    background: #FFFFFF;
+    border-radius: 100px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.financeiro {
+    /* Aqui é onde você clica e entra no Painel Administrativo, onde estarão os cadastros e suas listas */
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 8px;
+    width: 56px;
+    height: 56px;
+    background: #FFFFFF;
+    border-radius: 100px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+button {
+    justify-content: center;
+    align-items: center;
+    padding: 18px;
+    border-style: none;
+    width: fit-content;
+    height: fit-content;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 100px;
+    /* Inside auto layout */
+    order: 1;
+    flex-grow: 0;
+    position: absolute;
+    bottom: 2vw;
+}
+
+

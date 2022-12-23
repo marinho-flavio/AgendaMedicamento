@@ -1,0 +1,91 @@
+﻿@using static Companies.Adm.Panel.Client.Shared.Menu.NavMenu
+
+<div class="submenu-administrativo">
+    <div class="container-submenu">
+        <div class="container-box">
+            <div class="container-contents">
+                <div class="container-sections">
+                    @if (this.SelectedItem != null)
+                    {
+                        @foreach (var item in this.SelectedItem?.SubMenu)
+                        {
+                            <div class="intituicoes-dropdown-open @(item.IsClicked ? "active" : "")" @onclick="()=>{ OnsubMenuClicked(item); }">
+
+                                <div class="container">
+                                    <div class="container-dropdown @(item.IsClicked ? "active" : "")">
+                                        <div class="container-1">
+                                            @if (!string.IsNullOrEmpty(item.Icon))
+                                            {
+                                                <img src="/imgs/menus/submenu/@(item.Icon).svg">
+                                            }
+                                            <div class="instituies inter-medium-black-14px">@item.Description</div>
+                                        </div>
+                                        @if (item.SubMenu.Any())
+                                        {
+                                            if (item.IsClicked)
+                                            {
+                                                <img class="eparrow-right-bold" src="https://anima-uploads.s3.amazonaws.com/projects/63486f9b8ee4feae84ab3e5a/releases/6348a3ac47ad68baec98b785/img/ep-arrow-right-bold-3@2x.svg" alt="ep:arrow-right-bold" />
+                                            }
+                                            else
+                                            {
+                                                <img class="eparrow-right-bold" src="https://anima-uploads.s3.amazonaws.com/projects/63486f9b8ee4feae84ab3e5a/releases/6348a3ac47ad68baec98b785/img/ep-arrow-right-bold-4@2x.svg" alt="ep:arrow-right-bold" />
+                                            }
+                                        }
+                                    </div>
+                                    @if (item.IsClicked && item.SubMenu?.Any() == true)
+                                    {
+                                        @foreach (var subItem in item.SubMenu)
+                                        {
+                                            <a @onclick="CloseMenu" href="@subItem.Url" class="container-2">
+                                                <div class="container-text-default">
+                                                    <div class="grupo-empresa valign-text-middle inter-semi-bold-dove-gray-12px">
+                                                        @subItem.Description
+                                                    </div>
+                                                </div>
+                                                @if (subItem.Quantity > 0)
+                                                {
+                                                    <div class="container-number"><div class="number valign-text-middle">@subItem.Quantity</div></div>
+                                                }
+                                            </a>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter] public int MeuParametro { get; set; }
+    [CascadingParameter] NavBarItem[] Items { get; set; }
+    [CascadingParameter] NavBarItem SelectedItem { get; set; }
+    [CascadingParameter] public NavMenuOptions isSubMenuActive { get; set; }
+    [Inject] public NavigationManager NavigationManager { get; set; }
+
+    void OnsubMenuClicked(NavBarItemSubMenu selectedItem)
+    {
+        var wasActive = selectedItem.IsClicked;
+        foreach (var item in this.SelectedItem.SubMenu)
+        {
+            item.IsClicked = false;
+        }
+        selectedItem.IsClicked = !wasActive;
+        if (selectedItem.SubMenu?.Any() != true)
+        {
+            NavigationManager.NavigateTo(selectedItem.Url);
+        }
+    }
+
+    void CloseMenu()
+    {
+        foreach (var item in this.Items)
+        {
+            item.IsClicked = false;
+            isSubMenuActive.Activated = false;
+        }
+    }
+}

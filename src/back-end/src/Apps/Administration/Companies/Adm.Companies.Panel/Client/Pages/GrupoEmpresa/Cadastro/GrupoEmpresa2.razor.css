@@ -1,0 +1,14 @@
+
+.e-input-group input,
+.container-input .e-control-wrapper,
+.container-input input {
+    border: none !important;
+    background-color: transparent !important;
+    width: inherit !important;
+    height: inherit !important;
+}
+
+    .e-input-group input:focus,
+    .container-input input:focus {
+        outline: none !important;
+    }

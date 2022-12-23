@@ -1,0 +1,45 @@
+﻿<# if (entities.Any()) { 
+	 foreach (var nmspc in groupEntities) { #>
+using <#= nmspc.Key #>; 
+using <#= nmspc.Key.Replace("Domain","Infra.Data").Replace("Entities", "Mappings") #>; 
+<# } #>
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using SES.Core.Infra.Data.Contexts;
+
+<#  
+var className = GetDefaultNamespace().Replace(".","");
+var contextName = className + "Context";
+#>
+namespace <#= GetDefaultNamespace() #>.<#= project.Name #>.Context
+{
+	public class <#= AggName #>Context : BaseContext
+	{
+<# foreach(var namespaces in entities.GroupBy(p => p.Namespace.FullName)) { 
+	 foreach (var entity in namespaces) { #>
+		public DbSet<<#= entity.Name #>> <#= entity.Name #> { get; set; }
+<# } #>
+<# } #>
+
+		public <#= AggName #>Context (MediatR.IMediator mediator, DbContextOptions<<#= AggName #>Context> options)
+            : base(mediator, options)
+        {
+        }
+
+		protected override void OnModelCreating(ModelBuilder builder)
+		{
+<# foreach(var namespaces in entities.GroupBy(p => p.Namespace.FullName)) { 
+			 foreach (var entity in namespaces) { #>
+			builder.ApplyConfiguration(new <#= entity.Name #>Mapping());
+<# } #>
+<# } #>
+		
+			base.OnModelCreating(builder);
+		}
+<# } #>
+	}
+}
+<# SaveOutputToSubFolder(
+    folderName: $"T4", 
+    outputFileName: @$"{AggName}.IdentityContext.cs", 
+    recreateFileIfExists: true); #>

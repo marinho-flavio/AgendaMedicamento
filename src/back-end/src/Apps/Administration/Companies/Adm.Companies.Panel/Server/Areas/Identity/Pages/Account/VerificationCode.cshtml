@@ -1,0 +1,50 @@
+﻿@page
+@model VerificationCodeModel
+
+
+<link href="~/css/verificationcode.css" rel="stylesheet" />
+
+
+<body style="margin: 0; background: #ffffff">
+    <input type="hidden" id="anPageName" name="page" value="tela-login-esqueci-minha-senha" />
+    <div class="container-center-horizontal">
+        <div class="tela-login-esqueci-minha-senha screen">
+            <div class="esqueci-minha-senha-modal-card">
+                <div class="main-title-assinatura-digital">
+                    <img class="eparrow-right-bold"
+                         src="https://anima-uploads.s3.amazonaws.com/projects/63486f9b8ee4feae84ab3e5a/releases/634dfbdde6df4c88bb664dff/img/ep-arrow-right-bold@2x.svg"
+                         alt="ep:arrow-right-bold" />
+                    <div class="container-title-cada">
+                        <div class="container-title">
+                            <div class="continuar valign-text-middle inter-medium-oslo-gray-12px">Continuar</div>
+                        </div>
+                    </div>
+                    <img class="bix-lg"
+                         src="https://anima-uploads.s3.amazonaws.com/projects/63486f9b8ee4feae84ab3e5a/releases/6350b1c362bb6f82024ee36f/img/bi-x-lg@2x.svg"
+                         alt="bi:x-lg" />
+                </div>
+                <div class="container-text-encontre-cpf">
+                    <div class="title-encontre-cpf">
+                        <div class="cdigo-de-verificao valign-text-middle inter-semi-bold-black-23px">Código de verificação</div>
+                    </div>
+                    <div class="container-title">
+                        <p class="escolha-por-onde-des valign-text-middle inter-normal-oslo-gray-12px">
+                            Escolha por onde deseja verificar o seu acesso.
+                        </p>
+                    </div>
+                </div>
+                @Html.HiddenFor(model => model.Input.Email)
+                <form method="post">
+                    <div class="frame-30">
+                        <button type="submit" class="continuar-1"><span class="continuar inter-semi-bold-white-14px">Verificar por e-mail</span></button>
+                        <button class="continuar-2"><span class="continuar-3">Verificar por SMS</span></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

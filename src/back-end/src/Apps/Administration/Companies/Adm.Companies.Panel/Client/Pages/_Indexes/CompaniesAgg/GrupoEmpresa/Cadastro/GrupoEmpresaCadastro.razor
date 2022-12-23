@@ -1,0 +1,26 @@
+@page "/GrupoEmpresa/cadastro"
+@page "/GrupoEmpresa/cadastro/{id}"
+
+@using Companies.Adm.Panel.Client.Pages.Base
+@using Companies.Adm.Panel.Client.Pages.DefaultDesign
+@using Companies.Adm.Panel.Client.Pages.RegisterStepsTemplate
+@using SES.Companies.Application.DTO.Aggregates.CompaniesAgg.Requests
+@using SES.Companies.Application.DTO.Aggregates.CompaniesAgg.Validators
+
+@layout MainLayout
+@inherits BaseStepsFormComponent<GrupoEmpresaDTO, CompaniesAggSettingsDTO, BaseCompaniesAggValidator<GrupoEmpresaDTO>>
+
+<CascadingValue Value="this.Context">
+    <CascadingValue Value="this.Context?.layout">
+        <BaseMainStepsLayout @ref="layout" ModelType="GrupoEmpresaDTO" AutoSaveSettings="AutoSaveSettings"
+                             CurrentFragment="this.CurrentFragment"
+                             EditContext="this.EditContext"
+                             OnSubmitForm="this.OnSubmitForm"
+                             OnSubmitFormInvalid="this.OnSubmitFormInvalid"
+                             TValidator="this.TValidator" />
+    </CascadingValue>
+</CascadingValue>
+@page "/GrupoEmpresa/{InstituicaoType}/cadastro"
+@code {
+    [Parameter] public string InstituicaoType { get; set; }
+}

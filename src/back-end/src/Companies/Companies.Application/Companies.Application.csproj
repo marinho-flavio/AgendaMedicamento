@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+	  <RootNamespace>Bravo.Companies.Application</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="IAppServices.tt.generated.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="IAppServices.tt.tt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\Core.Application\Core.Application.csproj" />
+    <ProjectReference Include="..\Companies.Application.DTO\Companies.Application.DTO.csproj" />
+    <ProjectReference Include="..\Companies.Infra.Data\Companies.Infra.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+<ItemGroup><None Update="*.tt"><Generator>TextTemplatingFileGenerator</Generator></None></ItemGroup>
+
+<ItemGroup>
+  <Compile Update="DefaultCommands.generated.cs">
+    <DesignTime>True</DesignTime>
+    <AutoGen>True</AutoGen>
+    <DependentUpon>DefaultCommands.tt</DependentUpon>
+  </Compile>
+</ItemGroup>
+
+<ItemGroup>
+  <None Update="DefaultCommands.tt">
+    <LastGenOutput>DefaultCommands.generated.cs</LastGenOutput>
+  </None>
+</ItemGroup>
+</Project>

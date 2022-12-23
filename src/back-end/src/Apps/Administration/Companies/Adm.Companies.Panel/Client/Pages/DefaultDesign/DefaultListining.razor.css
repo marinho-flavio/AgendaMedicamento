@@ -1,0 +1,837 @@
+﻿/* screen - container-list-extended-grupo-empresa */
+
+
+.container-list-extended-grupo-empresa {
+    align-items: center;
+    background-color: var(--alabaster);
+    border: 1px none;
+    flex-direction: column;
+    gap: 0.94vw;
+    justify-content: center;
+    min-height: 100%;
+    width:100%;
+    overflow: hidden;
+    padding: 2vw 0.94vw 0.62vw 0 ;
+    padding-left:3vw;
+}
+
+    .container-list-extended-grupo-empresa .header-da-lista-grupo-empresa {
+        border: 1px none;
+        border-radius: 0.94vw;
+        height: 5.14vw;
+        margin-left: -0.04vw;
+        margin-right: -0.04vw;
+        width: 100%;
+        position: relative;
+    }
+
+    .container-list-extended-grupo-empresa .header-da-lista-grupo-empresa .dropdown{
+
+    }
+        .container-list-extended-grupo-empresa .header-da-lista-grupo-empresa .dropdown:hover {
+            cursor: pointer;
+            background-color: var(--chetwode-blue); 
+            color:white !important  ;
+        }
+    
+    .container-list-extended-grupo-empresa .container-header-title {
+        align-items: flex-start;
+        border: 1px none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.31vw;
+        left: 1.56vw;
+        position: absolute;
+        top: 0.86vw;
+        width: fit-content;
+    }
+
+    .container-list-extended-grupo-empresa .title {
+        align-items: flex-start;
+        border: 1px none;
+        display: flex;
+        gap: 0.62vw;
+        width: fit-content;
+    }
+
+    .container-list-extended-grupo-empresa .administrador-SES {
+        letter-spacing: 0;
+        margin-top: -0.08vw;
+        text-align: center;
+        width: fit-content;
+    }
+
+    .container-list-extended-grupo-empresa .empresas {
+        letter-spacing: 0;
+        margin-top: -0.08vw;
+        text-align: center;
+        width: fit-content;
+    }
+
+    .container-list-extended-grupo-empresa .icon-search {
+        height: 2.49vw;
+        left: 56.8vw;
+        position: absolute;
+        top: 1.25vw;
+        width: 2.49vw;
+    }
+
+    .container-list-extended-grupo-empresa .novo-cadastro {
+        align-items: center;
+        background-color: var(--chetwode-blue);
+        border: 1px none;
+        border-radius: 7.79vw;
+        display: flex;
+        gap: 0.62vw;
+        height: 2.49vw;
+        justify-content: center;
+        left: 76.98vw;
+        padding: 1.25vw 0.94vw;
+        position: absolute;
+        top: 1.25vw;
+        width: 9.98vw;
+    }
+
+    .container-list-extended-grupo-empresa .prximo {
+        letter-spacing: 0;
+        margin-bottom: -0.58vw;
+        margin-top: -0.74vw;
+        width: fit-content;
+    }
+
+    .container-list-extended-grupo-empresa .filtros-dropdown {
+        align-items: center;
+        border: 1px solid;
+        border-color: var(--alto);
+        border-radius: 0.31vw;
+        display: flex;
+        gap: 0.31vw;
+        justify-content: center;
+        left: 68.64vw;
+        padding: 0.62vw;
+        position: absolute;
+        top: 1.25vw;
+        width: fit-content;
+    }
+
+    .container-list-extended-grupo-empresa .mingcutefilter-fill {
+        height: 1.25vw;
+        min-width: 1.25vw;
+    }
+
+    .container-list-extended-grupo-empresa .container-title {
+        align-items: center;
+        border: 1px none;
+        display: flex;
+        gap: 0.62vw;
+        height: 0.94vw;
+        justify-content: center;
+        width: fit-content;
+    }
+
+    .container-list-extended-grupo-empresa .filtros {
+        letter-spacing: 0;
+        margin-top: -0.08vw;
+        text-align: center;
+        width: fit-content;
+    }
+
+    .container-list-extended-grupo-empresa .eparrow-right-bold {
+        height: 1.25vw;
+        min-width: 1.25vw;
+    }
+
+    .container-list-extended-grupo-empresa .ordernar-dropdown {
+        align-items: center;
+        border: 1px solid;
+        border-color: var(--alto);
+        border-radius: 0.31vw;
+        display: flex;
+        gap: 0.31vw;
+        justify-content: center;
+        left: 60.23vw;
+        padding: 0.62vw;
+        position: absolute;
+        top: 1.25vw;
+        width: fit-content;
+    }
+
+    .container-list-extended-grupo-empresa .mingcutefilter-fill-1 {
+        height: 1.25vw;
+        min-width: 1.25vw;
+    }
+
+    .container-list-extended-grupo-empresa .ordenar {
+        letter-spacing: 0;
+        margin-top: -0.08vw;
+        text-align: center;
+        width: fit-content;
+    }
+
+    .container-list-extended-grupo-empresa .eparrow-right-bold-1 {
+        height: 1.25vw;
+        min-width: 1.25vw;
+    }
+
+    .container-list-extended-grupo-empresa .header-title-columms-grupo-empresa {
+        align-items: flex-start;
+        border-bottom-style: solid;
+        border-bottom-width: 0.08vw;
+        border-color: var(--alto);
+        display: flex;
+        flex-direction: column;
+        gap: 0.62vw;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .container-list-extended-grupo-empresa .container-sections-columms {
+        align-items: center;
+        border: 1px none;
+        display: flex;
+        gap: 0.94vw;
+        width: 100%;
+        justify-content: left;
+    }
+
+    .container-list-extended-grupo-empresa .container-nome-fantasia {
+        align-items: center;
+        border: 1px none;
+        border-radius: 0.94vw;
+        display: flex;
+        flex-direction: column;
+        gap: 0.62vw;
+        padding: 0.0vw 0.62vw;
+        width: fit-content;
+        justify-content: center;
+    }
+
+    .container-list-extended-grupo-empresa .container-title-1 {
+        align-items: center;
+        border: 1px none;
+        display: flex;
+        gap: 0.62vw;
+        height: 2.81vw;
+        justify-content: center;
+        width: 10vw;
+    }
+
+    .container-list-extended-grupo-empresa .nome-fantasia {
+        height: 2.34vw;
+        letter-spacing: 0;
+        text-align: center;
+        width: 10vw;
+    }
+
+    .container-list-extended-grupo-empresa .container-razao-social {
+        align-items: center;
+        border: 1px none;
+        border-radius: 0.94vw;
+        display: flex;
+        flex-direction: column;
+        gap: 0.62vw;
+        padding: 0.0vw 0.62vw;
+        width: fit-content;
+    }
+
+    .container-list-extended-grupo-empresa .razo-social {
+        height: 2.34vw;
+        letter-spacing: 0;
+        text-align: center;
+        width: 10vw;
+    }
+
+    .container-list-extended-grupo-empresa .container-cnpj {
+        align-items: center;
+        border: 1px none;
+        border-radius: 0.94vw;
+        display: flex;
+        flex-direction: column;
+        gap: 0.62vw;
+        padding: 0.0vw 0.62vw;
+        width: fit-content;
+    }
+
+    .container-list-extended-grupo-empresa .container-title-c {
+        align-items: center;
+        border: 1px none;
+        display: flex;
+        gap: 0.62vw;
+        height: 2.81vw;
+        justify-content: center;
+        width: 10.6vw;
+    }
+
+    .container-list-extended-grupo-empresa .cnpj {
+        flex: 1;
+        height: 2.34vw;
+        letter-spacing: 0;
+        text-align: center;
+    }
+
+    .container-list-extended-grupo-empresa .container-cidade-estado {
+        align-items: center;
+        border: 1px none;
+        border-radius: 0.94vw;
+        display: flex;
+        flex-direction: column;
+        gap: 0.62vw;
+        padding: 0.0vw 0.62vw;
+        width: fit-content;
+    }
+
+    .container-list-extended-grupo-empresa .cidade-e-estado {
+        flex: 1;
+        height: 2.34vw;
+        letter-spacing: 0;
+        text-align: center;
+    }
+
+    .container-list-extended-grupo-empresa .container-telefone {
+        align-items: center;
+        border: 1px none;
+        border-radius: 0.94vw;
+        display: flex;
+        flex-direction: column;
+        gap: 0.62vw;
+        padding: 0.0vw 0.62vw;
+        width: fit-content;
+    }
+
+    .container-list-extended-grupo-empresa .container-title-telefone {
+        align-items: center;
+        border: 1px none;
+        display: flex;
+        gap: 0.62vw;
+        height: 2.81vw;
+        justify-content: center;
+        width: 9.35vw;
+    }
+
+    .container-list-extended-grupo-empresa .telefone {
+        flex: 1;
+        height: 2.34vw;
+        letter-spacing: 0;
+        text-align: center;
+    }
+
+    .container-list-extended-grupo-empresa .container-ultimo-responsavel {
+        align-items: center;
+        border: 1px none;
+        border-radius: 0.94vw;
+        display: flex;
+        flex-direction: column;
+        gap: 0.62vw;
+        padding: 0.0vw 0.62vw;
+        width: fit-content;
+    }
+
+    .container-list-extended-grupo-empresa .ltimo-responsvel {
+        height: 2.34vw;
+        letter-spacing: 0;
+        text-align: center;
+        width: 10vw;
+    }
+
+    .container-list-extended-grupo-empresa .container-status {
+        align-items: flex-start;
+        border: 1px none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.62vw;
+        height: 2.81vw;
+        justify-content: center;
+        padding: 0.62vw 3.35vw 0.62vw 0.94vw;
+        width: 9.98vw;
+    }
+
+    .container-list-extended-grupo-empresa .container-title-status {
+        align-items: center;
+        border: 1px none;
+        border-radius: 0.31vw;
+        display: flex;
+        gap: 0.62vw;
+        height: 1.17vw;
+        justify-content: center;
+        width: 5.69vw;
+    }
+
+    .container-list-extended-grupo-empresa .status {
+        letter-spacing: 0;
+        margin-top: -0.08vw;
+        text-align: center;
+        width: fit-content;
+    }
+
+    .container-list-extended-grupo-empresa .columms-list {
+        align-items: flex-start;
+        border: 1px none;
+        border-radius: 1.56vw;
+        display: flex;
+        flex-direction: column;
+        gap: 0.55vw;
+        overflow: hidden;
+        padding: 0.94vw 0 1.25vw 0;
+        width: 100%;
+    }
+
+    .container-list-extended-grupo-empresa .container-columms-list {
+        align-items: flex-start;
+        border-bottom-style: solid;
+        border-bottom-width: 0.08vw;
+        border-color: var(--alto);
+        display: flex;
+        gap: 0.94vw;
+        height: 4.36vw;
+        justify-content: left;
+        width: 100%;
+    }
+
+        .container-list-extended-grupo-empresa .container-columms-list:hover .inter-medium-purple-heart-12px,
+        .container-list-extended-grupo-empresa .container-columms-list:hover {
+            background-color: var(--chetwode-blue);
+            cursor: pointer;
+            color: white !important;
+        }
+
+    .container-list-extended-grupo-empresa .columm-nome-fantasia {
+        align-items: center;
+        border: 1px none;
+        border-radius: 0.94vw;
+        display: flex;
+        flex-direction: column;
+        gap: 0.62vw;
+        padding: 0.0vw 0.62vw;
+        width: fit-content;
+    }
+
+    .container-list-extended-grupo-empresa .container-user-nome-fantasia {
+        align-items: flex-start;
+        border-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.62vw;
+        padding: 0.62vw 0.0vw;
+        width: fit-content;
+    }
+
+    .container-list-extended-grupo-empresa .tag-user-nome-fantasia {
+        align-items: center;
+        border: 1px solid;
+        border-color: var(--alto);
+        border-radius: 7.79vw;
+        display: flex;
+        flex-direction: column;
+        gap: 0.31vw;
+        height: 3.12vw;
+        justify-content: center;
+        overflow: hidden;
+        width: 10vw;
+    }
+
+    .container-list-extended-grupo-empresa .container-title-user {
+        align-items: center;
+        align-self: stretch;
+        border: 1px none;
+        display: flex;
+        gap: 0.62vw;
+        height: 1.17vw;
+        justify-content: center;
+    }
+
+    .container-list-extended-grupo-empresa .SES-sistemas {
+        flex: 1;
+        letter-spacing: 0;
+        margin-top: -0.08vw;
+        text-align: center;
+    }
+
+    .container-list-extended-grupo-empresa .columm-razao-social {
+        align-items: center;
+        border: 1px none;
+        border-radius: 0.94vw;
+        display: flex;
+        flex-direction: column;
+        gap: 0.62vw;
+        padding: 0.0vw 0.62vw;
+        width: fit-content;
+    }
+
+    .container-list-extended-grupo-empresa .container-user {
+        align-items: flex-start;
+        border: 1px none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.62vw;
+        padding: 0.62vw 0.0vw;
+        width: fit-content;
+    }
+
+    .container-list-extended-grupo-empresa .container-info-razao-social {
+        align-items: center;
+        border: 1px none;
+        border-radius: 0.62vw;
+        display: flex;
+        flex-direction: column;
+        gap: 0.31vw;
+        height: 3.12vw;
+        justify-content: center;
+        overflow: hidden;
+        width: 10vw;
+    }
+
+    .container-list-extended-grupo-empresa .container-title-razao-social {
+        align-items: center;
+        align-self: stretch;
+        border: 1px none;
+        display: flex;
+        gap: 0.62vw;
+        justify-content: center;
+    }
+
+    .container-list-extended-grupo-empresa .SES-sistemas-de-informatica-ltda {
+        flex: 1;
+        height: 2.34vw;
+        letter-spacing: 0;
+        margin-top: -0.08vw;
+        text-align: center;
+    }
+
+    .container-list-extended-grupo-empresa .columm-cnpj {
+        align-items: center;
+        border: 1px none;
+        border-radius: 0.94vw;
+        display: flex;
+        flex-direction: column;
+        gap: 0.62vw;
+        padding: 0.0vw 0.62vw;
+        width: fit-content;
+    }
+
+    .container-list-extended-grupo-empresa .container-info-c {
+        align-items: center;
+        border: 1px none;
+        border-radius: 0.62vw;
+        display: flex;
+        flex-direction: column;
+        gap: 0.31vw;
+        height: 3.12vw;
+        justify-content: center;
+        overflow: hidden;
+        width: 10.6vw;
+    }
+
+    .container-list-extended-grupo-empresa .container-t {
+        align-items: center;
+        border: 1px none;
+        display: flex;
+        gap: 0.62vw;
+        justify-content: center;
+        width: fit-content;
+    }
+
+    .container-list-extended-grupo-empresa .phone {
+        letter-spacing: 0;
+        margin-top: -0.08vw;
+        text-align: center;
+        width: 10.6vw;
+    }
+
+    .container-list-extended-grupo-empresa .columm-cidade-estado {
+        align-items: center;
+        border: 1px none;
+        border-radius: 0.94vw;
+        display: flex;
+        flex-direction: column;
+        gap: 0.62vw;
+        padding: 0.0vw 0.62vw;
+        width: fit-content;
+    }
+
+    .container-list-extended-grupo-empresa .container-title-cidade {
+        align-items: center;
+        border: 1px none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: fit-content;
+    }
+
+    .container-list-extended-grupo-empresa .place {
+        letter-spacing: 0;
+        margin-top: -0.08vw;
+        text-align: center;
+        width: 10.6vw;
+    }
+
+    .container-list-extended-grupo-empresa .container-title-estado {
+        align-items: center;
+        border: 1px none;
+        display: flex;
+        justify-content: center;
+        width: fit-content;
+    }
+
+    .container-list-extended-grupo-empresa .rj {
+        letter-spacing: 0;
+        margin-top: -0.08vw;
+        text-align: center;
+        width: 10.6vw;
+    }
+
+    .container-list-extended-grupo-empresa .container-telefone-1 {
+        align-items: center;
+        border: 1px none;
+        border-radius: 0.94vw;
+        display: flex;
+        flex-direction: column;
+        gap: 0.62vw;
+        padding: 0.0vw 0.62vw;
+        width: fit-content;
+    }
+
+    .container-list-extended-grupo-empresa .container-info-telefone {
+        align-items: center;
+        border: 1px none;
+        border-radius: 0.62vw;
+        display: flex;
+        flex-direction: column;
+        gap: 0.31vw;
+        height: 3.12vw;
+        justify-content: center;
+        overflow: hidden;
+        width: 9.35vw;
+    }
+
+    .container-list-extended-grupo-empresa .container-title-telefone-1 {
+        align-items: center;
+        align-self: stretch;
+        border: 1px none;
+        border-radius: 0.62vw;
+        display: flex;
+        flex-direction: column;
+        gap: 0.62vw;
+        height: 1.79vw;
+        justify-content: center;
+        padding: 0.0vw 0.62vw;
+    }
+
+    .container-list-extended-grupo-empresa .phone-1 {
+        letter-spacing: 0;
+        text-align: center;
+        width: 8.11vw;
+    }
+
+    .container-list-extended-grupo-empresa .container-ultimo-responsavel-1 {
+        align-items: center;
+        border: 1px none;
+        border-radius: 0.94vw;
+        display: flex;
+        flex-direction: column;
+        gap: 0.62vw;
+        padding: 0.0vw 0.62vw;
+        width: fit-content;
+    }
+
+    .container-list-extended-grupo-empresa .container-info-ultimo-responsavel {
+        align-items: center;
+        border: 1px solid;
+        border-color: var(--alto);
+        border-radius: 7.79vw;
+        display: flex;
+        gap: 0.62vw;
+        height: 3.12vw;
+        justify-content: flex-end;
+        padding: 0.31vw 0.62vw;
+        width: 10vw;
+    }
+
+    .container-list-extended-grupo-empresa .icon-profile-without-img {
+        align-items: center;
+        background-color: var(--chetwode-blue);
+        border: 2px none;
+        border-radius: 7.79vw;
+        display: flex;
+        gap: 0.94vw;
+        height: 2.18vw;
+        justify-content: center;
+        width: 2.18vw;
+    }
+
+    .container-list-extended-grupo-empresa .mc {
+        letter-spacing: 0;
+        width: fit-content;
+    }
+
+    .container-list-extended-grupo-empresa .container-text-ultimo-responsavel {
+        align-items: flex-start;
+        border: 1px none;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        gap: 0.31vw;
+        justify-content: center;
+    }
+
+    .container-list-extended-grupo-empresa .marcela-campos {
+        letter-spacing: 0;
+        margin-top: -0.08vw;
+        text-align: center;
+        width: fit-content;
+    }
+
+    .container-list-extended-grupo-empresa .x071022-s-0000 {
+        letter-spacing: 0;
+        margin-top: -0.08vw;
+        text-align: center;
+        width: fit-content;
+    }
+
+    .container-list-extended-grupo-empresa .columm-status {
+        align-items: center;
+        border: 1px none;
+        border-radius: 0.94vw;
+        display: flex;
+        flex-direction: column;
+        gap: 0.62vw;
+        padding: 0.0vw 0.62vw;
+        width: fit-content;
+    }
+
+    .container-list-extended-grupo-empresa .container-info-status-dots {
+        align-items: center;
+        border: 1px none;
+        display: flex;
+        gap: 1.17vw;
+        justify-content: center;
+        width: 8.73vw;
+    }
+
+    .container-list-extended-grupo-empresa .container-info-status {
+        align-items: center;
+        border: 1px none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.31vw;
+        height: 3.12vw;
+        justify-content: center;
+        width: fit-content;
+    }
+
+    .container-list-extended-grupo-empresa .tag-ativo {
+        align-items: center;
+        background-color: var(--titan-white);
+        border: 1px none;
+        border-radius: 0.31vw;
+        display: flex;
+        gap: 0.62vw;
+        justify-content: center;
+        padding: 0.31vw 0.94vw;
+        width: 5.69vw;
+    }
+
+    .container-list-extended-grupo-empresa .ativo {
+        letter-spacing: 0;
+        margin-top: -0.08vw;
+        text-align: center;
+        width: fit-content;
+    }
+
+    .container-list-extended-grupo-empresa .container-info-dots {
+        height: 3.12vw;
+        min-width: 1.25vw;
+    }
+
+    .container-list-extended-grupo-empresa .container-columms-list-1 {
+        align-items: center;
+        border-bottom-style: solid;
+        border-bottom-width: 0.08vw;
+        border-color: var(--alto);
+        display: flex;
+        gap: 0.94vw;
+        height: 4.36vw;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .container-list-extended-grupo-empresa .frame-749 {
+        align-self: stretch;
+        border-radius: 0.62vw;
+        border-style: none;
+        height: 4.36vw;
+        min-width: 10.6vw;
+        overflow: hidden;
+    }
+
+    .container-list-extended-grupo-empresa .frame-174 {
+        align-items: center;
+        border: 1px none;
+        border-radius: 0.31vw;
+        display: flex;
+        flex-direction: column;
+        gap: 0.31vw;
+        justify-content: center;
+        left: 0.86vw;
+        padding: 0.62vw;
+        position: relative;
+        top: 1.09vw;
+        width: 8.81vw;
+    }
+
+    .container-list-extended-grupo-empresa .frame-21 {
+        align-items: center;
+        align-self: stretch;
+        border: 1px none;
+        display: flex;
+        gap: 0.62vw;
+        height: 0.94vw;
+        justify-content: center;
+    }
+
+    .container-list-extended-grupo-empresa .cadastro-disponvel {
+        letter-spacing: 0;
+        margin-top: -0.08vw;
+        text-align: center;
+        width: fit-content;
+    }
+
+
+.screen a {
+    display: contents;
+    text-decoration: none;
+}
+
+.valign-text-middle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.inter-semi-bold-black-10px {
+    color: var(--black);
+    font-family: var(--font-family-inter);
+    font-size: var(--font-size-m3);
+    font-style: normal;
+    font-weight: 600;
+}
+
+.inter-semi-bold-oslo-gray-8px {
+    color: var(--oslo-gray);
+    font-family: var(--font-family-inter);
+    font-size: var(--font-size-s2);
+    font-style: normal;
+    font-weight: 600;
+}
+
+.inter-semi-bold-chetwode-blue-10px {
+    color: var(--chetwode-blue);
+    font-family: var(--font-family-inter);
+    font-size: var(--font-size-m3);
+    font-style: normal;
+    font-weight: 600;
+}

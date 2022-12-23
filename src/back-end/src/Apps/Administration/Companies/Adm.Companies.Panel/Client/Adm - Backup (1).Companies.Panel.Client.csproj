@@ -1,0 +1,61 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+	
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
+		<RootNamespace />
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Remove="Pages\Routes\**" />
+		<Compile Remove="wwwroot\css\companies\**" />
+		<Content Remove="Pages\Routes\**" />
+		<Content Remove="wwwroot\css\companies\**" />
+		<EmbeddedResource Remove="Pages\Routes\**" />
+		<EmbeddedResource Remove="wwwroot\css\companies\**" />
+		<None Remove="Pages\Routes\**" />
+		<None Remove="wwwroot\css\companies\**" />
+	</ItemGroup>
+	
+	<ItemGroup>
+		<PackageReference Include="Accelist.FluentValidation.Blazor" Version="4.0.0" />
+		<PackageReference Include="FluentValidation" Version="9.3.0" />
+		<PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="9.3.0" />
+		<PackageReference Include="Markdig" Version="0.30.3" />
+		<PackageReference Include="Microsoft.AspNetCore.Authorization" Version="6.0.8" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.7" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.7" PrivateAssets="all" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Authentication" Version="6.0.7" />
+		<PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="2.2.0" />
+		<PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
+		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.7" />
+		<PackageReference Include="Syncfusion.Blazor" Version="20.3.0.50" />
+		<PackageReference Include="System.Net.Http.Json" Version="6.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\..\..\src\Companies\Companies.Application.DTO\Companies.Application.DTO.csproj" />
+		<ProjectReference Include="..\..\..\..\..\src\Core.App.Client\Core.App.Client.csproj" />
+		<ProjectReference Include="..\Shared\Adm.Companies.Panel.Shared.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ServiceWorker Include="wwwroot\service-worker.js" PublishedContent="wwwroot\service-worker.published.js" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="wwwroot\imgs\components\right-container\" />
+		<Folder Include="wwwroot\imgs\menus\header\" />
+	</ItemGroup>
+	
+	<ItemGroup>
+		<None Update="Shared/Menu/*" CssScope="inherit-scope" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="Pages/DefaultDesign/*" CssScope="default-listining" />
+		<None Update="Pages/RegisterStepsTemplate/*" CssScope="register-template-scope" />
+	</ItemGroup>
+</Project>

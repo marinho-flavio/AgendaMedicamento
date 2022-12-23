@@ -1,0 +1,73 @@
+<# 
+    var list = new List<KeyValuePair<string,CodeProperty>>();
+    var parents = new List<string>();
+	foreach(var prop in myProps) {
+        if(prop.Key.Contains('/')) {
+            var myParent = props.FirstOrDefault(x=>x.Key==prop.Key.Split('/').First());
+            if(ContainsAttribute(myParent.Value, "ForeignDataSelector") || ContainsAttribute(myParent.Value, "ForeignDataSelectorDropDownWithAutoComplete"))
+            {
+                parents.Add(myParent.Key);
+                list.Add(myParent);
+                continue;
+            }
+        }
+		if(IsComplexType(prop.Value))
+		{
+			list.AddRange(props.Where(x=>x.Key.StartsWith(@$"{prop.Key}/")));
+		}
+        else{
+            list.Add(prop);
+        }
+	}
+
+    //var props = GetRecursiveProperties(entity, includeParent: false, withStep:currentStep);
+    var title = list.FirstOrDefault(x=> GetAttributesDict(x.Value).ContainsKey("Title"));
+    var subtitle = list.FirstOrDefault(x=> GetAttributesDict(x.Value).ContainsKey("Subtitle"));
+    var exceptProps = list
+        .Except(new KeyValuePair<string, CodeProperty>[]{ title })
+        .OrderByDescending(x=>GetAttributesDict(x.Value).TryGetValue("RegisterOrder", out var val) ? val.ToString() : "100")
+        .OrderByDescending(x=>x.Value == subtitle.Value)
+        .ToList();
+    var isTitle = false;
+#>
+
+@using SES.<#= aggName #>.Application.DTO.Aggregates.<#= aggName #>Agg.Requests;
+@using SES.<#= aggName #>.Enumerations;
+@using Pages.RegisterStepsTemplate;
+@inherits <#= entity.Name #>Cadastro
+
+<div class="container-informations screen">
+    <div class="box-inputs">
+<# if(title.Key != null) { var field = title; isTitle = true; #>
+<#@ include file="BasicTextInputTitle.tt" #>
+<#}
+for(var i =0;i<exceptProps.Count(); i++){
+    var field = exceptProps[i];
+    if(field.Key.Contains("Image"))
+    {
+    }
+    var isNewContainer = i%2 == 0;
+    isTitle = field.Key == subtitle.Key;
+if(isNewContainer){#> 
+    <div class="input-secondary"> 
+<#}#>
+<#@ include file="BasicFormInputChooser.tt" #>
+<#if((!isNewContainer && i>0) || i == exceptProps.Count()-1){#>
+    </div> 
+<#}#>
+<#}#>
+    </div>
+</div>
+
+@code {
+    [CascadingParameter] BaseMainStepsLayout<<#= entity.Name #>DTO> layout { get; set; }
+
+    protected override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            this.StateHasChanged();
+        }
+        return base.OnAfterRenderAsync(firstRender);
+    }
+}

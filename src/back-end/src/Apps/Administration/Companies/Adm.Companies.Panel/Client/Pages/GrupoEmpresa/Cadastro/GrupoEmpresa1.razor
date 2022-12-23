@@ -1,0 +1,78 @@
+﻿@using Companies.Adm.Panel.Client.Pages.RegisterStepsTemplate;
+@using Bravo.Companies.Application.DTO.Aggregates.CompaniesAgg.Requests;
+@using Bravo.Companies.Application.DTO.Aggregates.CompaniesAgg.Validators
+@inherits GrupoEmpresaCadastro
+
+<div class="container-informations screen">
+    <div class="box-inputs">
+        <div class="input-cnpj">
+            <div class="cnpj">
+                <div class="container">
+                    <div class="container-box border-1px-silver">
+                        <input class="cnpj-1 inter-medium-silver-16px"
+                               @bind-value="Model.CNPJ"
+                               @oninput="(x)=>{layout?.RefreshHeader(()=>{ Model.CNPJ = x.Value.ToString(); });}"
+                               placeholder="@Model.GetFieldPlaceholder(x=>x.CNPJ)" />
+                    </div>
+                </div>
+                <div class="este-campo-obrigatrio-1 valign-text-middle inter-normal-sonic-silver-10px">
+                    <ValidationMessage For="@(() => Model.CNPJ)"></ValidationMessage>
+                </div>
+            </div>
+        </div>
+        <div class="inputs-secondary">
+            <div class="inputs-secondary-item">
+                <div class="container-input border-1px-silver">
+                    <input class="razo-social inter-medium-silver-16px"
+                           @oninput="(x)=>{layout?.RefreshHeader(()=>{ Model.RazaoSocial = x.Value.ToString(); });}"
+                           @bind-value="Model.RazaoSocial"
+                           name="@nameof(Model.RazaoSocial)"
+                           placeholder="@Model.GetFieldPlaceholder(x=>x.RazaoSocial)" />
+                </div>
+                <div class="este-campo-obrigatrio valign-text-middle inter-normal-sonic-silver-10px">
+                    <ValidationMessage For="@(() => Model.RazaoSocial)"></ValidationMessage>
+                </div>
+            </div>
+            <div class="inputs-secondary-item">
+                <div class="container-input border-1px-silver">
+                    <input class="nome-fantasia inter-medium-silver-16px"
+                           @oninput="(x)=>{layout?.RefreshHeader(()=>{ Model.NomeFantasia = x.Value.ToString(); });}"
+                           @bind-value="Model.NomeFantasia"
+                           name="@nameof(Model.NomeFantasia)"
+                           placeholder="@Model.GetFieldPlaceholder(x=>x.NomeFantasia)"
+                           type="text" />
+                </div>
+                <div class="este-campo-obrigatrio valign-text-middle inter-normal-sonic-silver-10px">
+                    <ValidationMessage For="@(() => Model.NomeFantasia)"></ValidationMessage>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [CascadingParameter] BaseMainStepsLayout<GrupoEmpresaDTO> layout { get; set; }
+    [Inject] IJSRuntime _js { get; set; }
+
+    protected override Task OnInitializedAsync()
+    {
+        return base.OnInitializedAsync();
+        StateHasChanged();
+    }
+
+    void OnChange(ChangeEventArgs args, Action onRefresh)
+    {
+        onRefresh();
+        layout?.RefreshHeader();
+        Context.layout?.RefreshHeader();
+    }
+
+    protected override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            this.StateHasChanged();
+        }
+        return base.OnAfterRenderAsync(firstRender);
+    }
+}

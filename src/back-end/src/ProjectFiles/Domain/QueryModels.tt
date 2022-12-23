@@ -1,0 +1,82 @@
+﻿using FluentValidation.Results;
+using MediatR;
+<# if (entities.Any()) {#>
+<# foreach(var namespaces in groupEntities) { 
+var myNamespace = namespaces.Key.Replace("Entities","Queries");
+#>
+namespace <#= myNamespace #>.Models
+{
+<# foreach(var entity in namespaces) { 
+var otherNamespace = entity.Namespace.FullName; #>
+	public partial class <#= entity.Name #>QueryModel {
+		public string Selector { get; set; }
+		public string OrderBy { get; set; }
+		public bool? OrderByDesc { get; set; }
+		public bool? GetOnlySummary { get; set; }
+		public IRequest<ValidationResult> Command { get; set; }
+<# foreach(var property in GetProperties(entity))
+{
+	var name = property.Key.Replace("[]", string.Empty);
+	if(ContainsAttribute(property.Value, "IgnorePropertyT4OnRequest")) continue;
+
+	var path = property.Key;
+	var isList = property.Value.Type.AsString.Contains("List<");
+	var propertyName = property.Value.Type.AsString;
+	var t = propertyName.Replace("System.Collections.Generic.List<","").Replace(">","");
+	
+if(!string.IsNullOrWhiteSpace(property.Value.DocComment))
+{#>
+		<#= WritePropertySummary(property.Value) #>
+<#}
+	switch(t) {
+	case "string": #>
+		public <#= property.Value.Type.AsString #> <#= name #>Equal { get; set; }
+		public <#= property.Value.Type.AsString #> <#= name #>NotEqual { get; set; }
+		public <#= property.Value.Type.AsString #> <#= name #>Contains { get; set; }
+		public <#= property.Value.Type.AsString #> <#= name #>StartsWith { get; set; }
+<# break;
+		case "object": 
+		case "string[]": #>
+		public <#= property.Value.Type.AsString #> <#= name #> { get; set; }
+<# break; 
+		case "System.Guid": 
+		case "System.Guid?":
+		case "bool":
+		case "bool?": 
+#>
+		public <#= property.Value.Type.AsString #><#= propertyName.Contains("?") ? "": "?" #> <#= name #>Equal { get; set; }
+<# break; 
+		case "decimal": 
+		case "decimal?": 
+		case "double":
+		case "double?":
+		case "System.DateTimeOffset":
+		case "System.DateTimeOffset?":
+		case "int":
+		case "int?":
+		case "System.DateOnly":
+		case "SystemSystem.DateOnly?":
+		case "System.DateTime":
+		case "System.DateTime?": #>
+		public <#= property.Value.Type.AsString #><#= propertyName.Contains("?") ? "": "?" #> <#= name #>Equal { get; set; }
+<#if(name.Equals("Id")) continue;#>
+		public <#= propertyName #><#= propertyName.Contains("?") ? "": "?" #> <#= name #>Since { get; set; }
+		public <#= propertyName #><#= propertyName.Contains("?") ? "": "?" #> <#= name #>Until { get; set; }
+<# break; 
+default: 
+	var type = FindType(property.Value.Type.CodeType.FullName.Replace("?", string.Empty));
+    if (type is CodeEnum) { #>
+		public <#= property.Value.Type.AsString #><#= propertyName.Contains("?") ? "": "?" #> <#= name #>Equal { get; set; }
+<# }
+break;
+} #>
+<# } #>
+	}
+<# } #>
+}
+<# } #>
+<# } #>
+<# SaveOutputToSubFolder(
+    folderName: $"T4", 
+    outputFileName: @$"{AggName}.QueryModels.cs",
+    recreateFileIfExists: true); #>

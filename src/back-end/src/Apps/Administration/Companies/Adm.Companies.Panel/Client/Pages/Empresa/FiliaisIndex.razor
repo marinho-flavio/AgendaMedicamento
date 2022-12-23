@@ -1,0 +1,14 @@
+﻿@using Bravo.Companies.Application.DTO.Aggregates.CompaniesAgg.Requests
+@using Companies.Adm.Panel.Client.Pages.DefaultDesign;
+
+@inherits BaseListiningPage
+
+@layout MainLayout
+
+@page "/instituicoes/filiais"
+
+<DefaultListining Page="this.Page"
+                  Size="this.Size"
+                  Title="Filiais"
+                  T="EmpresaDTO"
+                  AdditionalQueryString="IsFilialEqual=true" />

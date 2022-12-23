@@ -1,0 +1,4 @@
+<div class="ativo-grupo">
+    <div class="container-text-2"><div class="status-do-grupo valign-text-middle"><#=myDisplayName#></div></div>
+    <SfSwitch @bind-Checked="Model.<#=myName#>" OnLabel="Ativo" OffLabel="Inativo"></SfSwitch>
+</div>

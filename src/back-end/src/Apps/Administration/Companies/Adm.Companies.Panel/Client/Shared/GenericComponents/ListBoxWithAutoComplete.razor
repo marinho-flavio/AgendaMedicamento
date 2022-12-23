@@ -1,0 +1,61 @@
+﻿@using SES.Core.Application.DTO.Aggregates.CommonAgg.Commands.Responses
+@using SES.Core.Application.DTO.Aggregates.CommonAgg.Models
+@using Newtonsoft.Json
+@using System.Text
+
+<SfAutoComplete CssClass="inter-normal-silver-16px" Enabled="@this.CitiesList.Any()"
+                @bind-Value="Address.Cidade_Localidade"
+                ShowPopupButton=true
+                name="@nameof(Address.Cidade_Localidade)"
+                ShowClearButton=true
+                TValue="string" TItem="string" Placeholder="@this.cidadePlaceholder"
+                DataSource="@CitiesList">
+    <DropDownListTemplates TItem="string">
+        <ItemTemplate>
+            <span>
+                <span class='uf'>@context</span>
+            </span>
+        </ItemTemplate>
+    </DropDownListTemplates>
+</SfAutoComplete>
+
+@code {
+    bool loading = false;
+
+    [Parameter] public BaseEnderecoDTO Address { get; set; }
+
+    string cidadePlaceholder => loading ? "carregando.." : (this.CitiesList.Any() ? "Cidade/Localidade" : "Cidade / Localidade");
+
+    string Route(string uf) => $"{this.Address.GetRoute()}/select?UFEqual={uf}&selector=Cidade_Localidade";
+
+    public List<string> CitiesList { get; set; } = new List<string>();
+
+    [Inject] HttpClient _client { get; set; }
+
+    protected override Task OnInitializedAsync()
+    {
+        return base.OnInitializedAsync();
+    }
+
+    public async Task OnRefresh(string uf)
+    {
+        Address.Cidade_Localidade = null;
+        loading = true;
+        CitiesList = new List<string>();
+        StateHasChanged();
+
+        var result = await _client.GetAsync(Route(uf));
+
+        var json = await result?.Content?.ReadAsStringAsync();
+
+        if (result.StatusCode != System.Net.HttpStatusCode.OK || string.IsNullOrWhiteSpace(json))
+            return;
+
+        if (!json.TryDeserializeJSON<GetHttpResponseDTO<List<string>>>(out GetHttpResponseDTO<List<string>> jsonConverted) || jsonConverted.Data == null)
+            return;
+
+        CitiesList = jsonConverted.Data;
+        StateHasChanged();
+        loading = false;
+    }
+}

@@ -1,0 +1,16 @@
+<#if(type is CodeEnum){#>
+<#@ include file="BasicEnumInput.tt" #>
+<#} else {
+var myAttrName = GetAttributesDict(field.Value).FirstOrDefault(x=>x.Key.Contains("Foreign"));
+KeyValuePair<string,CodeProperty> myTitle;
+switch(myAttrName.Key) { 	 
+		    case "ForeignDataSelectorDropDownWithAutoComplete":#>
+<#@ include file="BasicForeignDataDropDownWithAutoComplete.tt" #>
+<#			break;
+		    case "BasicForeignDataSelector":#>
+<#@ include file="BasicForeignDataSelector.tt" #>
+<#			break;
+			default:#>
+<#			break;
+}#>
+<#}#>

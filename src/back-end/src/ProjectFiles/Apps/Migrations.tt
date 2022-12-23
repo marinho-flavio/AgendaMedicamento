@@ -1,0 +1,15 @@
+<#@ output extension=".generated.bat" #>
+<#@ import namespace="System.Threading.Tasks" #>
+<#@ include file="..\project.tt" #>
+<#var project = GetCurrentProject();
+var myName = project.Name.Split('.').First();
+var AggName = myName + "Agg";
+var entities = GetEntities("Domain", withAttribute: "EndpointsT4");
+var groupEntities = entities.GroupBy(p => p.Namespace.FullName);
+var mainEntityName = groupEntities.FirstOrDefault(x=> AggName == x.Key.Split('.').FirstOrDefault(k=>k.EndsWith("Agg")));#>
+<# foreach(var namespaces in entities.GroupBy(p => p.Namespace.FullName)) {
+	var aggName = namespaces.Key.Split('.').FirstOrDefault(x=>x.EndsWith("Agg"));
+	var now = DateTime.Now;
+	var name = aggName.Replace("Agg",""); #>
+dotnet ef migrations add <#= $"{now.Year}_{now.Month}_{now.Day}_{now.Hour}_{now.Minute}_{now.Second}" #> -c <#= aggName #>context -p <#=@$"..\..\..\..\..\{name}\"#><#=name#>.Infra.Data
+<#}#>

@@ -1,0 +1,83 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+	  <RootNamespace>Bravo.Patients.Domain</RootNamespace>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\Core\Core.Domain\Core.Domain.csproj" />
+		<ProjectReference Include="..\Patients.Application.DTO\Patients.Application.DTO.csproj" />
+		<ProjectReference Include="..\Patients.Enumerations\Patients.Enumerations.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="DefaultCommands.generated.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>DefaultCommands.tt</DependentUpon>
+	  </Compile>
+	  <Compile Update="DefaultEntities.generated.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>DefaultEntities.tt</DependentUpon>
+	  </Compile>
+	  <Compile Update="DomainEventHandlers.generated.cs">
+	    <DependentUpon>DomainEventHandlers.tt</DependentUpon>
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	  </Compile>
+	  <Compile Update="IRespositories.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>IRespositories.tt</DependentUpon>
+	  </Compile>
+	  <Compile Update="RequestsFiltersDTO.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>RequestsFiltersDTO.tt</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="DomainCommandModels.tt">
+	    <LastGenOutput>DomainCommandModels.generated.cs</LastGenOutput>
+	    <Generator>TextTemplatingFileGenerator</Generator>
+	  </None>
+	  <None Update="DomainEvents.tt">
+	    <LastGenOutput>DomainEvents.generated.cs</LastGenOutput>
+	    <Generator>TextTemplatingFileGenerator</Generator>
+	  </None>
+	  <None Update="IRespositories.tt">
+	    <Generator>TextTemplatingFileGenerator</Generator>
+	    <LastGenOutput>IRespositories.cs</LastGenOutput>
+	  </None>
+	  <None Update="RequestsFiltersDTO.tt">
+	    <Generator>TextTemplatingFileGenerator</Generator>
+	    <LastGenOutput>RequestsFiltersDTO.generated.cs</LastGenOutput>
+	  </None>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+	</ItemGroup>
+
+<ItemGroup><None Update="*.tt"><Generator>TextTemplatingFileGenerator</Generator></None></ItemGroup>
+
+<ItemGroup>
+  <None Update="DefaultEntities.tt">
+    <LastGenOutput>DefaultEntities.generated.cs</LastGenOutput>
+  </None>
+</ItemGroup>
+<ItemGroup><None Update="*.tt"><Generator>TextTemplatingFileGenerator</Generator></None></ItemGroup>
+<ItemGroup>
+  <None Update="DefaultCommands.tt">
+    <LastGenOutput>DefaultCommands.generated.cs</LastGenOutput>
+  </None>
+  <None Update="RequestsFiltersDTO.tt">
+    <LastGenOutput>RequestsFiltersDTO.cs</LastGenOutput>
+  </None>
+</ItemGroup>
+</Project>

@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+	  <RootNamespace>Bravo.HealthPlans.Application.DTO</RootNamespace>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\Companies\Companies.Application.DTO\Companies.Application.DTO.csproj" />
+		<ProjectReference Include="..\..\Core\Core.Application.DTO\Core.Application.DTO.csproj" />
+		<ProjectReference Include="..\HealthPlans.Enumerations\HealthPlans.Enumerations.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="AppServices.tt">
+	    <LastGenOutput>AppServices.generated.cs</LastGenOutput>
+	    <Generator>TextTemplatingFileGenerator</Generator>
+	  </None>
+	  <None Update="IAppServices.tt">
+	    <LastGenOutput>IAppServices.generated.cs</LastGenOutput>
+	    <Generator>TextTemplatingFileGenerator</Generator>
+	  </None>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+	</ItemGroup>
+
+<ItemGroup><None Update="*.tt"><Generator>TextTemplatingFileGenerator</Generator></None></ItemGroup>
+
+<ItemGroup>
+  <Compile Update="DefaultCommands.generated.cs">
+    <DesignTime>True</DesignTime>
+    <AutoGen>True</AutoGen>
+    <DependentUpon>DefaultCommands.tt</DependentUpon>
+  </Compile>
+</ItemGroup>
+
+<ItemGroup>
+  <None Update="DefaultCommands.tt">
+    <LastGenOutput>DefaultCommands.generated.cs</LastGenOutput>
+  </None>
+</ItemGroup>
+</Project>

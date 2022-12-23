@@ -1,0 +1,37 @@
+﻿@typeparam T where T : EntityDTO, new()
+
+@using Companies.Adm.Panel.Client.Pages.Base;
+@using SES.Core.Application.DTO.Aggregates.CommonAgg.Models;
+@using SES.Companies.Application.DTO.Aggregates.CompaniesAgg.Requests;
+
+@if (RightContext != null)
+{
+    <div class="column-right">
+        <div class="container-grupo-w-empresa-w-filial">
+            <CascadingValue Value="RightContext">
+                <RightContainerGroup @ref="group" T="T" />
+            </CascadingValue>
+        </div>
+    </div>
+}
+
+@code {
+    RightContainerContext RightContext { get; set; }
+
+    RightContainerGroup<T>? group;
+    [CascadingParameter] public StepsContext<T> Context { get; set; }
+    [Inject] NavigationManager Navigation { get; set; }
+
+    public void RefreshMe()
+    {
+        group?.OnFragmentUpdated();
+        this.StateHasChanged();
+    }
+
+    protected override Task OnInitializedAsync()
+    {
+        if(typeof(T) == typeof(EmpresaDTO) || typeof(T) == typeof(GrupoEmpresaDTO))
+            this.RightContext = new RightContainerContext(Navigation);
+        return base.OnInitializedAsync();
+    }
+}

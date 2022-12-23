@@ -1,0 +1,12 @@
+﻿<#@ include file="..\..\ProjectFiles\project.tt" #>
+<#
+	var entities = GetEntities();
+	var project = GetCurrentProject();
+	var myName = project.Name.Split('.').First();
+	var AggName = myName + "Agg";
+	var parentName = "Commands";
+	var groupEntities = entities.GroupBy(p => p.Namespace.FullName);
+#>
+<#@ include file="..\..\ProjectFiles\Infra.Data\IdentityContext.tt" #>
+<#@ include file="..\..\ProjectFiles\Infra.Data\Mappings.tt" #>
+<#@ include file="..\..\ProjectFiles\Infra.Data\Respositories.tt" #>

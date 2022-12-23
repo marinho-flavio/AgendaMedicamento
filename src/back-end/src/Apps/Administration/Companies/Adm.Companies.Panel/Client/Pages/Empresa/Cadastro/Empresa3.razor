@@ -1,0 +1,87 @@
+﻿@inherits EmpresaCadastro
+
+<div class="box-inputs">
+    <div class="container">
+        <div class="e-mail">
+            <div class="container-input-1">
+                <div class="container-titles-1">
+                    <div class="site-1 valign-text-middle inter-medium-sonic-silver-10px">@Model.GetFieldPlaceholder(x=>x.Contacts.TipoTelefone)</div>
+                    <SfDropDownList CssClass="inter-normal-silver-16px"
+                                    @bind-Value="Model.Contacts.TipoTelefone"
+                                    name="@nameof(Model.Contacts.TipoTelefone)"
+                                    TValue="string" TItem="string"
+                                    Placeholder="@Model.GetFieldPlaceholder(x=>x.Contacts.TipoTelefone)"
+                                    DataSource="TiposTelefone">
+                    </SfDropDownList>
+                </div>
+                <img class="akar-iconscircle-check-fill"
+                     src="https://anima-uploads.s3.amazonaws.com/projects/63486f9b8ee4feae84ab3e5a/releases/635718144053423584ba5fa2/img/akar-icons-circle-check-fill-5@2x.svg"
+                     alt="akar-icons:circle-check-fill" />
+            </div>
+            <div class="este-campo-obrigatrio inter-normal-sonic-silver-10px">
+                <ValidationMessage For="@(() => Model.Contacts.TipoTelefone)"></ValidationMessage>
+            </div>
+        </div>
+        <div class="site">
+            <div class="container-input-1">
+                <div class="container-titles-1">
+                    <div class="site-1 valign-text-middle inter-medium-sonic-silver-10px">@Model.GetFieldPlaceholder(x=>x.Contacts.Telefone)</div>
+                    <input class="bravos inter-normal-silver-14px"
+                           @bind-value="Model.Contacts.Telefone"
+                           placeholder="@Model.GetFieldPlaceholder(x=>x.Contacts.Telefone)" />
+                </div>
+                <img class="akar-iconscircle-check-fill"
+                     src="https://anima-uploads.s3.amazonaws.com/projects/63486f9b8ee4feae84ab3e5a/releases/635718144053423584ba5fa2/img/akar-icons-circle-check-fill-4@2x.svg"
+                     alt="akar-icons:circle-check-fill" />
+            </div>
+            <div class="este-campo-obrigatrio inter-normal-sonic-silver-10px">
+                <ValidationMessage For="@(() => Model.Contacts.Telefone)"></ValidationMessage>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="site">
+            <div class="container-input-1">
+                <div class="container-titles-1">
+                    <div class="site-1 valign-text-middle inter-medium-sonic-silver-10px">@Model.GetFieldPlaceholder(x=>x.Contacts.Email)</div>
+                    <input class="bravos inter-normal-silver-14px"
+                           @bind-value="Model.Contacts.Email"
+                           placeholder="@Model.GetFieldPlaceholder(x=>x.Contacts.Email)" />
+                </div>
+                <img class="akar-iconscircle-check-fill"
+                     src="https://anima-uploads.s3.amazonaws.com/projects/63486f9b8ee4feae84ab3e5a/releases/635718144053423584ba5fa2/img/akar-icons-circle-check-fill-4@2x.svg"
+                     alt="akar-icons:circle-check-fill" />
+            </div>
+            <div class="este-campo-obrigatrio inter-normal-sonic-silver-10px">
+                <ValidationMessage For="@(() => Model.Contacts.Email)"></ValidationMessage>
+            </div>
+        </div>
+        <div class="e-mail">
+            <div class="container-input-1">
+                <div class="container-titles-1">
+                    <div class="site-1 valign-text-middle inter-medium-sonic-silver-10px">@Model.GetFieldPlaceholder(x=>x.Contacts.WebSite)</div>
+                    <input class="bravos inter-normal-silver-14px"
+                           @bind-value="Model.Contacts.WebSite"
+                           placeholder="@Model.GetFieldPlaceholder(x=>x.Contacts.WebSite)" />
+                </div>
+                <img class="akar-iconscircle-check-fill"
+                     src="https://anima-uploads.s3.amazonaws.com/projects/63486f9b8ee4feae84ab3e5a/releases/635718144053423584ba5fa2/img/akar-icons-circle-check-fill-5@2x.svg"
+                     alt="akar-icons:circle-check-fill" />
+            </div>
+            <div class="este-campo-obrigatrio inter-normal-sonic-silver-10px">
+                <ValidationMessage For="@(() => Model.Contacts.WebSite)"></ValidationMessage>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    List<string> TiposTelefone { get; set; } = new List<string>()
+    {
+        "Principal",
+        "Residencial",
+        "Comercial",
+        "Recado",
+        "Celular"
+    };
+}

@@ -1,0 +1,21 @@
+﻿using SES.<#=myName#>.Domain.Aggregates.UsersAgg.Entities;
+using SES.Core.Domain.Aggregates.CommonAgg.ValueObjects;
+using SES.Core.Domain.Attributes.T4;
+using System.ComponentModel.DataAnnotations;
+
+namespace SES.<#=myName#>.Domain.Aggregates.<#=AggName#>.Entities
+{
+    [AggregateSettingsT4, EndpointsT4(EndpointTypes.HttpAll)]
+    public class <#=AggName#>Settings : BaseAggregateSettings
+    {
+        [Required]
+        public string UserId { get; set; }
+
+        [IgnorePropertyT4OnRequest]
+        public User User { get; set; }
+    }
+}
+<# SaveOutputToSubFolder(
+    folderName: $"Aggregates/{AggName}/Entities/", 
+    outputFileName: @$"{AggName}Settings.cs",
+    recreateFileIfExists: false); #>

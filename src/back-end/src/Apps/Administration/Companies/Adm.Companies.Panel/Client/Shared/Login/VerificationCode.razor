@@ -1,0 +1,98 @@
+﻿@page "/login/codigo-verificacao/{username}"
+@using Companies.Adm.Panel.Shared.Models;
+@using Microsoft.AspNetCore.Authorization;
+@using Services.Implementations;
+@inject IdentityAuthenticationStateProvider authStateProvider
+@inject NavigationManager navigationManager
+@attribute [AllowAnonymous]
+@layout LoginLayout
+
+<EditForm class="container-login" OnValidSubmit="OnSubmit" Model="Input">
+    <input type="hidden" @bind-value="Input.Username" />
+    <div class="container-center-horizontal">
+        <div class="tela-login-esqueci-minha-senha screen">
+            <div class="esqueci-minha-senha-modal-card">
+                @if (Success)
+                {
+                    <h1>Sucesso! Cheque seu e-mail e verifique o link enviado para criar sua nova senha.</h1>
+                }
+                else
+                {
+                    <div class="main-title-assinatura-digital">
+                        <a href="/login/esqueci-minha-senha">
+                            <img class="eparrow-right-bold"
+                             src="https://anima-uploads.s3.amazonaws.com/projects/63486f9b8ee4feae84ab3e5a/releases/634dfbdde6df4c88bb664dff/img/ep-arrow-right-bold@2x.svg"
+                             alt="ep:arrow-right-bold" />
+                        </a>
+                        <div class="container-title-cada">
+                            <div class="container-title">
+                                <div class="continuar valign-text-middle inter-medium-oslo-gray-12px">Continuar</div>
+                            </div>
+                        </div>
+                        <a href="/login">
+                            <img class="bix-lg"
+                             src="https://anima-uploads.s3.amazonaws.com/projects/63486f9b8ee4feae84ab3e5a/releases/6350b1c362bb6f82024ee36f/img/bi-x-lg@2x.svg"
+                             alt="bi:x-lg" />
+                        </a>
+                    </div>
+                    <div class="container-text-encontre-cpf">
+                        <div class="title-encontre-cpf">
+                            <div class="cdigo-de-verificao valign-text-middle inter-semi-bold-black-23px">Código de verificação</div>
+                        </div>
+                        <div class="container-title">
+                            <p class="escolha-por-onde-des valign-text-middle inter-normal-oslo-gray-12px">
+                                Escolha por onde deseja verificar o seu acesso.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="frame-30">
+                        <button type="submit" class="continuar-1"><span class="continuar inter-semi-bold-white-14px">Verificar por e-mail</span></button>
+                        <button type="button" class="continuar-2"><span class="continuar-3">Verificar por SMS</span></button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</EditForm>
+
+@code {
+    bool Success = false;
+    [Parameter] public string Username { get; set; }
+
+    public ForgotPasswordParameters Input { get; set; }
+    string error { get; set; }
+
+    protected override Task OnInitializedAsync()
+    {
+        if (Input == null)
+        {
+            Input = new ForgotPasswordParameters { Username = this.Username };
+        }
+
+        return base.OnInitializedAsync();
+    }
+
+    async Task OnSubmit()
+    {
+        error = null;
+        try
+        {
+            var result = await authStateProvider.ForgotPassword(Input);
+            navigationManager.NavigateTo($"/login/codigo-verificacao/sucesso");
+        }
+        catch (Exception ex)
+        {
+            error = ex.Message;
+        }
+    }
+
+    protected override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+
+        }
+        return base.OnAfterRenderAsync(firstRender);
+    }
+}
+

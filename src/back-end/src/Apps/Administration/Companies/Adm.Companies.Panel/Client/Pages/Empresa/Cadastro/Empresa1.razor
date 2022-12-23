@@ -1,0 +1,93 @@
+﻿@using Bravo.Companies.Application.DTO.Aggregates.CompaniesAgg.Validators
+@inherits EmpresaCadastro
+
+<div class="container-informations screen">
+    <div class="box-inputs">
+        <div class="input-cnpj">
+            <div class="cnpj">
+                <div class="container-1">
+                    <div class="container-box-2 border-1px-silver">
+                        <input class="cnpj-1 valign-text-middle inter-medium-silver-16px"
+                               @bind-value="Model.CNPJ"
+                               placeholder="@Model.GetFieldPlaceholder(nameof(Model.CNPJ))" />
+                    </div>
+                </div>
+                <div class="este-campo-obrigatrio valign-text-middle inter-normal-sonic-silver-10px">
+                    <ValidationMessage For="@(() => Model.CNPJ)"></ValidationMessage>
+                </div>
+            </div>
+        </div>
+        <div class="input-secondary">
+            <div class="input-secondary-item">
+                <div class="container-input border-1px-silver">
+                    <input @bind-value="Model.RazaoSocial" class="razo-social valign-text-middle inter-medium-silver-16px" placeholder="@Model.GetFieldPlaceholder(nameof(Model.RazaoSocial))" />
+                </div>
+                <div class="este-campo-obrigatrio-1 valign-text-middle inter-normal-sonic-silver-10px">
+                    <ValidationMessage For="@(() => Model.RazaoSocial)"></ValidationMessage>
+                </div>
+            </div>
+            <div class="input-secondary-item">
+                <div class="container-input border-1px-silver">
+                    <input @bind-value="Model.NomeFantasia" class="nome-fantasia valign-text-middle inter-medium-silver-16px" placeholder="@Model.GetFieldPlaceholder(nameof(Model.NomeFantasia))" />
+                </div>
+                <div class="este-campo-obrigatrio-2 valign-text-middle inter-normal-sonic-silver-10px">
+                    <ValidationMessage For="@(() => Model.NomeFantasia)" />
+                </div>
+            </div>
+        </div>
+        <div class="input-tertiary">
+            <div class="left-content">
+                <div class="cdigo-cnes">
+                    <div class="container">
+                        <div class="container-box-1">
+                            <div class="container-input-1 border-1px-silver">
+                                <input @bind-value="Model.CNES" class="cdigo-cnes-1 inter-medium-silver-16px" placeholder="@Model.GetFieldPlaceholder(nameof(Model.CNES))" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="este-campo-obrigatrio-3 inter-normal-sonic-silver-10px">
+                        <ValidationMessage For="@(() => Model.CNES)" />
+                    </div>
+                </div>
+                <div class="registro-ans">
+                    <div class="container">
+                        <div class="container-box-3">
+                            <div class="container-input-2 border-1px-silver">
+                                <input @bind-value="Model.ANS" class="registro-ans-1 inter-medium-silver-16px" placeholder="@Model.GetFieldPlaceholder(nameof(Model.ANS))" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="este-campo-obrigatrio-4 inter-normal-sonic-silver-10px">
+                        <ValidationMessage For="@(() => Model.ANS)" />
+                    </div>
+                </div>
+            </div>
+            <div class="cdigo-sus">
+                <div class="container">
+                    <div class="container-box-1">
+                        <div class="container-input-3 border-1px-silver">
+                            <input class="cnpj-1 valign-text-middle inter-medium-silver-16px"
+                                   @bind-value="Model.CodigoSUS"
+                                   placeholder="@Model.GetFieldPlaceholder(nameof(Model.CodigoSUS))" />
+                        </div>
+                    </div>
+                </div>
+                <div class="este-campo-obrigatrio-5 inter-normal-sonic-silver-10px">
+                    <ValidationMessage For="@(() => Model.CodigoSUS)" />
+                </div>
+            </div>
+        </div>
+        <div class="terceirizado border-1-5px-chetwode-blue">
+            <div class="container-text">
+                <div class="terceirizado-1 inter-medium-black-16px">Terceirizado</div>
+                <div class="a-empresa-terceirizada valign-text-middle inter-semi-bold-quill-gray-10px">
+                    @Model.GetFieldPlaceholder(nameof(Model.Terceirizado))
+                </div>
+            </div>
+            <div class="container-radio">
+                <SfRadioButton Label="Sim" Name="options" Value="true" @bind-Checked="Model.Terceirizado"></SfRadioButton>
+                <SfRadioButton Label="Não" Name="options" Value="false" @bind-Checked="Model.Terceirizado"></SfRadioButton>
+            </div>
+        </div>
+    </div>
+</div>

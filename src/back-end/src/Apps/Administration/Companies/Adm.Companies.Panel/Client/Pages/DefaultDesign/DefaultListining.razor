@@ -1,0 +1,61 @@
+﻿@using SES.Core.Application.DTO.Aggregates.CommonAgg.Commands.Responses;
+@using SES.Core.Application.DTO.Aggregates.CommonAgg.Models
+@using System.Reflection;
+@using SES.Core.Application.DTO.Attributes;
+
+@inject IJSRuntime JSRuntime
+@inherits LayoutComponentBase
+
+@typeparam T where T : EntityDTO, new()
+
+<div class="container-list-extended-grupo-empresa screen">
+    <CascadingValue Value="this.Context">
+        <ListiningHeader T="T" />
+        <ListiningItem @ref="_listiningLayuout" T="T" />
+        <ListiningPaginationButtons @ref="_buttons" T="T" />
+    </CascadingValue>
+</div>
+
+@code
+{
+    [Parameter] public string AdditionalQueryString { get; set; }
+    [Parameter] public string OrderBy { get; set; }
+    [Parameter] public string Title { get; set; }
+    [Parameter] public int? Page { get; set; }
+    [Parameter] public int? Size { get; set; }
+    [Parameter] public bool? OrderByDesc { get; set; }
+
+    IListiningContext Context;
+    [Inject] HttpClient _http { get; set; }
+    [Inject] NavigationManager _navigationManager{ get; set; }
+    ListiningPaginationButtons<T>? _buttons;
+    ListiningItem<T>? _listiningLayuout;
+
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (Context == null || Context.QueryString != AdditionalQueryString)
+        {
+            int.TryParse((await _http.GetFromJsonAsync<GetHttpResponseDTO>(
+                                $"{new T().GetRoute()}/count?{AdditionalQueryString}"))?.Data.ToString(),
+                                out var totalOfItens);
+
+            var _properties = new T().ExtractPropertyInfos("DisplayOnList")?.OrderBy(x => x.info?.GetCustomAttribute<DisplayOnList>()?.Order);
+
+            Context = new ListiningContext(
+                _navigationManager, 
+                Title, 
+                totalOfItens, 
+                _properties, 
+                _listiningLayuout.RefreshListining,
+                AdditionalQueryString,
+                Page,
+                Size, 
+                OrderBy,
+                orderByDescending: OrderByDesc);
+            _buttons.RefreshMe();
+            this.StateHasChanged();
+            _listiningLayuout.RefreshListining();
+        }
+        await base.OnAfterRenderAsync(firstRender);
+    }
+}

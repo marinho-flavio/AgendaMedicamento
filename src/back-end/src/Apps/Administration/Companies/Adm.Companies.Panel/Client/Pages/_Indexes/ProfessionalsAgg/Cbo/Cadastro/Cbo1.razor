@@ -1,0 +1,64 @@
+	
+@using SES.Professionals.Application.DTO.Aggregates.ProfessionalsAgg.Requests;
+@using SES.Professionals.Enumerations;
+@using Pages.RegisterStepsTemplate;
+@inherits CboCadastro
+
+<div class="container-informations screen">
+    <div class="box-inputs">
+    <div class="input-cnpj">
+            <div class="cnpj">
+                <div class="container-1">
+                    <div class="container-box-2 border-1px-silver">
+                        <div class="cep-1 valign-text-middle inter-medium-sonic-silver-10px">@Model.GetFieldPlaceholder(Model.GetPropertyInfo(x=>x.Titulos))</div>
+                        <input class="cnpj-1 valign-text-middle inter-medium-silver-16px"
+                                @oninput="(x)=>{layout?.RefreshHeader(()=>{ Model.Titulos = (string)x.Value; });}"                        
+                                @bind-value="Model.Titulos"
+                                placeholder="@Model.GetFieldPlaceholder(nameof(Model.Titulos))" />
+                    </div>
+                </div>
+                <div class="este-campo-obrigatrio valign-text-middle inter-normal-sonic-silver-10px">
+                    <ValidationMessage For="@(() => Model.Titulos)"></ValidationMessage>
+                </div>
+            </div>
+        </div>
+ 
+    <div class="input-secondary"> 
+        <div class="input-secondary-item">
+            <div class="container-input border-1px-silver">
+                                        <div class="cep-1 valign-text-middle inter-medium-sonic-silver-10px">@Model.GetFieldPlaceholder(Model.GetPropertyInfo(x=>x.Codigo))</div>
+                <input @bind-value="Model.Codigo"
+                   @oninput="(x)=>{layout?.RefreshHeader(()=>{ Model.Codigo = (string)x.Value; });}"                     class="razo-social valign-text-middle inter-medium-silver-16px"
+                    placeholder="@Model.GetFieldPlaceholder(nameof(Model.Codigo))" />
+            </div>
+            <div class="este-campo-obrigatrio-1 valign-text-middle inter-normal-sonic-silver-10px">
+                <ValidationMessage For="@(() => Model.Codigo)"></ValidationMessage>
+            </div>
+        </div>
+        <div class="input-secondary-item">
+            <div class="container-input border-1px-silver">
+                                        <div class="cep-1 valign-text-middle inter-medium-sonic-silver-10px">@Model.GetFieldPlaceholder(Model.GetPropertyInfo(x=>x.Tipo))</div>
+                <input @bind-value="Model.Tipo"
+                                    class="razo-social valign-text-middle inter-medium-silver-16px"
+                    placeholder="@Model.GetFieldPlaceholder(nameof(Model.Tipo))" />
+            </div>
+            <div class="este-campo-obrigatrio-1 valign-text-middle inter-normal-sonic-silver-10px">
+                <ValidationMessage For="@(() => Model.Tipo)"></ValidationMessage>
+            </div>
+        </div>
+    </div> 
+    </div>
+</div>
+
+@code {
+    [CascadingParameter] BaseMainStepsLayout<CboDTO> layout { get; set; }
+
+    protected override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            this.StateHasChanged();
+        }
+        return base.OnAfterRenderAsync(firstRender);
+    }
+}

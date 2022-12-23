@@ -1,0 +1,22 @@
+@page "/CompaniesAggSettings/cadastro"
+@page "/CompaniesAggSettings/cadastro/{id}"
+
+@using Companies.Adm.Panel.Client.Pages.Base
+@using Companies.Adm.Panel.Client.Pages.DefaultDesign
+@using Companies.Adm.Panel.Client.Pages.RegisterStepsTemplate
+@using SES.Companies.Application.DTO.Aggregates.CompaniesAgg.Requests
+@using SES.Companies.Application.DTO.Aggregates.CompaniesAgg.Validators
+
+@layout MainLayout
+@inherits BaseStepsFormComponent<CompaniesAggSettingsDTO, CompaniesAggSettingsDTO, BaseCompaniesAggValidator<CompaniesAggSettingsDTO>>
+
+<CascadingValue Value="this.Context">
+    <CascadingValue Value="this.Context?.layout">
+        <BaseMainStepsLayout @ref="layout" ModelType="CompaniesAggSettingsDTO" AutoSaveSettings="AutoSaveSettings"
+                             CurrentFragment="this.CurrentFragment"
+                             EditContext="this.EditContext"
+                             OnSubmitForm="this.OnSubmitForm"
+                             OnSubmitFormInvalid="this.OnSubmitFormInvalid"
+                             TValidator="this.TValidator" />
+    </CascadingValue>
+</CascadingValue>

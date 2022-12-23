@@ -1,0 +1,359 @@
+
+@import url("https://fonts.googleapis.com/css?family=Inter:600");
+@import url("https://fonts.googleapis.com/css?family=Inter:400,600");
+@import url("https://fonts.googleapis.com/css?family=Inter:400,500,600");
+@import url("https://fonts.googleapis.com/css?family=Inter:400,700,600");
+@import url("https://fonts.googleapis.com/css?family=Inter:700,500,600");
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Inter:400,700,500,600");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Inter:700,500,600");
+
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+@import url("https://fonts.googleapis.com/css?family=Inter:700,500,600");
+
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+@import url("https://fonts.googleapis.com/css?family=Inter:700,500,600");
+
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+@import url("https://fonts.googleapis.com/css?family=Inter:400,700,500,400italic,600");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Inter:400");
+/* The following line is used to measure usage of this code in production. For more info see our usage billing page */
+@import url("https://fonts.googleapis.com/css?family=Inter:400,400italic,500,600");
+@import url("https://fonts.googleapis.com/css?family=Inter:400,500,600");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Inter:400,700,500,600");
+/* The following line is used to measure usage of this code in production. For more info see our usage billing page */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Inter:700,500,600");
+/* The following line is used to measure usage of this code in production. For more info see our usage billing page */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Inter:600");
+/* The following line is used to measure usage of this code in production. For more info see our usage billing page */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Inter:400,600");
+/* The following line is used to measure usage of this code in production. For more info see our usage billing page */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Inter:700,600");
+/* The following line is used to measure usage of this code in production. For more info see our usage billing page */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Inter:700,500,600");
+/* The following line is used to measure usage of this code in production. For more info see our usage billing page */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Inter:400,400italic,500,600");
+/* The following line is used to measure usage of this code in production. For more info see our usage billing page */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Inter:400,400italic,500,600");
+/* The following line is used to measure usage of this code in production. For more info see our usage billing page */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Inter:400,500,400italic");
+/* The following line is used to measure usage of this code in production. For more info see our usage billing page */
+
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Inter:400,500,600");
+/* The following line is used to measure usage of this code in production. For more info see our usage billing page */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Inter:700,500,600");
+/* The following line is used to measure usage of this code in production. For more info see our usage billing page */
+
+
+
+.valign-text-middle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+input:focus {
+    outline: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+
+:root {
+    --black: #000000;
+    --seashell: #f1f1f1;
+    --silver-chalice: #808080;
+    --font-size-l2: 16px;
+    --font-size-xxl2: 19.2px;
+    --font-family-inter: "Inter", Helvetica;
+}
+
+:root {
+    --black: #000000;
+    --cosmic-cobalt: #302793;
+    --mercury: #e5e5e5;
+    --silver: #787676;
+    --white: #ffffff;
+    --font-size-l3: 33.2px;
+    --font-size-xxl2: 19.2px;
+    --font-size-xxs: 14px;
+    --font-family-inter: "Inter", Helvetica;
+}
+
+:root {
+    --black: #000000;
+    --cosmic-cobalt: #302793;
+    --mercury: #e5e5e5;
+    --silver: #787676;
+    --white: #ffffff;
+    --font-size-l3: 33.2px;
+    --font-size-xxl2: 19.2px;
+    --font-size-xxs: 14px;
+    --font-family-inter: "Inter", Helvetica;
+}
+
+:root {
+    --black: #000000;
+    --chetwode-blue: #8c81f7;
+    --silver: #787676;
+    --sonic-silver-2: #787676;
+    --white: #ffffff;
+    --font-size-l2: 16px;
+    --font-size-xxxxs: 10px;
+    --font-family-inter: "Inter", Helvetica;
+}
+
+:root {
+    --black: #000000;
+    --white: #ffffff;
+    --font-size-m: 8px;
+    --font-family-inter: "Inter", Helvetica;
+}
+
+:root {
+    --black: #000000;
+    --chetwode-blue: #8c81f7;
+    --silver: #787676;
+    --white: #ffffff;
+    --font-size-xl2: 18px;
+    --font-family-inter: "Inter", Helvetica;
+}
+
+:root {
+    --black: #000000;
+    --cosmic-cobalt: #302793;
+    --silver: #787676;
+    --font-size-l3: 33.2px;
+    --font-size-xxs: 14px;
+    --font-family-inter: "Inter", Helvetica;
+}
+
+:root {
+    --black: #000000;
+    --seashell: #f1f1f1;
+    --silver-chalice: #ababab;
+    --font-size-l2: 16px;
+    --font-size-xxl2: 19.2px;
+    --font-family-inter: "Inter", Helvetica;
+}
+
+:root {
+    --black: #000000;
+    --chetwode-blue: #8c81f7;
+    --white: #ffffff;
+    --font-size-m2: 12px;
+    --font-size-xxxxs: 10px;
+    --font-family-inter: "Inter", Helvetica;
+}
+
+:root {
+    --black: #000000;
+    --chetwode-blue: #8c81f7;
+    --white: #ffffff;
+    --font-size-m2: 12px;
+    --font-size-xxxxs: 10px;
+    --font-family-inter: "Inter", Helvetica;
+}
+
+:root {
+    --black: #000000;
+    --chetwode-blue: #8c81f7;
+    --silver: #787676;
+    --sonic-silver-22: #787676;
+    --white: #ffffff;
+    --font-size-l2: 16px;
+    --font-size-xxxxs: 10px;
+    --font-family-inter: "Inter", Helvetica;
+}
+
+input,
+input:focus {
+    outline: none !important;
+}
+
+:root {
+    --black: #000000;
+    --chetwode-blue: #8c81f7;
+    --silver: #787676;
+    --sonic-silver-22: #787676;
+    --white: #ffffff;
+    --font-size-l2: 16px;
+    --font-size-xxxxs: 10px;
+    --font-family-inter: "Inter", Helvetica;
+}
+
+
+:root {
+    --black: #000000;
+    --chetwode-blue: #8c81f7;
+    --mercury: #e5e5e5;
+    --silver: #787676;
+    --sonic-silver-22: #787676;
+    --white: #ffffff;
+    --font-size-l2: 16px;
+    --font-size-m2: 12px;
+    --font-size-xxs: 14px;
+    --font-size-xxxxs: 10px;
+    --font-family-inter: "Inter", Helvetica;
+}
+
+.e-switch-wrapper {
+    width: 100px !important;
+}
+
+:root {
+    --black: #000000;
+    --chetwode-blue: #8c81f7;
+    --mercury: #e5e5e5;
+    --silver: #787676;
+    --sonic-silver-22: #787676;
+    --white: #ffffff;
+    --font-size-l2: 16px;
+    --font-size-m2: 12px;
+    --font-size-xxs: 14px;
+    --font-size-xxxxs: 10px;
+    --font-family-inter: "Inter", Helvetica;
+}
+
+:root {
+    --black: #000000;
+    --chetwode-blue: #8c81f7;
+    --silver: #787676;
+    --white: #ffffff;
+    --font-size-xl2: 18px;
+    --font-family-inter: "Inter", Helvetica;
+}
+
+button {
+    border: none;
+}
+
+:root {
+    --black: #000000;
+    --chetwode-blue: #8c81f7;
+    --silver: #787676;
+    --sonic-silver-22: #787676;
+    --white: #ffffff;
+    --font-size-l2: 16px;
+    --font-size-xxxxs: 10px;
+    --font-family-inter: "Inter", Helvetica;
+}
+
+.inter-normal-silver-16px {
+    color: var(--sonic-silver-22);
+    font-family: var(--font-family-inter);
+    font-size: var(--font-size-l2);
+    font-style: normal;
+    font-weight: 400;
+}
+
+.inter-normal-sonic-silver-10px {
+    color: var(--sonic-silver-22);
+    font-family: var(--font-family-inter);
+    font-size: var(--font-size-xxxxs);
+    font-style: italic;
+    font-weight: 400;
+}
+
+.border-1px-silver {
+    border: 1px solid var(--silver);
+}
+
+.border-1px-chetwode-blue {
+    border: 1px solid var(--chetwode-blue);
+}
+
+:root {
+    --alto: #d9d9d9;
+    --black: #000000;
+    --chetwode-blue: #8c81f7;
+    --mystic: #ebebec;
+    --oslo-gray: #888990;
+    --silver: #888990;
+    --sonic-silver: #787676;
+    --white: #ffffff;
+    --font-size-m2: 12px;
+    --font-size-m3: 10px;
+    --font-size-xl2: 14px;
+    --font-size-xxl2: 18px;
+    --font-size-xxxl: 26px;
+    --font-family-inter: "Inter", Helvetica;
+}
+
+.inter-normal-silver-14px {
+    color: var(--silver);
+    font-family: var(--font-family-inter);
+    font-size: var(--font-size-xl2);
+    font-style: normal;
+    font-weight: 400;
+}
+
+.inter-medium-black-12px {
+    color: var(--black);
+    font-family: var(--font-family-inter);
+    font-size: var(--font-size-m2);
+    font-style: normal;
+    font-weight: 500;
+}
+
+.inter-bold-chetwode-blue-18px {
+    color: var(--chetwode-blue);
+    font-family: var(--font-family-inter);
+    font-size: var(--font-size-xxl2);
+    font-style: normal;
+    font-weight: 700;
+}
+
+.inter-normal-sonic-silver-10px {
+    color: var(--sonic-silver);
+    font-family: var(--font-family-inter);
+    font-size: var(--font-size-m3);
+    font-style: italic;
+    font-weight: 400;
+}
+
+.inter-semi-bold-white-14px {
+    color: var(--white);
+    font-family: var(--font-family-inter);
+    font-size: var(--font-size-xl2);
+    font-style: normal;
+    font-weight: 600;
+}
+
+
+
+
+.valign-text-middle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+input:focus {
+    outline: none;
+}
+
+* {
+    box-sizing: border-box;
+}

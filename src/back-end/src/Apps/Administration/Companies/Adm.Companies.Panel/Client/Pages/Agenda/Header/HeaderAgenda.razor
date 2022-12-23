@@ -1,0 +1,169 @@
+﻿<div class="container-center-horizontal">
+    <div class="tela-agenda-mes screen">
+        <div class="overlap-group">
+            <div class="frame-231">
+                <img class="bithree-dots-vertical" src="imgs/calendario/header/bi-three-dots-vertical@2x.svg" alt="bi:three-dots-vertical" />
+                <div @onclick="()=>{this.popupPeriodo=!this.popupPeriodo;}" class="container-dropdown-tipo-visualizacao">
+                    <div class="container-mes">
+                        <img class="fa6-solidcalendar-days"
+                             src="imgs/calendario/header/fa6-solid-calendar-days@2x.svg"
+                             alt="fa6-solid:calendar-days" />
+                        <div class="container-title-mes"><div class="ms inter-medium-chetwode-blue-10px">Mês</div></div>
+                    </div>
+                    <img class="eparrow-right-bold-1" src="imgs/calendario/header/ep-arrow-right-bold@2x.svg" alt="ep:arrow-right-bold" />
+                </div>
+                <div @onclick="()=>{this.popupFiltro=!this.popupFiltro;}" class="container-dropdown-filtros">
+                    <img class="mingcutefilter-fill" src="imgs/calendario/header/mingcute-filter-fill@2x.svg" alt="mingcute:filter-fill" />
+                    <div class="container-text-filtros">
+                        <div class="filtros valign-text-middle inter-semi-bold-silver-chalice-10px">Filtros</div>
+                    </div>
+                    <img class="eparrow-right-bold-2" src="imgs/calendario/header/ep-arrow-right-bold-1@2x.svg" alt="ep:arrow-right-bold" />
+                </div>
+                <div class="container-title-calendar-list">
+                    <div class="container">
+                        <div class="clnica-SES valign-text-middle inter-semi-bold-chetwode-blue-12px">Clínica SES</div>
+                    </div>
+                    <div class="container">
+                        <p class="hoje-22-de-setembro-de-2022 valign-text-middle inter-semi-bold-black-20px">
+                            Hoje, 22 de Setembro de 2022
+                        </p>
+                    </div>
+                </div>
+                <img class="divider" src="imgs/calendario/header/divider@2x.svg" alt="divider" />
+                <div class="container-agenda-profissionais">
+                    <div class="container-title-agenda-profissionais">
+                        <div class="agenda-dos-profissionais valign-text-middle inter-semi-bold-gunsmoke-10px">
+                            Agenda dos profissionais
+                        </div>
+                    </div>
+                    <div class="container-options-profissionais">
+                        <a href="/calendario/profissionais"> <div class="button-todos"><div class="todos inter-bold-white-10px">Todos</div></div></a>
+                        <a href="/calendario/profissionais"><img src="/imgs/calendario/header/container-icon-profissional (2).svg" class="container-icon-profissional" /></a>
+                        <a href="/calendario/profissionais"><img src="/imgs/calendario/header/container-icon-profissional.svg" class="container-icon-profissional-1" /></a>
+                        <a href="/calendario/profissionais"><div class="container-icon-profissional-2"><div class="fm inter-bold-white-10px">FM</div></div></a>
+                        <a href="/calendario/profissionais"><img src="/imgs/calendario/header/container-icon-profissional (1).svg" class="container-icon-profissional-3" /></a>
+                        <a href="/calendario/profissionais"><img class="button-inserir-profissional"
+                             src="imgs/calendario/header/button-inserir-profissional@2x.svg"
+                             alt="button-inserir-profissional" /></a>
+                    </div>
+                </div>
+                <img class="button-search" src="imgs/calendario/header/button-search@2x.svg" alt="button-search" />
+                <div @onclick="()=>{this.popupFila=!this.popupFila;}" class="container-dropdown-fila">
+                    <div class="frame-301">
+                        <img class="fa6-solidcalendar-week"
+                             src="imgs/calendario/header/fa6-solid-calendar-week@2x.svg"
+                             alt="fa6-solid:calendar-week" />
+                        <div class="frame-21">
+                            <div class="filas valign-text-middle inter-semi-bold-chetwode-blue-10px">Filas</div>
+                        </div>
+                    </div>
+                    <img class="eparrow-right-bold-3" src="imgs/calendario/header/ep-arrow-right-bold-2@2x.svg" alt="ep:arrow-right-bold" />
+                </div>
+                <img class="container-turnos" src="imgs/calendario/header/container-turnos@2x.svg" alt="container-turnos" />
+            </div>
+            @if (popupFila == true)
+            {
+                <div class="container-resumo-convenio">
+                    <div class="columm-resumo-basico">
+                        <div class="number-agendados">
+                            <img class="birecord-fill" src="imgs/calendario/header/bi-record-fill@2x.svg" alt="bi:record-fill" />
+                            <div class="place inter-normal-black-10px">Espera</div>
+                        </div>
+                        <div class="number-agendados">
+                            <img class="birecord-fill-1" src="imgs/calendario/header/bi-record-fill-1@2x.svg" alt="bi:record-fill" />
+                            <div class="recepo inter-normal-black-10px">Recepção</div>
+                        </div>
+                        <div class="number-agendados">
+                            <img class="birecord-fill-2" src="imgs/calendario/header/bi-record-fill-2@2x.svg" alt="bi:record-fill" />
+                            <div class="atendimento inter-normal-black-10px">Atendimento</div>
+                        </div>
+                        <div class="number-agendados-1">
+                            <img class="birecord-fill-3" src="imgs/calendario/header/bi-record-fill-3@2x.svg" alt="bi:record-fill" />
+                            <div class="procedimento inter-normal-black-10px">Procedimento</div>
+                        </div>
+                        <div class="number-agendados-1">
+                            <img class="birecord-fill-4" src="imgs/calendario/header/bi-record-fill-4@2x.svg" alt="bi:record-fill" />
+                            <div class="reavaliao inter-normal-black-10px">Reavaliação</div>
+                        </div>
+                    </div>
+                </div>
+            }
+            @if (popupFiltro == true)
+            {
+                <div class="container-resumo-convenio-1">
+                    <div class="columm-resumo-basico-1">
+                        <div class="number-agendados-2">
+                            <img class="birecord-fill-5" src="imgs/calendario/header/bi-record-fill-5@2x.svg" alt="bi:record-fill" />
+                            <div class="profissional inter-normal-black-12px">Profissional</div>
+                            <img class="eparrow-right-bold" src="imgs/calendario/header/ep-arrow-right-bold-3@2x.svg" alt="ep:arrow-right-bold" />
+                        </div>
+                        <div class="number-agendados-3">
+                            <img class="birecord-fill-6" src="imgs/calendario/header/bi-record-fill-6@2x.svg" alt="bi:record-fill" />
+                            <div class="tags inter-normal-black-12px">Tags</div>
+                            <img class="eparrow-right-bold-4" src="imgs/calendario/header/ep-arrow-right-bold-4@2x.svg" alt="ep:arrow-right-bold" />
+                        </div>
+                        <div class="number-agendados-2">
+                            <img class="birecord-fill-7" src="imgs/calendario/header/bi-record-fill-7@2x.svg" alt="bi:record-fill" />
+                            <div class="place-1 inter-normal-black-12px">Plano</div>
+                            <img class="eparrow-right-bold" src="imgs/calendario/header/ep-arrow-right-bold-5@2x.svg" alt="ep:arrow-right-bold" />
+                        </div>
+                        <div class="number-agendados-2">
+                            <img class="birecord-fill-8" src="imgs/calendario/header/bi-record-fill-8@2x.svg" alt="bi:record-fill" />
+                            <div class="status inter-normal-black-12px">Status</div>
+                            <img class="eparrow-right-bold" src="imgs/calendario/header/ep-arrow-right-bold-6@2x.svg" alt="ep:arrow-right-bold" />
+                        </div>
+                        <div class="number-agendados-2">
+                            <img class="birecord-fill-9" src="imgs/calendario/header/bi-record-fill-9@2x.svg" alt="bi:record-fill" />
+                            <div class="feriados inter-normal-black-12px">Feriados</div>
+                        </div>
+                        <div class="number-agendados-2">
+                            <img class="birecord-fill-10" src="imgs/calendario/header/bi-record-fill-10@2x.svg" alt="bi:record-fill" />
+                            <div class="surname inter-normal-black-12px">Campos Bloqueados</div>
+                        </div>
+                        <div class="number-agendados-2">
+                            <img class="birecord-fill-11" src="imgs/calendario/header/bi-record-fill-11@2x.svg" alt="bi:record-fill" />
+                            <div class="horas-livres inter-normal-black-12px">Horas Livres</div>
+                        </div>
+                    </div>
+                </div>
+            }
+            @if (popupPeriodo == true)
+            {
+                <div class="container-resumo-convenio-2">
+                    <div class="columm-resumo-basico-2">
+                        <div class="number-agendados">
+                            <img class="birecord-fill-12" src="imgs/calendario/header/bi-record-fill-12@2x.svg" alt="bi:record-fill" />
+                            <div class="agora inter-normal-black-10px">Agora</div>
+                        </div>
+                        <div class="number-agendados">
+                            <img class="fa6-solidcalendar-day"
+                             src="imgs/calendario/header/fa6-solid-calendar-day@2x.svg"
+                             alt="fa6-solid:calendar-day" />
+                            <div class="dia inter-normal-black-10px">Dia</div>
+                        </div>
+                        <div class="number-agendados">
+                            <img class="fa6-solidcalendar-week-1"
+                             src="imgs/calendario/header/fa6-solid-calendar-week-1@2x.svg"
+                             alt="fa6-solid:calendar-week" />
+                            <div class="semana inter-normal-black-10px">Semana</div>
+                        </div>
+                        <div class="number-agendados">
+                            <img class="fa6-solidcalendar-days-1"
+                             src="imgs/calendario/header/fa6-solid-calendar-days-1@2x.svg"
+                             alt="fa6-solid:calendar-days" />
+                            <div class="ms-1 inter-normal-black-10px">Mês</div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+@code {
+    bool popupFila;
+    bool popupPeriodo;
+    bool popupFiltro;
+
+}

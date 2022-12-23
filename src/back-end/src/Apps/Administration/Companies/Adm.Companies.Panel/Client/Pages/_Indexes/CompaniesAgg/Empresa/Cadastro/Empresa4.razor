@@ -1,0 +1,31 @@
+	
+@using SES.Companies.Application.DTO.Aggregates.CompaniesAgg.Requests;
+@using SES.Companies.Enumerations;
+@using Pages.RegisterStepsTemplate;
+@inherits EmpresaCadastro
+
+<div class="container-informations screen">
+    <div class="box-inputs">
+ 
+    <div class="input-secondary"> 
+<UploadFile Image="@Model.Configuracao.Logo" />
+<div class="ativo-grupo">
+    <div class="container-text-2"><div class="status-do-grupo valign-text-middle">Setor Próprio</div></div>
+    <SfSwitch @bind-Checked="Model.Configuracao.SetorProprio" OnLabel="Ativo" OffLabel="Inativo"></SfSwitch>
+</div>
+    </div> 
+    </div>
+</div>
+
+@code {
+    [CascadingParameter] BaseMainStepsLayout<EmpresaDTO> layout { get; set; }
+
+    protected override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            this.StateHasChanged();
+        }
+        return base.OnAfterRenderAsync(firstRender);
+    }
+}

@@ -1,0 +1,263 @@
+﻿@using SES.Companies.Application.DTO.Aggregates.SchedulingsAgg.Requests;
+@using Companies.Adm.Panel.Client.Pages.Agenda.Schedulings.Montly;
+@using Companies.Adm.Panel.Shared;
+@using System.Globalization;
+
+<div class="columm-right">
+    <img class="divider" src="/imgs/calendario/right-container/divider@2x.svg" alt="divider" />
+    <div class="calendar-right">
+        <div class="container-box-1">
+            <div class="container-resume-date">
+                <div class="container-resume-date-today">
+                    <div class="container-title">
+                        <div class="address valign-text-middle inter-semi-bold-black-12px">
+                            @currentDateCache.Day @currentDateCache.ToString("MMMM", new CultureInfo("pt-BR")) @currentDateCache.Year
+                        </div>
+                    </div>
+                    <div class="container-title">
+                        <div class="quinta-feira valign-text-middle inter-medium-chetwode-blue-10px">@currentDateCache.ToString("dddd", new CultureInfo("pt-BR"))</div>
+                    </div>
+                </div>
+                <img class="buttons" src="/imgs/calendario/right-container/buttons-left@2x.svg" alt="buttons-left" @onclick=PreviousMonth />
+                <img class="buttons" src="/imgs/calendario/right-container/buttons-right@2x.svg" alt="buttons-right" @onclick=NextMonth />
+            </div>
+            <div class="container-calendar">
+                <div class="container-titles-all-week">
+                    <div class="container-week">
+                        <div class="dom valign-text-middle inter-semi-bold-silver-10px">DOM</div>
+                    </div>
+                    <div class="container-week">
+                        <div class="seg valign-text-middle inter-semi-bold-black-10px">SEG</div>
+                    </div>
+                    <div class="container-week">
+                        <div class="ter valign-text-middle inter-semi-bold-black-10px">TER</div>
+                    </div>
+                    <div class="container-week">
+                        <div class="qua valign-text-middle inter-semi-bold-black-10px">QUA</div>
+                    </div>
+                    <div class="container-week">
+                        <div class="qui valign-text-middle inter-semi-bold-black-10px">QUI</div>
+                    </div>
+                    <div class="container-week">
+                        <div class="sex valign-text-middle inter-semi-bold-black-10px">SEX</div>
+                    </div>
+                    <div class="container-week">
+                        <div class="sb valign-text-middle inter-semi-bold-silver-10px">SÁB</div>
+                    </div>
+                </div>
+                @if (Context != null)
+                {
+                    for (int i = 0; i < 6; i++)
+                    {
+                        <MontlyCalendarWeek Context=this.Context Week="i" />
+                    }
+                }
+            </div>
+        </div>
+    </div>
+    <div class="container-resumo-convenio">
+        <div class="columm-resumo-basico">
+            <div class="number">
+                <div class="agendados inter-medium-black-12px">Agendados</div>
+                <div class="number-8 inter-semi-bold-cosmic-cobalt-12px">38</div>
+            </div>
+            <div class="number">
+                <div class="confirmados inter-medium-black-12px">Confirmados</div>
+                <div class="number-9 inter-semi-bold-olivine-12px">18</div>
+            </div>
+            <div class="number">
+                <div class="cancelados inter-medium-black-12px">Cancelados</div>
+                <div class="number-10 inter-semi-bold-star-dust-12px">05</div>
+            </div>
+            <div class="number">
+                <div class="atendidos inter-medium-black-12px">Atendidos</div>
+                <div class="number-11 inter-semi-bold-chetwode-blue-12px">15</div>
+            </div>
+        </div>
+        <div class="columm-resumo-convenio">
+            <div class="container-titles">
+                <div class="container-options-resumo-convenio">
+                    <div class="container-resumo"><div class="resumo inter-medium-chetwode-blue-10px">Resumo</div></div>
+                    <div class="container-convnio">
+                        <div class="convnio inter-medium-sonic-silver-10px">Convênio</div>
+                    </div>
+                </div>
+            </div>
+            <div class="number-1">
+                <div class="primeira-consulta inter-medium-black-12px">Primeira Consulta</div>
+                <div class="number-2 inter-semi-bold-chetwode-blue-12px">18</div>
+            </div>
+            <div class="number-1">
+                <div class="consulta inter-medium-black-12px">Consulta</div>
+                <div class="number-2 inter-semi-bold-chetwode-blue-12px">18</div>
+            </div>
+            <div class="number-1">
+                <div class="retorno inter-medium-black-12px">Retorno</div>
+                <div class="number-2 inter-semi-bold-chetwode-blue-12px">05</div>
+            </div>
+            <div class="number-1">
+                <div class="exame inter-medium-black-12px">Exame</div>
+                <div class="number-2 inter-semi-bold-chetwode-blue-12px">05</div>
+            </div>
+        </div>
+    </div>
+    <div class="card-container">
+        <div class="card-observacao-agendamento">
+            <img class="container-icon-citacao"
+                 src="/imgs/calendario/right-container/container-icon-citacao@2x.svg"
+                 alt="container-icon-citacao" />
+            <div class="container-box">
+                <div class="container-title-notify">
+                    <div class="container">
+                        <div class="observaes-do-agendamento valign-text-middle inter-semi-bold-yellow-orange-8px">
+                            Observações do Agendamento
+                        </div>
+                    </div>
+                    <div class="icon-notify"><div class="number-15 inter-bold-white-8px">10</div></div>
+                </div>
+                <div class="container-description">
+                    <div class="container-description-1">
+                        <p class="preciso-de-atendimen valign-text-middle inter-medium-yellow-metal-8px">
+                            Preciso de atendimento especial. Por gentileza, possuir cadeira de rodas disponível no local.
+                        </p>
+                    </div>
+                    <div class="container-responsavel">
+                        <div class="container-user-responsavel">
+                            <div class="container-icon-user"><div class="fm inter-bold-white-6px">FM</div></div>
+                            <div class="container-1">
+                                <div class="container-name-user">
+                                    <div class="fbio-marcelo inter-semi-bold-black-6px">Fábio Marcelo</div>
+                                </div>
+                                <div class="container">
+                                    <div class="paciente valign-text-middle inter-semi-bold-gunsmoke-6px">Paciente</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container-dots-visualizacao">
+                            <div class="circle-1"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-comentarios-diarios">
+            <img class="container-icon-citacao-1"
+                 src="/imgs/calendario/right-container/container-icon-citacao-1@2x.svg"
+                 alt="container-icon-citacao" />
+            <div class="container-box">
+                <div class="container-title-notify-1">
+                    <div class="container">
+                        <div class="comentrios-dirios valign-text-middle inter-semi-bold-malibu-8px">
+                            Comentários Diários
+                        </div>
+                    </div>
+                    <div class="icon-notify"><div class="number-16 inter-bold-white-8px">05</div></div>
+                </div>
+                <div class="container-description">
+                    <div class="container-description-1">
+                        <div class="manter-ordem-nos-setores valign-text-middle inter-medium-fiord-8px">
+                            Manter ordem nos setores.
+                        </div>
+                    </div>
+                    <div class="container-responsavel-1">
+                        <div class="container-tag-todos">
+                            <img class="cilink-02" src="/imgs/calendario/right-container/ci-link-02@2x.svg" alt="ci:link-02" />
+                            <div class="container-1">
+                                <div class="todos valign-text-middle inter-semi-bold-chetwode-blue-8px">Todos</div>
+                            </div>
+                        </div>
+                        <div class="container-dots-visualizacao">
+                            <div class="circle-2"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-observacao-agenda">
+            <img class="container-icon-citacao"
+                 src="/imgs/calendario/right-container/container-icon-citacao-2@2x.svg"
+                 alt="container-icon-citacao" />
+            <div class="container-box">
+                <div class="container-title-notify-2">
+                    <div class="container">
+                        <div class="observaes-da-agenda valign-text-middle inter-semi-bold-chetwode-blue-8px">
+                            Observações da Agenda
+                        </div>
+                    </div>
+                    <div class="icon-notify"><div class="number-17 inter-bold-white-8px">20</div></div>
+                </div>
+                <div class="container-description">
+                    <div class="container-description-1">
+                        <p class="no-poderei-atender valign-text-middle inter-medium-fiord-8px-2">
+                            Não poderei atender na próxima semana, segunda <br />e quarta. Favor, remarcar todos os pacientes.
+                        </p>
+                    </div>
+                    <div class="container-responsavel">
+                        <div class="container-user-responsavel">
+                            <div class="container-icon-user-1"></div>
+                            <div class="container-1">
+                                <div class="container-name-user">
+                                    <div class="dr-enrique-gomes inter-semi-bold-black-6px">Dr. Enrique Gomes</div>
+                                </div>
+                                <div class="container">
+                                    <div class="ortopedista valign-text-middle inter-semi-bold-gunsmoke-6px">Ortopedista</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container-dots-visualizacao">
+                            <div class="circle-3"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    DateTime currentDateCache = DateTime.Now;
+    public IMonthlyScheduleContext Context { get; set; }
+    [Inject] HttpClient _http { get; set; }
+    [Parameter] public MonthlySchedule MonthlyCallendar { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+    }
+
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (Context == null)
+        {
+            var holidays = await _http.SuummaryAsync<FeriadoDTO, FeriadoListiningDTO>();
+            this.Context = new MonthlyScheduleContext(holidays, currentDateCache.Year, currentDateCache.Month);
+            Task.Run(() => this.StateHasChanged());
+        }
+        await base.OnAfterRenderAsync(firstRender);
+    }
+
+    void NextMonth()
+    {
+        this.currentDateCache = this.currentDateCache.AddMonths(1);
+        UpdateCallendar();
+    }
+
+    void PreviousMonth()
+    {
+        this.currentDateCache = this.currentDateCache.AddMonths(-1);
+        UpdateCallendar();
+    }
+
+    void UpdateCallendar()
+    {
+        this.Context = null;
+        this.StateHasChanged();
+        this.MonthlyCallendar.UpdateCallendar(this.currentDateCache);
+    }
+}

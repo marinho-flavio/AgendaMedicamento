@@ -1,0 +1,15 @@
+﻿@using Companies.Adm.Panel.Client.Pages.Agenda.Schedulings.Montly;
+<div class="container-all-week-dates">
+    <div class="horizontal-columm">
+        @for (int i = Week * 7; i < (Week + 1) * 7; i++)
+        {
+            <DayContainer i="i" Context="this.Context" />
+        }
+    </div>
+</div>
+
+@code {
+    [Parameter] public IMonthlyScheduleContext Context { get; set; }
+
+    [Parameter] public int Week { get; set; }
+}

@@ -1,0 +1,20 @@
+         <div class="cdigo-cnes">
+            <div class="container">
+                <div class="container-box-1">
+                    <div class="container-input-1 border-1px-silver">
+                        <div class="cidade-localidade-1 valign-text-middle inter-medium-sonic-silver-10px">@Model.GetFieldPlaceholder(nameof(Model.<#=myName#>))</div>
+                        <SfDropDownList CssClass="inter-normal-silver-16px"
+                                    @bind-Value="Model.<#=myName#>"
+                                    name="@nameof(Model.<#=myName#>)"
+                                    <#if(isTitle) {#>   @oninput="(x)=>{layout?.RefreshHeader(()=>{ Model.<#=myName#> = (<#=myType#>)x.Value; });}" <#}#>
+                                    TValue="<#=myType#>" TItem="<#=myType#>"
+                                    placeholder="@Model.GetFieldPlaceholder(x=>x.<#=myName#>)"
+                                    DataSource="Enum.GetValues(typeof(<#=myType#>)).Cast<<#=myType#>>()">
+                    </SfDropDownList>
+                    </div>
+                </div>
+            </div>
+            <div class="este-campo-obrigatrio-3 inter-normal-sonic-silver-10px">
+                <ValidationMessage For="@(() => Model.<#=myName#>)"></ValidationMessage>
+            </div>
+        </div>

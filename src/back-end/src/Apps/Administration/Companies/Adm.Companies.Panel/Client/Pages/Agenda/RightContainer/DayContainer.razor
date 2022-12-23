@@ -1,0 +1,22 @@
+﻿@using Companies.Adm.Panel.Client.Pages.Agenda.Schedulings.Montly;
+<div class="container-day-weekend @_myDate?.Clss">
+    <div class="number-3 valign-text-middle inter-medium-gunsmoke-10px">@_myDate?.Day</div>
+</div>
+
+@code {
+    MyDayInfo? _myDate;
+
+    [Parameter] public int i { get; set; }
+    [Parameter] public IMonthlyScheduleContext Context { get; set; }
+
+    protected override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (Context != null && _myDate == null)
+        {
+            _myDate = Context.MyDate(i);
+            this.StateHasChanged();
+        }
+        return base.OnAfterRenderAsync(firstRender);
+    }
+
+}

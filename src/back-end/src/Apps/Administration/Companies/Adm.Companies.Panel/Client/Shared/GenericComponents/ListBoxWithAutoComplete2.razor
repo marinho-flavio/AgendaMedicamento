@@ -1,0 +1,84 @@
+﻿@using SES.Core.Application.DTO.Aggregates.CommonAgg.Commands.Responses
+@using SES.Core.Application.DTO.Aggregates.CommonAgg.Models
+@using Newtonsoft.Json
+@using System.Text
+@using System.Linq.Expressions;
+
+@typeparam T where T : IEntityDTO, new()
+
+<div class="uf">
+    <div class="container-input">
+        <div class="container-titles">
+            <SfDropDownList CssClass="inter-normal-silver-16px"
+                            TValue="T" TItem="T" Placeholder="@Placeholder"
+                            DataSource="CitiesList">
+                <DropDownListTemplates TItem="T">
+                    <ItemTemplate>
+                        @context.Title -
+                        @if (!string.IsNullOrWhiteSpace(context.SubTitle))
+                        {
+                            <span class="logradouro">
+                                @($"{context.SubTitle}")
+                            </span>
+                        }
+                    </ItemTemplate>
+                </DropDownListTemplates>
+                <DropDownListEvents OnValueSelect="OnSelect" TItem="T" TValue="T" />
+                <DropDownListFieldSettings Value="@((Selector.Body as MemberExpression).Member.Name)" />
+            </SfDropDownList>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter] public Expression<Func<T, object>> Selector { get; set; }
+    [Parameter] public EventCallback<SelectEventArgs<T>> OnSelect { get; set; }
+    bool loading = false;
+    [Parameter] public string Query { get; set; }
+    [Parameter] public string Placeholder { get; set; }
+    [Parameter] public T Model { get; set; } = new T();
+
+    string cidadePlaceholder => loading ? "carregando.." : (this.CitiesList.Any() ? "Cidade/Localidade" : "Cidade / Localidade");
+
+    string Route() => $"{new T().GetSearchRoute()}?{Query}";
+
+    public List<T> CitiesList { get; set; } = new List<T>();
+
+    [Inject] HttpClient _client { get; set; }
+
+    protected override Task OnInitializedAsync()
+    {
+        return base.OnInitializedAsync();
+    }
+
+    protected override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            OnRefresh();
+        }
+        return base.OnAfterRenderAsync(firstRender);
+    }
+
+    public async Task OnRefresh()
+    {
+        //Address.Cidade_Localidade = null;
+        loading = true;
+        CitiesList = new List<T>();
+        StateHasChanged();
+
+        var result = await _client.GetAsync(Route());
+
+        var json = await result?.Content?.ReadAsStringAsync();
+
+        if (result.StatusCode != System.Net.HttpStatusCode.OK || string.IsNullOrWhiteSpace(json))
+            return;
+
+        if (!json.TryDeserializeJSON<GetHttpResponseDTO<List<T>>>(out GetHttpResponseDTO<List<T>> jsonConverted) || jsonConverted.Data == null)
+            return;
+
+        CitiesList = jsonConverted.Data;
+        StateHasChanged();
+        loading = false;
+    }
+}

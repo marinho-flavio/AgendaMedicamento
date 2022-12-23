@@ -1,0 +1,30 @@
+﻿<div class="container-card-calendar @_myDate?.Clss">
+    <div class="container-date">
+        <div class="container-title">
+            <div class="dia-@i valign-text-middle inter-semi-bold-star-dust-6px">DIA</div>
+        </div>
+        <div class="container-title">
+            <div class="number-@i valign-text-middle inter-semi-bold-silver-10px">
+                @_myDate?.Day
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    MyDayInfo? _myDate;
+
+    [Parameter] public int i { get; set; }
+    [Parameter] public IMonthlyScheduleContext Context { get; set; }
+
+    protected override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (Context != null && _myDate == null)
+        {
+            _myDate = Context.MyDate(i);
+            this.StateHasChanged();
+        }
+        return base.OnAfterRenderAsync(firstRender);
+    }
+
+}

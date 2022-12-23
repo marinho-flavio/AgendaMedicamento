@@ -1,0 +1,53 @@
+﻿@typeparam ModelType where ModelType : EntityDTO, new()
+@inherits ComponentBase
+    
+@using SES.Core.Application.DTO.Attributes;
+@using SES.Core.Application.DTO.Extensions;
+@using Companies.Adm.Panel.Client.Pages.Base;
+@using SES.Core.Application.DTO.Aggregates.CommonAgg.Models;
+@using System.ComponentModel;
+@using System.Reflection;
+
+<div class="container-title-modal">
+    <div class="container-tips">
+        <div class="container-main-modal">
+            <div class="container-sections-main">
+                <div class="section">
+                    @{
+                        int maxSteps = this.Context?.MaxSteps ?? 0;
+                    }
+                    @for (int i = 0; i < maxSteps; i++)
+                    {
+                        <div class="section">
+                            <div class="bi1-circle-fill @(i<=this.Context?.CurrentStep ? "active" : "")">
+                                <p>@(i + 1)</p>
+                            </div>
+                            @if (i < maxSteps - 1)
+                            {
+                                <div class="divider-section @(i<=this.Context?.CurrentStep ? "active" : "")"></div>
+                            }
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-title-company-modal">
+        <div class="container-segments" @onclick=StateHasChanged>
+            <div class="title-nome-fantasia"><h1 class="title-2 valign-text-middle">@Context?.Model?.Title</h1></div>
+            <div class="container-subtitle-razao-social">
+                <div class="container-named-razao-social">
+                    <div class="razo-social valign-text-middle">@Context?.Model?.SubTitle</div>
+                </div>
+            </div>
+        </div>
+        <AutoSaveActionButtons AutoSaveSettings="AutoSaveSettings" />
+    </div>
+</div>
+
+@code {
+    [CascadingParameter] public StepsContext<ModelType> Context { get; set; }
+    [Parameter] public SES.Core.Application.DTO.Aggregates.CommonAgg.ValueObjects.AutoSaveSettingsDTO AutoSaveSettings { get; set; }
+
+    public void RefreshMe() { this.StateHasChanged(); }
+}

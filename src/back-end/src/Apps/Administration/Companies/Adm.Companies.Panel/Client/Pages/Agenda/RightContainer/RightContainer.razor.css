@@ -1,0 +1,1193 @@
+﻿/* screen - tela-agenda-dia */
+
+{
+    background-color: var(--alabaster);
+    border: 0.05vw none;
+    height: fit-content;
+    width: fit-content;
+    position: absolute;
+    background: transparent;
+    top: 0;
+}
+
+.columm-right {
+    background-color: var(--white);
+    border: 0.05vw none;
+    border-radius: 1.25vw;
+    height: 40vw;
+    overflow: hidden;
+    position: fixed;
+    top: 5vw;
+    width: 15.52vw;
+    right: 2vw;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1vw;
+}
+
+.divider {
+    height: 0.05vw;
+    left: 0.94vw;
+    object-fit: cover;
+    position: absolute;
+    top: 16.15vw;
+    width: 13.59vw;
+}
+
+.container-resumo-convenio {
+    align-items: flex-start;
+    border: 0.05vw none;
+    display: flex;
+    gap: 0.21vw;
+    justify-content: center;
+    left: 0.68vw;
+    position: relative;
+    width: 14.11vw;
+}
+
+.columm-resumo-basico {
+    align-items: center;
+    align-self: stretch;
+    background-color: var(--white);
+    border: 0.05vw none;
+    border-radius: 0.42vw;
+    display: flex;
+    flex-direction: column;
+    gap: 0.21vw;
+    justify-content: center;
+    padding: 0.62vw 0.21vw;
+    width: fit-content;
+}
+
+.number {
+    align-items: center;
+    border-bottom-style: solid;
+    border-bottom-width: 0.05vw;
+    border-color: transparent;
+    display: flex;
+    gap: 0.42vw;
+    padding: 0.21vw 0.62vw;
+    width: fit-content;
+}
+
+.agendados {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    width: 4.11vw;
+}
+
+.number-8 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.confirmados {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    width: 4.11vw;
+}
+
+.number-9 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.cancelados {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    width: 4.11vw;
+}
+
+.number-10 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.atendidos {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    width: 4.11vw;
+}
+
+.number-11 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.columm-resumo-convenio {
+    align-items: center;
+    background-color: var(--white);
+    border: 0.05vw none;
+    border-radius: 0.42vw;
+    display: flex;
+    flex-direction: column;
+    gap: 0.21vw;
+    height: 7.5vw;
+    overflow: hidden;
+    padding: 0.0vw 0.0vw 0.42vw;
+    width: fit-content;
+}
+
+.container-titles {
+    align-items: center;
+    background-color: var(--white);
+    border: 0.05vw none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.42vw;
+    width: 6.46vw;
+}
+
+.container-options-resumo-convenio {
+    align-items: center;
+    align-self: stretch;
+    background-color: var(--hawkes-blue);
+    border-radius: 0.0vw 0.0vw 0.21vw 0.0vw;
+    border-style: none;
+    display: flex;
+    gap: 0.21vw;
+    justify-content: center;
+}
+
+.container-resumo {
+    align-items: center;
+    background-color: var(--white);
+    border: 0.05vw none;
+    border-radius: 0.42vw 0.42vw 0.0vw 0.0vw;
+    display: flex;
+    flex: 1;
+    gap: 0.42vw;
+    justify-content: center;
+    padding: 0.42vw 0.21vw;
+}
+
+.resumo {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    width: fit-content;
+}
+
+.container-convnio {
+    align-items: center;
+    border: 0.05vw none;
+    display: flex;
+    flex: 1;
+    gap: 0.42vw;
+    justify-content: center;
+    padding: 0.42vw 0.21vw;
+}
+
+.convnio {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    width: fit-content;
+}
+
+.number-1 {
+    align-items: center;
+    border-bottom-style: solid;
+    border-bottom-width: 0.05vw;
+    border-color: transparent;
+    display: flex;
+    gap: 0.21vw;
+    justify-content: center;
+    padding: 0.21vw 0.62vw;
+    width: 6.46vw;
+}
+
+.primeira-consulta {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-left: -0.57vw;
+    margin-top: -0.05vw;
+    width: 5.31vw;
+}
+
+.number-2 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-right: -0.57vw;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: 0.83vw;
+}
+
+.consulta {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-left: -0.57vw;
+    margin-top: -0.05vw;
+    width: 5.31vw;
+}
+
+.retorno {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-left: -0.57vw;
+    margin-top: -0.05vw;
+    width: 5.31vw;
+}
+
+.exame {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-left: -0.57vw;
+    margin-top: -0.05vw;
+    width: 5.31vw;
+}
+
+.calendar-right {
+    align-items: center;
+    background-color: var(--white);
+    border: 0.1vw solid;
+    border-color: transparent;
+    border-radius: 0.83vw;
+    display: flex;
+    gap: 0.42vw;
+    justify-content: center;
+    left: 0.94vw;
+    overflow: hidden;
+    padding: 0.62vw 0.42vw;
+    top: 1.04vw;
+    width: 13.65vw;
+    margin: 0 auto;
+    position: relative;
+}
+
+.container-box-1 {
+    align-items: center;
+    border: 0.05vw none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.21vw;
+    margin-left: -0.26vw;
+    width: fit-content;
+}
+
+.container-resume-date {
+    align-items: flex-start;
+    align-self: stretch;
+    border: 0.05vw none;
+    display: flex;
+    gap: 1.04vw;
+    justify-content: center;
+}
+
+.container-resume-date-today {
+    align-items: flex-start;
+    border: 0.05vw none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.21vw;
+    justify-content: center;
+    padding: 0.21vw 0.0vw;
+    width: 5vw;
+}
+
+.container-title {
+    align-items: center;
+    border: 0.05vw none;
+    display: flex;
+    gap: 0.42vw;
+    justify-content: center;
+    width: fit-content;
+}
+
+.address {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.quinta-feira {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.buttons {
+    height: 1.25vw;
+    min-width: 2.71vw;
+}
+
+.container-calendar {
+    align-items: center;
+    border: 0.05vw none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.62vw;
+    width: fit-content;
+    height: 15vw;
+}
+
+.container-titles-all-week {
+    align-items: flex-start;
+    border: 0.05vw none;
+    display: flex;
+    gap: 0.21vw;
+    justify-content: center;
+    width: fit-content;
+}
+
+.container-week {
+    align-items: center;
+    border: 0.05vw none;
+    display: flex;
+    gap: 0.42vw;
+    justify-content: center;
+    padding: 0.21vw;
+    width: 1.67vw;
+}
+
+.dom {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-left: -0.03vw;
+    margin-right: -0.03vw;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.seg {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.ter {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.qua {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.qui {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.sex {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.sb {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.container-all-week-dates {
+    align-items: center;
+    border-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.21vw;
+    width: fit-content;
+}
+
+.horizontal-columm {
+    border: 0.05vw none;
+    height: 1.46vw;
+    min-width: 13.33vw;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .4vw;
+}
+
+.container-day {
+    border: 0.05vw none;
+    border-radius: 0.21vw;
+    height: 1.46vw;
+    left: 5.94vw;
+    position: absolute;
+    top: 0;
+    width: 1.46vw;
+}
+
+.number-3 {
+    height: 0.62vw;
+    left: 0.42vw;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 0.36vw;
+}
+
+.container-day-1 {
+    border: 0.05vw none;
+    border-radius: 0.21vw;
+    height: 1.46vw;
+    left: 4.06vw;
+    position: absolute;
+    top: 0;
+    width: 1.46vw;
+}
+
+.container-day-2 {
+    border: 0.05vw none;
+    border-radius: 0.21vw;
+    height: 1.46vw;
+    left: 2.19vw;
+    position: absolute;
+    top: 0;
+    width: 1.46vw;
+}
+
+.container-day-3 {
+    border: 0.05vw none;
+    border-radius: 0.21vw;
+    height: 1.46vw;
+    left: 0.31vw;
+    position: absolute;
+    top: 0;
+    width: 1.46vw;
+}
+
+.container-day-unavailable {
+    border: 0.05vw none;
+    border-radius: 0.21vw;
+    height: 1.46vw;
+    left: 7.81vw;
+    position: absolute;
+    top: 0;
+    width: 1.46vw;
+}
+
+.overlap-group {
+    height: 0.83vw;
+    left: 0.31vw;
+    position: relative;
+    top: 0.31vw;
+    width: 0.83vw;
+}
+
+.number-4 {
+    height: 0.62vw;
+    left: 0.1vw;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 0.05vw;
+}
+
+.number-3,
+.number-6,
+.number-4,
+.number-7,
+.number-5 {
+    color: white;
+}
+
+.vector-10 {
+    height: 0.83vw;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 0.83vw;
+    color: white;
+}
+
+.container-day-unavailable-1 {
+    border: 0.05vw none;
+    border-radius: 0.21vw;
+    height: 1.46vw;
+    left: 9.69vw;
+    position: absolute;
+    top: 0;
+    width: 1.46vw;
+}
+
+.container-day-weekend {
+    border: 0.05vw none;
+    border-radius: 0.21vw;
+    height: 1.46vw;
+    position: relative;
+    top: 0;
+    width: 1.46vw;
+}
+
+.number-5 {
+    height: 0.62vw;
+    left: 0.16vw;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 0.05vw;
+}
+
+.number-6 {
+    height: 0.62vw;
+    left: 0.47vw;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 0.36vw;
+}
+
+.container-day-crowded {
+    align-items: center;
+    background-color: var(--tulip);
+    border: 0.05vw none;
+    border-radius: 0.21vw;
+    display: flex;
+    gap: 0.42vw;
+    height: 1.46vw;
+    justify-content: center;
+    left: 7.81vw;
+    padding: 0.21vw;
+    position: absolute;
+    top: 0;
+    width: 1.46vw;
+}
+
+.number-7 {
+    letter-spacing: 0;
+    line-height: normal;
+    text-align: center;
+    width: fit-content;
+}
+
+.container-day-4 {
+    align-items: center;
+    border: 0.05vw none;
+    display: flex;
+    gap: 0.42vw;
+    height: 1.46vw;
+    justify-content: center;
+    left: 11.56vw;
+    padding: 0.21vw;
+    position: absolute;
+    top: 0;
+    width: 1.46vw;
+}
+
+.container-day-today {
+    border: 0.05vw solid;
+    border-color: transparent;
+    border-image: linear-gradient(to bottom, rgb(140, 129, 247), rgb(142, 194, 254), rgb(142, 194, 254) 100%) 1;
+    border-radius: 0.21vw;
+    height: 1.46vw;
+    left: 9.69vw;
+    position: absolute;
+    top: 0;
+    width: 1.46vw;
+}
+
+.container-quantity {
+    align-items: center;
+    border: 0.05vw none;
+    display: flex;
+    gap: 0.42vw;
+    height: 0.36vw;
+    justify-content: center;
+    left: 0.94vw;
+    position: absolute;
+    top: 0.99vw;
+    width: 0.42vw;
+}
+
+.number-12 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.container-day-5 {
+    align-items: center;
+    border: 0.05vw none;
+    display: flex;
+    gap: 0.42vw;
+    height: 1.46vw;
+    justify-content: center;
+    left: 0.31vw;
+    padding: 0.21vw;
+    position: absolute;
+    top: 0;
+    width: 1.46vw;
+}
+
+.container-day-6 {
+    align-items: center;
+    border: 0.05vw none;
+    display: flex;
+    gap: 0.42vw;
+    height: 1.46vw;
+    justify-content: center;
+    left: 5.94vw;
+    padding: 0.21vw;
+    position: absolute;
+    top: 0;
+    width: 1.46vw;
+}
+
+.container-day-7 {
+    align-items: center;
+    border: 0.05vw none;
+    display: flex;
+    gap: 0.42vw;
+    height: 1.46vw;
+    justify-content: center;
+    left: 7.81vw;
+    padding: 0.21vw;
+    position: absolute;
+    top: 0;
+    width: 1.46vw;
+}
+
+.container-day-quantity {
+    border: 0.05vw solid;
+    border-color: transparent;
+    border-image: linear-gradient(to bottom, rgb(140, 129, 247), rgb(142, 194, 254), rgb(142, 194, 254) 100%) 1;
+    border-radius: 0.21vw;
+    height: 1.46vw;
+    left: 4.06vw;
+    position: absolute;
+    top: 0;
+    width: 1.46vw;
+}
+
+.number-13 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.container-day-quantity-1 {
+    border: 0.05vw solid;
+    border-color: transparent;
+    border-image: linear-gradient(to bottom, rgb(140, 129, 247), rgb(142, 194, 254), rgb(142, 194, 254) 100%) 1;
+    border-radius: 0.21vw;
+    height: 1.46vw;
+    left: 2.19vw;
+    position: absolute;
+    top: 0;
+    width: 1.46vw;
+}
+
+.number-14 {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    text-align: center;
+    width: fit-content;
+}
+
+.container-day-8 {
+    align-items: center;
+    border: 0.05vw none;
+    display: flex;
+    gap: 0.42vw;
+    height: 1.46vw;
+    justify-content: center;
+    left: 9.69vw;
+    padding: 0.21vw;
+    position: absolute;
+    top: 0;
+    width: 1.46vw;
+}
+
+.container-day-next-month {
+    align-items: center;
+    border: 0.05vw none;
+    display: flex;
+    gap: 0.42vw;
+    height: 1.46vw;
+    justify-content: center;
+    left: 2.19vw;
+    padding: 0.21vw;
+    position: absolute;
+    top: 0;
+    width: 1.46vw;
+}
+
+.container-day-next-month-1 {
+    align-items: center;
+    border: 0.05vw none;
+    display: flex;
+    gap: 0.42vw;
+    height: 1.46vw;
+    justify-content: center;
+    left: 4.06vw;
+    padding: 0.21vw;
+    position: absolute;
+    top: 0;
+    width: 1.46vw;
+}
+
+.card-container {
+    height: 7.92vw;
+    left: 0.94vw;
+    position: relative;
+    width: 13.65vw;
+}
+
+.card-observacao-agendamento {
+    align-items: center;
+    background-color: var(--chardon);
+    border: 0.05vw none;
+    border-radius: 0.62vw;
+    display: flex;
+    gap: 0.1vw;
+    left: 0;
+    padding: 0.42vw;
+    position: absolute;
+    top: 0;
+    width: 13.65vw;
+}
+
+.container-icon-citacao {
+    align-self: stretch;
+    height: 3.75vw;
+    min-width: 1.56vw;
+}
+
+.container-box {
+    align-items: flex-start;
+    border: 0.05vw none;
+    border-radius: 0.42vw;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 0.21vw;
+}
+
+.container-title-notify {
+    align-items: center;
+    align-self: stretch;
+    border: 0.05vw none;
+    display: flex;
+    gap: 3.07vw;
+}
+
+.container {
+    align-items: flex-start;
+    border: 0.05vw none;
+    display: flex;
+    gap: 0.42vw;
+    width: fit-content;
+}
+
+.observaes-do-agendamento {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    width: fit-content;
+}
+
+.icon-notify {
+    align-items: center;
+    background-color: var(--tart-orange);
+    border: 0.1vw none;
+    border-radius: 0.62vw;
+    display: flex;
+    gap: 0.62vw;
+    height: 0.83vw;
+    justify-content: center;
+    width: 1.41vw;
+}
+
+.number-15 {
+    letter-spacing: 0;
+    line-height: normal;
+    width: fit-content;
+}
+
+.container-description {
+    align-items: center;
+    align-self: stretch;
+    border: 0.05vw none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.21vw;
+    justify-content: center;
+}
+
+.container-description-1 {
+    align-items: center;
+    border: 0.05vw none;
+    display: flex;
+    gap: 0.42vw;
+    padding: 0.1vw 0.0vw;
+    width: 10.57vw;
+}
+
+.preciso-de-atendimen {
+    flex: 1;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+}
+
+.container-responsavel {
+    align-items: center;
+    align-self: stretch;
+    border: 0.05vw none;
+    display: flex;
+    gap: 5.31vw;
+}
+
+.container-user-responsavel {
+    align-items: center;
+    border: 0.05vw none;
+    display: flex;
+    gap: 0.21vw;
+    height: 1.04vw;
+    width: fit-content;
+}
+
+.container-icon-user {
+    align-items: center;
+    background-color: var(--chetwode-blue);
+    border: 0.1vw solid;
+    border-color: var(--white);
+    border-radius: 5.21vw;
+    display: flex;
+    gap: 0.62vw;
+    height: 0.94vw;
+    justify-content: center;
+    margin-left: -0.05vw;
+    width: 0.94vw;
+}
+
+.fm {
+    letter-spacing: 0;
+    line-height: normal;
+    width: fit-content;
+}
+
+.container-1 {
+    align-items: flex-start;
+    border: 0.05vw none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1vw;
+    width: fit-content;
+}
+
+.container-name-user {
+    align-items: center;
+    border: 0.05vw none;
+    display: flex;
+    gap: 0.42vw;
+    width: fit-content;
+}
+
+.fbio-marcelo {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    width: 2.86vw;
+}
+
+.paciente {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    width: fit-content;
+}
+
+.container-dots-visualizacao {
+    align-items: center;
+    border: 0.05vw none;
+    display: flex;
+    gap: 0.21vw;
+    justify-content: center;
+    width: fit-content;
+}
+
+.circle-1 {
+    background-color: var(--yellow-orange);
+    border: 0.05vw none;
+    border-radius: 5.21vw;
+    height: 0.31vw;
+    min-width: 0.31vw;
+    transform: rotate(180deg);
+}
+
+.circle {
+    background-color: var(--white);
+    border: 0.05vw none;
+    border-radius: 5.21vw;
+    height: 0.31vw;
+    min-width: 0.31vw;
+    transform: rotate(180deg);
+}
+
+.card-comentarios-diarios {
+    align-items: center;
+    background-color: var(--link-water);
+    border: 0.05vw none;
+    border-radius: 0.62vw;
+    display: flex;
+    gap: 0.1vw;
+    left: 0;
+    padding: 0.42vw;
+    position: absolute;
+    top: 1.67vw;
+    width: 13.65vw;
+}
+
+.container-icon-citacao-1 {
+    align-self: stretch;
+    height: 3.12vw;
+    min-width: 1.56vw;
+}
+
+.container-title-notify-1 {
+    align-items: center;
+    align-self: stretch;
+    border: 0.05vw none;
+    display: flex;
+    gap: 5.21vw;
+}
+
+.comentrios-dirios {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    width: fit-content;
+}
+
+.number-16 {
+    letter-spacing: 0;
+    line-height: normal;
+    width: fit-content;
+}
+
+.manter-ordem-nos-setores {
+    flex: 1;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+}
+
+.container-responsavel-1 {
+    align-items: center;
+    align-self: stretch;
+    border: 0.05vw none;
+    display: flex;
+    gap: 6.56vw;
+}
+
+.container-tag-todos {
+    align-items: center;
+    background-color: var(--cultured-pearl);
+    border: 0.05vw none;
+    border-radius: 5.21vw;
+    display: flex;
+    gap: 0.21vw;
+    padding: 0.21vw 0.42vw;
+    width: fit-content;
+}
+
+.cilink-02 {
+    height: 0.42vw;
+    min-width: 0.42vw;
+}
+
+.todos {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    width: fit-content;
+}
+
+.circle-2 {
+    background-color: var(--malibu);
+    border: 0.05vw none;
+    border-radius: 5.21vw;
+    height: 0.31vw;
+    min-width: 0.31vw;
+    transform: rotate(180deg);
+}
+
+.card-observacao-agenda {
+    align-items: center;
+    background-color: var(--snuff);
+    border: 0.05vw none;
+    border-radius: 0.62vw;
+    box-shadow: 0.0vw 0.21vw 0.21vw #00000040;
+    display: flex;
+    gap: 0.1vw;
+    left: 0;
+    padding: 0.42vw;
+    position: absolute;
+    top: 3.33vw;
+    width: 13.65vw;
+}
+
+.container-title-notify-2 {
+    align-items: center;
+    align-self: stretch;
+    border: 0.05vw none;
+    display: flex;
+    gap: 4.38vw;
+}
+
+.observaes-da-agenda {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    width: fit-content;
+}
+
+.number-17 {
+    letter-spacing: 0;
+    line-height: normal;
+    width: fit-content;
+}
+
+.no-poderei-atender {
+    flex: 1;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+}
+
+.container-icon-user-1 {
+    background-image: url(../img/container-icon-user@2x.png);
+    background-position: 50% 50%;
+    background-size: cover;
+    border: 0.1vw solid;
+    border-color: var(--white);
+    border-radius: 5.21vw;
+    height: 0.94vw;
+    margin-left: -0.05vw;
+    min-width: 0.94vw;
+}
+
+.dr-enrique-gomes {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    width: 2.86vw;
+}
+
+.ortopedista {
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -0.05vw;
+    width: fit-content;
+}
+
+.circle-3 {
+    background-color: var(--chetwode-blue);
+    border: 0.05vw none;
+    border-radius: 5.21vw;
+    height: 0.31vw;
+    min-width: 0.31vw;
+    transform: rotate(180deg);
+}
+
+
+
+.screen a {
+    display: contents;
+    text-decoration: none;
+}
+
+.container-center-horizontal {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    pointer-events: none;
+    width: fit-content;
+    height: fit-content;
+}
+
+    .container-center-horizontal > * {
+        flex-shrink: 0;
+        pointer-events: auto;
+    }
+
+.valign-text-middle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+[class*="container-day"]:not(.current-month):hover,
+[class*="container-day"].current-month {
+    background-color: var(--chetwode-blue);
+    cursor: pointer;
+}
+
+    [class*="container-day"].current-month:hover,
+    [class*="container-day"]:not(.current-month) {
+        background-color: var(--snuff);
+        cursor: pointer;
+    }
+
+
+.card-container .card-observacao-agendamento,
+.card-container .card-comentarios-diarios,
+.card-container .card-observacao-agenda {
+    z-index:5;
+}
+
+    .card-container .card-observacao-agendamento:hover,
+    .card-container .card-comentarios-diarios:hover,
+    .card-container .card-observacao-agenda:hover {
+        z-index: 10;
+        cursor:pointer;
+    }

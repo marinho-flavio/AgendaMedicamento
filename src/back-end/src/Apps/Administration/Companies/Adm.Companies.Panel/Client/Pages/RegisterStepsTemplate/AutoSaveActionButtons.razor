@@ -1,0 +1,23 @@
+﻿
+<div class="icons">
+
+    <ButtonHoverInfoContainer AutoSaveSettings="AutoSaveSettings" IsClickable=true Type="ButtonHoverInfoContainer.ButtonHoverTypes.AutoSave">
+        <ChildComponenet>
+            <ButtonHoverAutoSave />
+        </ChildComponenet>
+        <DesactivatedChildComponenet>
+            <Companies.Adm.Panel.Client.Shared.GenericComponents.BasicToolTip />
+        </DesactivatedChildComponenet>
+    </ButtonHoverInfoContainer>
+
+    <ButtonHoverInfoContainer Type="ButtonHoverInfoContainer.ButtonHoverTypes.Restrictions">
+        <ChildComponenet>
+            <ButtonHoverRestrictions />
+        </ChildComponenet>
+    </ButtonHoverInfoContainer>
+
+</div>
+
+@code {
+    [Parameter] public SES.Core.Application.DTO.Aggregates.CommonAgg.ValueObjects.AutoSaveSettingsDTO AutoSaveSettings { get; set; }
+}

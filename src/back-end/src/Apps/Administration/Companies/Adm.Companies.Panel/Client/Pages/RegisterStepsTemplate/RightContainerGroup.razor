@@ -1,0 +1,159 @@
+﻿@typeparam T where T : EntityDTO, new()
+
+@using Companies.Adm.Panel.Shared;
+@using Microsoft.AspNetCore.WebUtilities;
+@using Companies.Adm.Panel.Client.Pages.Base;
+@using SES.Core.Application.DTO.Aggregates.CommonAgg.Models;
+@using SES.Companies.Application.DTO.Aggregates.CompaniesAgg.Requests;
+@using SES.Core.Application.DTO.Aggregates.CommonAgg.Commands.Responses;
+
+<div class="container-section-grupo">
+    <div class="frame-711">
+        <div class="title"><div class="grupos valign-text-middle inter-medium-black-12px">Grupos</div></div>
+    </div>
+    <div class="container-notify-grupo">
+        <div @onclick="()=>RightContext.OnGroupClicked(grupo?.ExternalId)" class="container-grupo @(RightContext.GroupClickedId == grupo?.ExternalId ? "active" : "")">
+            <img class="fa-solidlayer-group"
+                 src="/imgs/components/right-container/group-icon.svg"
+                 alt="fa-solid:layer-group" />
+            <div class="container-name">
+                <div class="title-1">
+                    <div class="grupo valign-text-middle inter-medium-silver-10px">Grupo</div>
+                </div>
+                <div class="title-1">
+                    <a class="grupo-1 valign-text-middle inter-medium-black-14px">@(grupo?.NomeFantasia)</a>
+                </div>
+            </div>
+            <img class="vector-17"
+                 src="/imgs/components/right-container/lateral-bar.svg"
+                 alt="Vector 17" />
+            @if (grupo?.Ativo.HasValue == true)
+            {
+                <img class="akar-iconscircle-check-fill"
+                 src="/imgs/components/right-container/ok-icon.svg"
+                 alt="akar-icons:circle-check-fill" />
+                <img class="icon-plus" @onclick="OnCreateEmpresaClicked"
+                 src="/imgs/components/right-container/plus-icon.svg"
+                 alt="icon-plus" />
+            }
+            else
+            {
+                <div class="icon-step">
+                    <span>
+                        @(grupo?.CurrentStep + 1)
+                    </span>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+@if (RightContext != null && RightContext.IsGroupClicked)
+{
+    if ((Context?.Model as ActivableEntityDTO)?.Ativo.HasValue == true || Context?.Model is EmpresaDTO == true || Context?.Model is GrupoEmpresaDTO == true)
+    {
+        <RightContainerEmpresa grupo="grupo" Context="Context" RightContext="RightContext" @ref="empresasContainer" T="T" />
+    }
+    else
+    {
+        <p>Finalize o cadastro antes de cadastrar empresas</p>
+    }
+}
+
+@code
+{
+    GrupoEmpresaDTO grupo;
+
+    [CascadingParameter] RightContainerContext RightContext { get; set; }
+    [CascadingParameter] public StepsContext<T> Context { get; set; }
+    RightContainerEmpresa<T>? empresasContainer { get; set; }
+
+    [Inject] HttpClient _http { get; set; }
+    [Inject] NavigationManager _navigation { get; set; }
+    List<EmpresaDTO> Empresas { get; set; }
+    [CascadingParameter] BaseMainStepsLayout<GrupoEmpresaDTO> layout { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        if (Context?.Model != null && RightContext != null && grupo == null)
+        {
+            var uri = _navigation.ToAbsoluteUri(_navigation.Uri);
+            string myId = "";
+            if (Context.Model is GrupoEmpresaDTO)
+            {
+                grupo = Context.Model as GrupoEmpresaDTO;
+                RightContext.GroupClickedId = grupo.ExternalId;
+            }
+            else
+            {
+                var empresa = Context.Model as EmpresaDTO;
+                if (empresa != null)
+                {
+
+                    RightContext.EmpresaId = empresa.ExternalId;
+                    if (empresa?.GrupoEmpresaId.HasValue == true)
+                    {
+                        grupo = (await _http.GetFromJsonAsync<GetHttpResponseDTO<GrupoEmpresaDTO>>($"{new GrupoEmpresaDTO().GetRoute()}?IdEqual={empresa.GrupoEmpresaId}"))?.Data;
+                    }
+
+                    if (empresa.IsFilial)
+                    {
+                        RightContext.EmpresaClickedId = empresa.ExternalId;
+                        empresasContainer?.RefreshLayout();
+                    }
+                }
+                RightContext.IsGroupClicked = true;
+            }
+            StateHasChanged();
+        }
+        base.OnInitializedAsync();
+    }
+
+    async Task Test()
+    {
+
+    }
+
+    public async Task OnGroupUpdated()
+    {
+        await Test();
+        StateHasChanged();
+    }
+
+    public void OnFragmentUpdated()
+    {
+        Task.Run(OnGroupUpdated);
+    }
+
+    async Task OnCreateEmpresaClicked()
+    {
+        int.TryParse((await _http.GetFromJsonAsync<GetHttpResponseDTO>(
+            $"{new EmpresaDTO().GetRoute()}/count?IsFilial=false&grupoEmpresaIdEqual={grupo?.Id}"))?.Data.ToString(),
+            out var total);
+
+        total++;
+
+        var newCompany = new EmpresaDTO
+            {
+                CNPJ = $"{grupo.CNPJ}/{total}",
+                RazaoSocial = $"{grupo.RazaoSocial}-Empresa-{total}",
+                NomeFantasia = $"{grupo.NomeFantasia}-Empresa-{total}",
+                GrupoEmpresaId = int.Parse(grupo?.Id),
+                ExternalId = Guid.NewGuid().ToString(),
+                IsFilial = false
+            };
+
+        var result = await _http.PostAsJsonAsync<EmpresaDTO>(new EmpresaDTO().GetRoute(), newCompany);
+        if (result.StatusCode == System.Net.HttpStatusCode.OK)
+        {
+            this.RightContext.IsGroupClicked = false;
+            this.RightContext.EmpresaId = newCompany.ExternalId;
+            this.StateHasChanged();
+            empresasContainer.RefreshMe();
+            //this.Context.Model = newCompany;
+            //this.Context.ChangeStep(this.Context.CurrentStep);
+            _navigation.NavigateTo($"/{new EmpresaDTO().GetMyTypeName()}/cadastro/{newCompany.ExternalId}");
+        }
+    }
+}

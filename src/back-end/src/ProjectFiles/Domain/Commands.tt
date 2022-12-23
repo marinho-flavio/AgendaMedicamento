@@ -1,0 +1,33 @@
+﻿<#@ include file="..\project.tt" #>
+<#
+	var entities = GetEntities();
+	var entitiesT4 = GetEntities("Domain", withAttribute: "EndpointsT4", withEndpoint: "HttpPost"); 
+	var project = GetCurrentProject();
+	var myName = project.Name.Split('.').First();
+	var AggName = myName + "Agg";
+	var parentName = "Commands";
+	var groupEntities = entities.GroupBy(p => p.Namespace.FullName);
+    string templateDirectory = Path.GetDirectoryName(Host.TemplateFile);
+
+	foreach(var item in groupEntities){
+		var aggName = item.Key.Split('.').FirstOrDefault(x=>x.EndsWith("Agg")).Replace("Agg","");
+		var projects = new string[]{ "Application.DTO", "Application", "Domain", "Infra.Data" };
+		foreach(var proj in projects){
+			AppendLineToCsProj(aggName, proj, "*.tt",
+				"<ItemGroup><None Update=\"*.tt\"><Generator>TextTemplatingFileGenerator</Generator></None></ItemGroup>");
+		}
+#>
+
+<#foreach(var item2 in projects) { 
+var projPath = @$"..\..\ProjectFiles\{item2}\DefaultCommands.tt";
+#>
+<#= "<" + "#" + "@" #> include file="<#= projPath #>" <#= "#" + ">"#>
+
+<#
+		SaveOutputToSubFolder(
+			folderName: $"../../../{aggName}/{aggName}.{item2}", 
+			outputFileName: @$"DefaultCommands.tt", 
+			recreateFileIfExists: true);
+} 
+} #>
+

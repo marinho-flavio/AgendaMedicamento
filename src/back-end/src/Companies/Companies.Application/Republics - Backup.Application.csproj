@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+	  <RootNamespace>Niu.Republics.Application</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\core\Core.Application.DTO\Core.Application.DTO.csproj" />
+    <ProjectReference Include="..\Republics.Application.DTO\Republics.Application.DTO.csproj" />
+    <ProjectReference Include="..\Republics.Infra.Data\Republics.Infra.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="AppServices.tt">
+      <LastGenOutput>AppServices.generated.cs</LastGenOutput>
+      <Generator>TextTemplatingFileGenerator</Generator>
+    </None>
+    <None Update="IAppServices.tt.tt">
+      <LastGenOutput>IAppServices.tt.cs</LastGenOutput>
+      <Generator>TextTemplatingFileGenerator</Generator>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="AppServices.generated.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AppServices.tt</DependentUpon>
+    </Compile>
+    <Compile Update="IAppServices.tt.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IAppServices.tt.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>

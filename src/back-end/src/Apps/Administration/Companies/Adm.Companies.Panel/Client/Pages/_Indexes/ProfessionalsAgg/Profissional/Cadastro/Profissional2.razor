@@ -1,0 +1,31 @@
+	
+@using SES.Professionals.Application.DTO.Aggregates.ProfessionalsAgg.Requests;
+@using SES.Professionals.Enumerations;
+@using Pages.RegisterStepsTemplate;
+@inherits ProfissionalCadastro
+
+<div class="container-informations screen">
+    <div class="box-inputs">
+ 
+    <div class="input-secondary"> 
+<UploadFile Image="@Model.ProfissionalConfiguracao.Logo" />
+<div class="ativo-grupo">
+    <div class="container-text-2"><div class="status-do-grupo valign-text-middle">Setor Próprio</div></div>
+    <SfSwitch @bind-Checked="Model.ProfissionalConfiguracao.SetorProprio" OnLabel="Ativo" OffLabel="Inativo"></SfSwitch>
+</div>
+    </div> 
+    </div>
+</div>
+
+@code {
+    [CascadingParameter] BaseMainStepsLayout<ProfissionalDTO> layout { get; set; }
+
+    protected override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            this.StateHasChanged();
+        }
+        return base.OnAfterRenderAsync(firstRender);
+    }
+}

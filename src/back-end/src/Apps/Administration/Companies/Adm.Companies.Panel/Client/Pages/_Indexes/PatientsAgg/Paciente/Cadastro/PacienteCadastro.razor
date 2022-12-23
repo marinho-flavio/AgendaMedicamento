@@ -1,0 +1,22 @@
+@page "/Paciente/cadastro"
+@page "/Paciente/cadastro/{id}"
+
+@using Companies.Adm.Panel.Client.Pages.Base
+@using Companies.Adm.Panel.Client.Pages.DefaultDesign
+@using Companies.Adm.Panel.Client.Pages.RegisterStepsTemplate
+@using SES.Patients.Application.DTO.Aggregates.PatientsAgg.Requests
+@using SES.Patients.Application.DTO.Aggregates.PatientsAgg.Validators
+
+@layout MainLayout
+@inherits BaseStepsFormComponent<PacienteDTO, PatientsAggSettingsDTO, BasePatientsAggValidator<PacienteDTO>>
+
+<CascadingValue Value="this.Context">
+    <CascadingValue Value="this.Context?.layout">
+        <BaseMainStepsLayout @ref="layout" ModelType="PacienteDTO" AutoSaveSettings="AutoSaveSettings"
+                             CurrentFragment="this.CurrentFragment"
+                             EditContext="this.EditContext"
+                             OnSubmitForm="this.OnSubmitForm"
+                             OnSubmitFormInvalid="this.OnSubmitFormInvalid"
+                             TValidator="this.TValidator" />
+    </CascadingValue>
+</CascadingValue>

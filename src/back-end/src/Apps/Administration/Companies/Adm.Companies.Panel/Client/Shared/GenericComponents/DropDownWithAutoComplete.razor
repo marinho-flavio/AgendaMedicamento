@@ -1,0 +1,53 @@
+﻿@using SES.Core.Application.DTO.Aggregates.CommonAgg.Commands.Responses
+@using SES.Core.Application.DTO.Aggregates.CommonAgg.Models
+@using Newtonsoft.Json
+@using System.Text
+
+<SfAutoComplete name="@nameof(currentCep.CEP)" TValue="string" TItem="BaseEnderecoDTO" Placeholder="CEP" DataSource="@CEPS" @bind-Value="@currentCep.CEP" class="x21011-690 inter-normal-silver-14px" ShowClearButton="true">
+    <DropDownListTemplates TItem="BaseEnderecoDTO">
+        <ItemTemplate>
+            @string.Join("",context.CEP.SkipLast(3))-@string.Join("",context.CEP.TakeLast(3))
+            <span class="logradouro">
+                @($"{context.Logradouro}")
+            </span>
+            <span class='uf'>@context.UF</span>
+        </ItemTemplate>
+    </DropDownListTemplates>
+    <AutoCompleteFieldSettings Value="CEP" />
+    <AutoCompleteEvents OnValueSelect="OnSelect" TItem="BaseEnderecoDTO" TValue="string" Filtering="@OnFiltering" />
+</SfAutoComplete>
+
+@code {
+    [Parameter] public BaseEnderecoDTO currentCep { get; set; }
+
+    [Parameter] public EventCallback<SelectEventArgs<BaseEnderecoDTO>> OnSelect { get; set; }
+
+    public List<BaseEnderecoDTO> CEPS { get; set; }
+
+    [Inject] HttpClient _client { get; set; }
+
+    protected override Task OnInitializedAsync()
+    {
+        return base.OnInitializedAsync();
+    }
+
+    private async Task OnFiltering(FilteringEventArgs args)
+    {
+        this.currentCep.CEP = args.Text;
+
+        var result = await _client.GetAsync($"{this.currentCep.GetRoute()}/search?cepstartswith={this.currentCep.CEP}");
+
+        var json = await result?.Content?.ReadAsStringAsync();
+
+        if (result.StatusCode != System.Net.HttpStatusCode.OK || string.IsNullOrWhiteSpace(json))
+            return;
+
+        if (!json.TryDeserializeJSON<GetHttpResponseDTO<List<BaseEnderecoDTO>>>(out var jsonConverted) || jsonConverted.Data == null)
+            return;
+
+        //this.currentCep = data.FirstOrDefault();
+        CEPS = jsonConverted.Data;
+
+        StateHasChanged();
+    }
+}

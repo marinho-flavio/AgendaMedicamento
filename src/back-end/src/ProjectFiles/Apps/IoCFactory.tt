@@ -1,0 +1,46 @@
+<#@ include file="..\project.tt" #>
+<#
+	var AggName = GetMyAggName();
+#>
+
+using SES.Core.Infra.Data.Contexts;
+using SES.Core.Infra.IoC;
+using SES.Users.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+    
+namespace <#= GetDefaultNamespace() #>.<#= GetCurrentProject().Name #> {
+    public static partial class IoCFactory {
+       
+		public static void InjectDependencies(this IServiceCollection services, IConfiguration configuration) {
+
+<# foreach (var namespc in GetEntities("Domain", withAttribute: "EndpointsT4")
+    .OrderBy(x=>
+        !GetAttributesDict(x).ContainsKey("MigrationOrder") ? 1000 :
+        int.Parse(GetAttributesDict(x)["MigrationOrder"].FirstOrDefault().Value))
+    .GroupBy(p => p.Namespace.FullName)) {
+var aggName = namespc.Key.Split('.').FirstOrDefault(x=>x.EndsWith("Agg")).Replace("Agg","");
+#>
+            <#= GetDefaultNamespace() #>.<#= aggName #>.Infra.IoC.IoCFactory.Current.Configure(configuration, services);
+<# } #>			
+            <#= GetDefaultNamespace() #>.Users.Identity.Infra.IoC.IoCFactory.Current.Configure(configuration, services);
+		}
+
+        public static void Migrate(this WebApplication app)
+        {
+            using (var scope = app.Services.CreateScope())
+            {
+                var contexts = (from asm in AppDomain.CurrentDomain.GetAssemblies()
+                                from type in asm.GetTypes()
+                                where type.IsClass && type.BaseType == typeof(BaseContext) || type.BaseType == typeof(IdentityDbContext<ApplicationUser>)
+                                select type).ToArray();
+
+                foreach (var item in contexts)
+                {
+                    (scope.ServiceProvider.GetRequiredService(item) as DbContext)
+                        .Database.Migrate();
+                }
+            }
+        }
+    }
+}

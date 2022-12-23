@@ -1,0 +1,22 @@
+@page "/AgendaExame/cadastro"
+@page "/AgendaExame/cadastro/{id}"
+
+@using Companies.Adm.Panel.Client.Pages.Base
+@using Companies.Adm.Panel.Client.Pages.DefaultDesign
+@using Companies.Adm.Panel.Client.Pages.RegisterStepsTemplate
+@using SES.Schedulings.Application.DTO.Aggregates.SchedulingsAgg.Requests
+@using SES.Schedulings.Application.DTO.Aggregates.SchedulingsAgg.Validators
+
+@layout MainLayout
+@inherits BaseStepsFormComponent<AgendaExameDTO, SchedulingsAggSettingsDTO, BaseSchedulingsAggValidator<AgendaExameDTO>>
+
+<CascadingValue Value="this.Context">
+    <CascadingValue Value="this.Context?.layout">
+        <BaseMainStepsLayout @ref="layout" ModelType="AgendaExameDTO" AutoSaveSettings="AutoSaveSettings"
+                             CurrentFragment="this.CurrentFragment"
+                             EditContext="this.EditContext"
+                             OnSubmitForm="this.OnSubmitForm"
+                             OnSubmitFormInvalid="this.OnSubmitFormInvalid"
+                             TValidator="this.TValidator" />
+    </CascadingValue>
+</CascadingValue>

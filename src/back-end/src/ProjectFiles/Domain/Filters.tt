@@ -1,0 +1,130 @@
+﻿<# if (entities.Any()) { #>
+using SES.CrossCuting.Infra.Utils.Extensions;
+using System.Linq.Expressions;
+using <#= GetDefaultNamespace() #>.Core.Domain.Seedwork.Specification;
+using SES.CrossCuting.Infra.Utils.Extensions;
+
+<# foreach(var namespaces in groupEntities) { #>
+namespace <#= namespaces.Key.Replace("Entities", "Filters") #>{
+<#
+	var aggName = namespaces.Key.Split('.').FirstOrDefault(x=>x.EndsWith("Agg"));
+#>
+	using Entities;
+	using Specifications;
+	using Queries.Models;
+<# foreach(var entity in namespaces) { #>
+	public static class <#= entity.Name #>Filters 
+	{
+		public static Expression<Func<<#= entity.Name #>, bool>> GetFilters(this <#= entity.Name #>QueryModel request, bool isOrSpecification = false) 
+		{
+			Specification<<#= entity.Name #>> filter = new DirectSpecification<<#= entity.Name #>>(p => request.IsEmpty() || !isOrSpecification);
+			if(request is not null)
+			{
+<# foreach(var property in GetProperties(entity)) {
+	var name = property.Key.Replace("[]", string.Empty);
+	var path = property.Key;
+    var type = FindType(property.Value.Type.CodeType.FullName.Replace("?", string.Empty));
+switch(property.Value.Type.AsString) {
+	case "string": #>
+				if (!string.IsNullOrWhiteSpace(request.<#= path #>Equal)) 
+				{
+					if (isOrSpecification)
+						filter |= <#= entity.Name #>Specifications.<#= path #>Equal(request.<#= path #>Equal);
+					else
+						filter &= <#= entity.Name #>Specifications.<#= path #>Equal(request.<#= path #>Equal);
+				}
+				if (!string.IsNullOrWhiteSpace(request.<#= path #>NotEqual)) 
+				{
+					if (isOrSpecification)
+						filter |= <#= entity.Name #>Specifications.<#= path #>NotEqual(request.<#= path #>NotEqual);
+					else
+						filter &= <#= entity.Name #>Specifications.<#= path #>NotEqual(request.<#= path #>NotEqual);
+				}
+				if (!string.IsNullOrWhiteSpace(request.<#= path #>Contains)) 
+				{
+					if (isOrSpecification)
+						filter |= <#= entity.Name #>Specifications.<#= path #>Contains(request.<#= path #>Contains);
+					else
+						filter &= <#= entity.Name #>Specifications.<#= path #>Contains(request.<#= path #>Contains);
+				}
+				if (!string.IsNullOrWhiteSpace(request.<#= path #>StartsWith)) 
+				{
+					if (isOrSpecification)
+						filter |= <#= entity.Name #>Specifications.<#= path #>StartsWith(request.<#= path #>StartsWith);
+					else
+						filter &= <#= entity.Name #>Specifications.<#= path #>StartsWith(request.<#= path #>StartsWith);
+				}
+<#	break; 
+	case "System.Guid":
+	case "System.Guid?":
+	case "bool":
+	case "bool?": #>
+				if (request.<#= path #>Equal.HasValue) 
+				{
+					if (isOrSpecification)
+						filter |= <#= entity.Name #>Specifications.<#= path #>Equal(request.<#= path #>Equal.Value);
+					else
+						filter &= <#= entity.Name #>Specifications.<#= path #>Equal(request.<#= path #>Equal.Value);
+				}
+<#	break; 
+	case "decimal": 
+	case "decimal?": 
+	case "double":
+	case "double?":
+	case "System.DateTimeOffset":
+	case "System.DateTimeOffset?":
+	case "int":
+	case "int?":
+	case "System.DateOnly":
+	case "SystemSystem.DateOnly?":
+	case "System.DateTime":
+	case "System.DateTime?": #>
+				if (request.<#= path #>Equal.HasValue)
+				{
+					if (isOrSpecification)
+						filter |= <#= entity.Name #>Specifications.<#= path #>Equal(request.<#= path #>Equal.Value);
+					else
+						filter &= <#= entity.Name #>Specifications.<#= path #>Equal(request.<#= path #>Equal.Value);
+				}
+<#if(name.Equals("Id")) continue;#>
+				if (request.<#= path #>Since.HasValue)
+				{
+					if (isOrSpecification)
+						filter |= <#= entity.Name #>Specifications.<#= path #>GreatThanOrEqual(request.<#= path #>Since.Value);
+					else
+						filter &= <#= entity.Name #>Specifications.<#= path #>GreatThanOrEqual(request.<#= path #>Since.Value);
+				}
+				if (request.<#= path #>Until.HasValue)
+				{
+					if (isOrSpecification)
+						filter |= <#= entity.Name #>Specifications.<#= path #>LessThan(request.<#= path #>Until.Value);
+					else
+						filter &= <#= entity.Name #>Specifications.<#= path #>LessThan(request.<#= path #>Until.Value);
+				}
+<#	break; 
+	default:
+	if(type is CodeEnum){#>
+				if (request.<#= path #>Equal.HasValue) 
+				{
+					if (isOrSpecification)
+						filter |= <#= entity.Name #>Specifications.<#= path #>Equal(request.<#= path #>Equal.Value);
+					else
+						filter &= <#= entity.Name #>Specifications.<#= path #>Equal(request.<#= path #>Equal.Value);
+				}
+<#}
+	break;
+}#>
+<# } #>
+			}
+			return filter.SatisfiedBy();
+		}
+	}
+<# } #>
+}
+<# } #>
+<# } #>
+
+<# SaveOutputToSubFolder(
+    folderName: $"T4", 
+    outputFileName: @$"{AggName}.Filters.cs", 
+    recreateFileIfExists: true); #>

@@ -1,0 +1,19 @@
+﻿<div class="alert alert-secondary mt-4">
+    <span class="oi oi-pencil me-2" aria-hidden="true"></span>
+    <span class="text-nowrap">
+        <a href="grupo-empresas">Grupo Empresas</a>
+    </span>
+</div>
+
+<div class="alert alert-secondary mt-4">
+    <span class="oi oi-pencil me-2" aria-hidden="true"></span>
+    <span class="text-nowrap">
+        <a href="grupo-empresas">Empresas</a>
+    </span>
+</div>
+
+@code {
+    // Demonstrates how a parent component can supply parameters
+    [Parameter]
+    public string? Title { get; set; }
+}
